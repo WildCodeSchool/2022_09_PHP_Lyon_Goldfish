@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+	<h1>Concert
+		{{ concert.id }}</h1>
+	<p>{{ concert.id }}.
+		{{ concert.salle }}</p>
+	<p>{{ concert.id }}.
+		{{ concert.ville }}</p>
+	<a href="/concerts/edit?id={{ concert.id }}">Edit</a>
+	<form action="/concerts/delete" method="POST">
+		<input type="hidden" name="id" value="{{ concert.id }}">
+		<button>Delete</button>
+	</form>
+	<a href="/items">Back</a>
+{% endblock %}

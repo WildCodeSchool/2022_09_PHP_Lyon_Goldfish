@@ -1,0 +1,10 @@
+{# TODO : manage errors display #}
+
+<form method="post">
+	<input type="hidden" value="{{ concert.id }}" name="id">
+	<label for="title">Salle</label>
+	<input type="text" value="{{ concert.salle }}" name="salle" id="salle">
+	<label for="title">Ville</label>
+	<input type="text" value="{{ concert.ville }}" name="ville" id="ville">
+	<button>Submit</button>
+</form>

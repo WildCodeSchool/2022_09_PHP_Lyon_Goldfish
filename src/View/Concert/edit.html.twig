@@ -1,0 +1,8 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+	<h1>Edit concert
+		{{ concert.id }}</h1>
+	{% include 'Concert/_form.html.twig' %}
+	<a href="/concerts/show?id={{ concert.id }}">Back</a>
+{% endblock %}
