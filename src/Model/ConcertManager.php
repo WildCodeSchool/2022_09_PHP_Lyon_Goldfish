@@ -25,8 +25,8 @@ class ConcertManager extends AbstractManager
      */
     public function update(array $concert): bool
     {
-        $statement = $this->pdo->prepare("UPDATE" . self::TABLE . " SET `salle` = :salle WHERE id=:id");
-        $statement = $this->pdo->prepare("UPDATE" . self::TABLE . " SET `ville` = :ville WHERE id=:id");
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET salle=:salle, 
+        ville=:ville WHERE id=:id");
         $statement->bindValue('id', $concert['id'], PDO::PARAM_INT);
         $statement->bindValue(':salle', $concert['salle'], PDO::PARAM_STR);
         $statement->bindValue(':ville', $concert['ville'], PDO::PARAM_STR);
