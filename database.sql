@@ -25,7 +25,7 @@ create table artist (
    id int not null primary key auto_increment,
      name varchar(100) not null,
      style varchar(50) not null,
-     image varchar(200) not null
+     image varchar(255) not null
      );
 --
 -- Contenu de la table `artist`
