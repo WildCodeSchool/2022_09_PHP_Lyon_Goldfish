@@ -26,4 +26,6 @@ return [
     'artists/show' => ['ArtistController', 'show', ['id']],
     'artists/add' => ['ArtistController', 'add',],
     'artists/delete' => ['ArtistController', 'delete',],
+    'artists/search' => ['ItemController', 'search',],
+
 ];
