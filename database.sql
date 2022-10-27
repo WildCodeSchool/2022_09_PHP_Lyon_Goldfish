@@ -36,7 +36,6 @@ INSERT INTO artist (name, style, image)
      ('Green Day', 'Rock', 'greenDay.jpeg'),
      ('The Rolling Stones', 'Rock', 'theRollingStones.jpeg'),
      ('Jessie Reyez', 'RnB', 'jessieReyez.jpeg'),
-     ('Pantera', 'Metal', 'pantera.jpeg'),
      ('Deluxe', 'Pop', 'deluxe.jpeg'),
      ('Red Hot Chilli Peppers', 'Rock', 'redHotChilliPeppers.jpeg'),
      ('Franz Ferdinand', 'Rock', 'franzFerdinand.jpeg'),
@@ -53,10 +52,10 @@ INSERT INTO artist (name, style, image)
 
 create table concert (
      id int not null primary key auto_increment,
-     salle varchar(150) not null,
+     place varchar(150) not null,
      date date not null,
-     horaire time not null,
-     ville varchar(100) not null,
+     schedule time not null,
+     city varchar(100) not null,
      artist_id int not null,
      constraint fk_concert_artist
      foreign key (artist_id)
@@ -67,11 +66,11 @@ create table concert (
 -- Contenu de la table `concert`
 --
 
-insert into concert (salle, date, horaire, ville, artist_id)
+insert into concert (place, date, schedule, city, artist_id)
 values ('Transbordeur', '2022-12-24', '21:00:00', 'Lyon', 3),
  ('Radiant', '2022-10-15', '20:00:00', 'Lyon', 10),
  ('Halle Tony Garnier', '2023-05-27', '20:30:00', 'Lyon', 12),
- ('Transbordeur', '2022-12-24', '21:00:00', 'Lyon', 3),
+ ('Transbordeur', '2023-12-24', '21:00:00', 'Lyon', 4),
  ('Zénith de Paris', '2023-08-14', '21:00:00', 'Paris', 5),
  ('Boule noire', '2023-06-07', '20:00:00', 'Paris', 10),
  ('Olympia', '2023-10-14', '21:00:00', 'Paris', 11),
