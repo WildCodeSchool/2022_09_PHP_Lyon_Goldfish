@@ -59,7 +59,7 @@ class ItemController extends AbstractController
     /**
      * Add a new item
      */
-    public function add(): ?string
+    public function add(int $id): ?string
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
