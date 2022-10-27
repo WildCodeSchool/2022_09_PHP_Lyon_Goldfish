@@ -9,6 +9,13 @@ nav{
     justify-content: flex-end;
 }
 
+.dropdown-menu{
+    position: absolute;
+    inset: 0px auto auto 0px; 
+    margin: 0px; 
+    transform: translate3d(0px, 34px, 0px);
+}
+
 /*********** SEARCH-BAR *******************/
 
 .search-bar{
