@@ -38,4 +38,14 @@ class ConcertManager extends AbstractManager
         $statement->bindValue('artist_id', $concert['artist_id'], PDO::PARAM_INT);
         return $statement->execute();
     }
+
+    public function selectAllTheTables(): array
+    {
+        $query = "SELECT c.id, c.place, c.city, c.date, c.schedule, c.artist_id, a.name, a.style, a.image 
+        FROM " . static::TABLE . "c INNER JOIN artist a ON artist.id=concert.artist_id WHERE id=:id;";
+        $statement = $this->pdo->query($query);
+        $allTables = $statement->fetchAll();
+
+        return $allTables;
+    }
 }
