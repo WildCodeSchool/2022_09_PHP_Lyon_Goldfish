@@ -39,23 +39,31 @@ class ConcertController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $concert = array_map('trim', $_POST);
+            $errors = [];
 
-            // TODO validations (length, format...)
+            if (!isset($concert['place']) || empty($concert['place'])) {
+                $errors[] = "La doit figurer";
+            }
 
-            // if validation is ok, update and redirection
-            $concertManager->update($concert);
+            if (!isset($concert['city']) || empty($concert['city'])) {
+                $errors[] = "La ville doit figurer";
+            }
 
-            header('Location: /concerts/show?id=' . $id);
+            if (!isset($concert['date']) || empty($concert['date'])) {
+                $errors[] = "La date doit figurer";
+            }
 
-            // we are redirecting so we don't want any content rendered
+            if (count($errors) === 0) {
+                $concertManager->update($concert);
+
+                header('Location: /concerts/show?id=' . $id);
+            }
             return null;
         }
-
         return $this->twig->render('Concert/edit.html.twig', [
             'concert' => $concert,
         ]);
     }
-
     /**
      * Add a new item
      */
@@ -64,17 +72,28 @@ class ConcertController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $concert = array_map('trim', $_POST);
+            $errors = [];
 
-            // TODO validations (length, format...)
+            if (!isset($concert['place']) || empty($concert['place'])) {
+                $errors[] = "La doit figurer";
+            }
 
-            // if validation is ok, insert and redirection
-            $concertManager = new ConcertManager();
-            $id = $concertManager->insert($concert);
+            if (!isset($concert['city']) || empty($concert['city'])) {
+                $errors[] = "La ville doit figurer";
+            }
 
-            header('Location:/concerts/show?id=' . $id);
+            if (!isset($concert['date']) || empty($concert['date'])) {
+                $errors[] = "La date doit figurer";
+            }
+
+            if (count($errors) === 0) {
+                $concertManager = new ConcertManager();
+                $id = $concertManager->insert($concert);
+
+                header('Location: /concerts/show?id=' . $id);
+            }
             return null;
         }
-
         return $this->twig->render('Concert/add.html.twig');
     }
 

@@ -19,4 +19,11 @@ return [
     'concerts/show' => ['ConcertController', 'show', ['id']],
     'concerts/add' => ['ConcertController', 'add',],
     'concerts/delete' => ['ConcertController', 'delete',],
+    'concerts/wow' => ['ConcertController', 'wow', ['id']],
+
+    'artists' => ['ArtistController', 'index',],
+    'artists/edit' => ['ArtistController', 'edit', ['id']],
+    'artists/show' => ['ArtistController', 'show', ['id']],
+    'artists/add' => ['ArtistController', 'add',],
+    'artists/delete' => ['ArtistController', 'delete',],
 ];

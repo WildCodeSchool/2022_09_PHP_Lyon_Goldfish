@@ -1,0 +1,22 @@
+{# TODO : manage errors display #}
+
+<form method="post">
+	<input type="hidden" value="{{ artist.id }}" name="id">
+
+	<label for="name">Artiste</label>
+	<input type="text" value="{{ artist.name }}" name="name" id="name" required>
+
+	<label for="style">Style</label>
+	<input type="text" value="{{ artist.style }}" name="style" id="style" required>
+
+	<label for="style">Entre une URL</label>
+
+	<input type="url" value="{{ artist.image }}" name="image" id="image" placeholder="url" required>
+
+		{% for artist in artists %}
+			{{ artist.name }}
+		{% endfor %}
+	</select>
+
+	<button>Soumettre</button>
+</form>
