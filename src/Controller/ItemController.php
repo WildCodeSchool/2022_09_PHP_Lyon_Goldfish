@@ -91,4 +91,9 @@ class ItemController extends AbstractController
             header('Location:/items');
         }
     }
+
+    public function search(): string
+    {
+        return $this->twig->render('Item/artists.html.twig');
+    }
 }
