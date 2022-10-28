@@ -5,9 +5,7 @@
 		<div class="row">
 			<h1>Concert</h1>
 		</div>
-
 		<div class="row row-cols-1 row-cols-md-4 g-3 ">
-
 			<div class="col">
 				<div class="card">
 					<img src="{{ concert.image }}" class="card-img-top" alt="...">
@@ -17,11 +15,6 @@
 						<p class="card-text">{{ concert.city }}</p>
 						<p class="card-text">{{ concert.date }}</p>
 						<p class="card-text">{{ concert.schedule }}</p>
-						<p class="card-text">{{ concert.artist_id }}
-							Artist_id</p>
-						<p class="card-text">{{ concert.id }}
-							Concert id</p>
-
 						<a href="/concerts/edit?id={{ concert.id }}" class="btn btn-primary">Éditer</a>
 						<form action="/concerts/delete" method="POST">
 							<input type="hidden" name="id" value="{{ concert.id }}">
@@ -30,7 +23,6 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</main>
 
