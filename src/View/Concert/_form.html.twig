@@ -1,0 +1,26 @@
+{# TODO : manage errors display #}
+
+<form method="post">
+	<input type="hidden" value="{{ concert.id }}" name="id">
+
+	<label for="place">Salle</label>
+	<input type="text" value="{{ concert.place }}" name="place" id="place">
+
+	<label for="city">Ville</label>
+	<input type="text" value="{{ concert.city }}" name="city" id="city">
+
+	<label for="date">Date</label>
+	<input type="date" value="{{ concert.date }}" name="date" id="date">
+
+	<label for="schedule">Horaire</label>
+	<input type="time" value="{{ concert.schedule }}" name="schedule" id="schedule">
+
+	<label for="artist-select">Choisi un artiste</label>
+
+	<select class="form-select" aria-label="Default select example" name="artist_id" id="artist_id">
+		<option value="">Choisi un artiste</option>
+		<option value="4">Nina</option>
+	</select>
+
+	<button>Soumettre</button>
+</form>
