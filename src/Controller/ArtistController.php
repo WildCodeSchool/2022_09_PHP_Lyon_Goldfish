@@ -115,4 +115,9 @@ class ArtistController extends AbstractController
             header('Location:/artists');
         }
     }
+
+    public function search(): string
+    {
+        return $this->twig->render('Artist/search.html.twig');
+    }
 }

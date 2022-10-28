@@ -4,16 +4,15 @@
 	<main class="container">
 		<div class="row">
 			<h1>Tout les concerts</h1>
+			<a href="/concerts/add">Ajouter</a>
 		</div>
-
 		<div class="row row-cols-1 row-cols-md-4 g-3">
-
 			{% for concert in concerts %}
 				<div class="col">
-					<div class="card" style="width: 15rem;">
-						<img src="/assets/images/{{ artist.img }}" class="card-img-top" alt="...">
+					<div class="card" style="width: 20rem;">
+						<img src="{{ concert.image }}" class="card-img-top" alt="...">
 						<div class="card-body">
-							<a href="/concerts/show?id={{ concert.id }}" class="card-title">Show</a>
+							<h5 class="card-title">{{ concert.name }}</h5>
 							<p class="card-text">{{ concert.place }}</p>
 							<p class="card-text">{{ concert.city }}</p>
 							<p class="card-text">{{ concert.date }}</p>
@@ -22,8 +21,8 @@
 								Artist_id</p>
 							<p class="card-text">{{ concert.id }}
 								Concert id</p>
-
-							<a href="/concerts/edit?id={{ concert.id }}" class="btn btn-primary">update</a>
+							<a href="/concerts/show?id={{ concert.id }}" class="btn btn-primary">Show</a>
+							<a href="/concerts/edit?id={{ concert.id }}" class="btn btn-primary">Update</a><br><br>
 							<form action="/concerts/delete" method="POST">
 								<input type="hidden" name="id" value="{{ concert.id }}">
 								<button>Supprimer</button>
@@ -36,7 +35,4 @@
 			{% endfor %}
 		</div>
 	</main>
-
-
-	<a href="/concerts/add">Ajouter</a>
 {% endblock %}

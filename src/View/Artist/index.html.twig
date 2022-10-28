@@ -3,19 +3,20 @@
 {% block content %}
 	<h1>Artiste</h1>
 	<ul>
+
 		{% for artist in artists %}
 			{{ artist.name }}
-			<li>
-				<a href="/artists/show?id={{ artist.id }}">{{ artist.id }}.
-					{{ artist.name }}</a>
-			</li>
-			<li>
-				<a href="/artists/show?id={{ artist.id }}">{{ artist.id }}.
-					{{ artist.style }}</a>
-			</li>
+		{% endfor %}
+		{% for artist in artists %}
+			{{ artist.id }}
+			<a href="/artists/show?id={{ artist.id }}">
+				{{ artist.name }}</a>
+			<p>{{ artist.style }}</p>
+			<p>{{ artist.image }}</p>
 		{% else %}
 			<li>Aucun artiste à afficher</li>
 		{% endfor %}
 	</ul>
 	<a href="/artists/add">Ajouter</a>
+	<a href="/artists/search">Rechercher</a>
 {% endblock %}
