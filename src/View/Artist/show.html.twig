@@ -1,0 +1,18 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+	<h1>Artiste
+		{{ artist.id }}</h1>
+	<p>{{ artist.id }}.
+		{{ artist.name }}</p>
+	<p>{{ artist.id }}.
+		{{ artist.style }}</p>
+	<p>{{ artist.id }}.
+		{{ artist.image }}</p>
+	<a href="/artists/edit?id={{ artist.id }}">Éditer</a>
+	<form action="/artists/delete" method="POST">
+		<input type="hidden" name="id" value="{{ artist.id }}">
+		<button>Supprimer</button>
+	</form>
+	<a href="/artists">Retour</a>
+{% endblock %}
