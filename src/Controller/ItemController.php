@@ -94,6 +94,6 @@ class ItemController extends AbstractController
 
     public function search(): string
     {
-        return $this->twig->render('Item/artists.html.twig');
+        return $this->twig->render('Concert/artists.html.twig');
     }
 }

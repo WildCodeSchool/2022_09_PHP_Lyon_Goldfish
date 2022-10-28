@@ -9,10 +9,10 @@
 		<div class="row row-cols-1 row-cols-md-4 g-3">
 
 			<div class="col">
-				<div class="card" style="width: 15rem;">
-					<img src="/assets/images/{{ artist.img }}" class="card-img-top" alt="...">
+				<div class="card">
+					<img src="{{ concert.image }}" class="card-img-top" alt="...">
 					<div class="card-body">
-						<a href="/concerts/show?id={{ concert.id }}" class="card-title">Show</a>
+						<h5 class="card-title">{{ concert.name }}</h5>
 						<p class="card-text">{{ concert.place }}</p>
 						<p class="card-text">{{ concert.city }}</p>
 						<p class="card-text">{{ concert.date }}</p>

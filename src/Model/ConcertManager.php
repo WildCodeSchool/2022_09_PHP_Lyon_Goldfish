@@ -42,7 +42,7 @@ class ConcertManager extends AbstractManager
     public function selectAllTheTables(): array
     {
         $query = "SELECT c.id, c.place, c.city, c.date, c.schedule, c.artist_id, a.name, a.style, a.image 
-        FROM " . static::TABLE . "c INNER JOIN artist a ON artist.id=concert.artist_id WHERE id=:id;";
+        FROM concert c INNER JOIN artist a ON a.id=artist_id";
         $statement = $this->pdo->query($query);
         $allTables = $statement->fetchAll();
 
