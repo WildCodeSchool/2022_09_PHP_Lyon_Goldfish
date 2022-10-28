@@ -32,6 +32,7 @@ create table artist (
 --
 
 INSERT INTO artist (name, style, image)
+
      values ('System of a Down', 'Metal', 'System of a Down.jpg'),
      ('Green Day', 'Rock', 'Green Day.jpg'),
      ('The Rolling Stones', 'Rock', 'The Rolling Stones.jpg'),
