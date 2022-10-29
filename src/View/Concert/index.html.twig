@@ -6,22 +6,24 @@
 			<h1>Tous les concerts</h1>
 			<a href="/concerts/add">Ajouter</a>
 		</div>
-		<div class="row row-cols-2 row-cols-md-4 rows-cols-lg-4">
+		<div class="row">
 			{% for concert in concerts %}
-				<div class="col">
+				<div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center">
 					<div class="card">
 						<img src="{{ concert.image }}" class="card-img-top" alt="...">
 						<div class="card-body">
-							<h5 class="card-title">{{ concert.name }}</h5>
-							<p class="card-text">{{ concert.place }}</p>
-							<p class="card-text">{{ concert.city }}</p>
-							<p class="card-text">{{ concert.date }}</p>
-							<p class="card-text">{{ concert.schedule }}</p>
-							<a href="/concerts/show?id={{ concert.id }}" class="btn btn-primary">Voir</a>
-							<a href="/concerts/edit?id={{ concert.id }}" class="btn btn-primary">Mise à jour</a><br><br>
+							<h4 class="card-title">{{ concert.name }}</h4>
+							<h5 class="card-text lead">{{ concert.place }}</h5>
+							<h5 class="card-text lead">{{ concert.city }}</h5>
+							<p class="card-text lead">Le
+								{{ concert.date|date("m/d/Y", "Europe/Paris" )}}
+								à
+								{{ concert.schedule|date('H:i') }}</p>
 							<form action="/concerts/delete" method="POST">
+								<a href="/concerts/show?id={{ concert.id }}" class="btn btn-primary btn-sm">Voir</a>
+								<a href="/concerts/edit?id={{ concert.id }}" class="btn btn-primary btn-sm">Modifier</a>
 								<input type="hidden" name="id" value="{{ concert.id }}">
-								<button>Supprimer</button>
+								<button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete?');">Supprimer</button>
 							</form>
 						</div>
 					</div>

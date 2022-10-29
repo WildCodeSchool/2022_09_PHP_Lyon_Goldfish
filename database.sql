@@ -22,7 +22,7 @@ USE goldfish;
 --
 
 create table artist (
-   id int not null primary key auto_increment,
+     id int not null primary key auto_increment,
      name varchar(100) not null,
      style varchar(50) not null,
      image varchar(255) not null
@@ -32,19 +32,19 @@ create table artist (
 --
 
 INSERT INTO artist (name, style, image)
-     values ('System of a Down', 'Metal', 'systemOfADown.jpeg'),
-     ('Green Day', 'Rock', 'greenDay.jpeg'),
-     ('The Rolling Stones', 'Rock', 'theRollingStones.jpeg'),
-     ('Jessie Reyez', 'RnB', 'jessieReyez.jpeg'),
-     ('Deluxe', 'Pop', 'deluxe.jpeg'),
-     ('Red Hot Chilli Peppers', 'Rock', 'redHotChilliPeppers.jpeg'),
-     ('Franz Ferdinand', 'Rock', 'franzFerdinand.jpeg'),
-     ('Eric Clapton', 'Blues', 'ericClapton.jpeg'),
-     ('Bruce Springsteen', 'Rock', 'bruceSpringsteen.jpeg'),
-     ('Blake Shelton', 'Country' , 'blakeShelton.jpeg'),
-     ('Electric Guest', 'Electro' , 'electricGuest.jpeg'),
-     ('Odesza', 'Electro' , 'odesza.jpeg'),
-     ('Aloïse Sauvage', 'Pop' , 'aloiseSauvage.jpeg');
+     values ('System of a Down', 'Metal', 'System of a Down.jpg'),
+     ('Green Day', 'Rock', 'Green Day.jpg'),
+     ('The Rolling Stones', 'Rock', 'The Rolling Stones.jpg'),
+     ('Jessie Reyez', 'RnB', 'Jessie Reyez.jpg'),
+     ('Deluxe', 'Pop', 'Deluxe.jpg'),
+     ('Red Hot Chilli Peppers', 'Rock', 'Red Hot Chilli Peppers.jpg'),
+     ('Franz Ferdinand', 'Rock', 'Franz Ferdinand.jpg'),
+     ('Eric Clapton', 'Blues', 'Eric Clapton.jpg'),
+     ('Bruce Springsteen', 'Rock', 'Bruce Springsteen.jpg'),
+     ('Blake Shelton', 'Country' , 'Blake Shelton.jpg'),
+     ('Electric Guest', 'Electro' , 'Electric Guest.jpg'),
+     ('Odesza', 'Electro' , 'Odesza.jpg'),
+     ('Aloise Sauvage', 'Pop' , 'Aloise Sauvage.jpeg');
 
 --
 -- Structure de la table `concert`
@@ -68,12 +68,12 @@ create table concert (
 
 insert into concert (place, date, schedule, city, artist_id)
 values ('Transbordeur', '2022-12-24', '21:00:00', 'Lyon', 3),
- ('Radiant', '2022-10-15', '20:00:00', 'Lyon', 10),
- ('Halle Tony Garnier', '2023-05-27', '20:30:00', 'Lyon', 12),
- ('Transbordeur', '2023-12-24', '21:00:00', 'Lyon', 4),
- ('Zénith de Paris', '2023-08-14', '21:00:00', 'Paris', 5),
- ('Boule noire', '2023-06-07', '20:00:00', 'Paris', 10),
- ('Olympia', '2023-10-14', '21:00:00', 'Paris', 11),
- ('Zénith de Strasbourg', '2023-04-14', '20:00:00', 'Strasbourg', 5),
- ('Transbordeur', '2022-12-22', '21:00:00', 'Lyon', 7),
- ('Transbordeur', '2022-03-24', '21:30:00', 'Lyon', 9);
+     ('Radiant', '2022-10-15', '20:00:00', 'Lyon', 10),
+     ('Halle Tony Garnier', '2023-05-27', '20:30:00', 'Lyon', 12),
+     ('Transbordeur', '2023-12-24', '21:00:00', 'Lyon', 4),
+     ('Zénith de Paris', '2023-08-14', '21:00:00', 'Paris', 5),
+     ('Boule noire', '2023-06-07', '20:00:00', 'Paris', 10),
+     ('Olympia', '2023-10-14', '21:00:00', 'Paris', 11),
+     ('Zénith de Strasbourg', '2023-04-14', '20:00:00', 'Strasbourg', 5),
+     ('Transbordeur', '2022-12-22', '21:00:00', 'Lyon', 7),
+     ('Transbordeur', '2022-03-24', '21:30:00', 'Lyon', 9);

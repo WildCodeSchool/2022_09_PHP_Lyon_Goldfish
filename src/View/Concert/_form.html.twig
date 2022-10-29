@@ -4,20 +4,20 @@
 	<input type="hidden" value="{{ concert.id }}" name="id">
 
 	<label for="place">Salle</label>
-	<input type="text" value="{{ concert.place }}" name="place" id="place">
+	<input type="text" value="{{ concert.place }}" name="place" id="place" required>
 
 	<label for="city">Ville</label>
-	<input type="text" value="{{ concert.city }}" name="city" id="city">
+	<input type="text" value="{{ concert.city }}" name="city" id="city" required>
 
 	<label for="date">Date</label>
-	<input type="date" value="{{ concert.date }}" name="date" id="date">
+	<input type="date" value="{{ concert.date }}" name="date" id="date" required>
 
 	<label for="schedule">Horaire</label>
-	<input type="time" value="{{ concert.schedule }}" name="schedule" id="schedule">
+	<input type="time" value="{{ concert.schedule }}" name="schedule" id="schedule" required>
 
 	<label for="artist-select">Choisi un artiste</label>
 
-	<select class="form-select" aria-label="Default select example" name="artist_id" id="artist_id">
+	<select class="form-select" aria-label="Default select example" name="artist_id" id="artist_id" required>
 		<option value="">Choisi un artiste</option>
 		{% for artist in artists %}
 			<option value="{{ artist.id }}">{{ artist.name }}</option>
