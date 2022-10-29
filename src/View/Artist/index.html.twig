@@ -1,22 +1,36 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-	<h1>Artiste</h1>
-	<ul>
-
-		{% for artist in artists %}
-			{{ artist.name }}
-		{% endfor %}
-		{% for artist in artists %}
-			{{ artist.id }}
-			<a href="/artists/show?id={{ artist.id }}">
-				{{ artist.name }}</a>
-			<p>{{ artist.style }}</p>
-			<p>{{ artist.image }}</p>
-		{% else %}
-			<li>Aucun artiste à afficher</li>
-		{% endfor %}
-	</ul>
+	<h1>Tous les artistes</h1>
 	<a href="/artists/add">Ajouter</a>
 	<a href="/artists/search">Rechercher</a>
+
+	<ul>
+		<div id="allArtists" class="container marketing">
+			<div class="row">
+				{% for artist in artists %}
+					<div class="col-lg-3">
+						<img src="{{ artist.image }}" class="bd-placeholder-img rounded-circle" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveaspectratio="xMidYMid slice" focusable="false">
+							<rect fill="#777"></rect>
+						</img>
+
+						<h4 class="fw-normal">{{ artist.name }}</h4>
+
+						<a href="/artists/show?id={{ artist.id }}" class="btn btn-primary">Voir</a>
+						<a href="/artists/edit?id={{ artist.id }}" class="btn btn-primary">Mise à jour</a><br><br>
+						<form action="/artists/delete" method="POST">
+							<input type="hidden" name="id" value="{{ artist.id }}">
+							<button>Supprimer</button>
+						</form>
+
+					</div>
+				{% else %}
+					<li>Aucun artiste à afficher</li>
+				{% endfor %}
+			</div>
+
+		</div>
+
+	</ul>
+
 {% endblock %}

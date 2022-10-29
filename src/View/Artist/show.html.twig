@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-	<h1>Artiste
+	<h1>Artistes
 		{{ artist.id }}</h1>
 	<p>{{ artist.id }}.
 		{{ artist.name }}</p>
@@ -9,6 +9,7 @@
 		{{ artist.style }}</p>
 	<p>{{ artist.id }}.
 		{{ artist.image }}</p>
+
 	<a href="/artists/edit?id={{ artist.id }}">Éditer</a>
 	<form action="/artists/delete" method="POST">
 		<input type="hidden" name="id" value="{{ artist.id }}">

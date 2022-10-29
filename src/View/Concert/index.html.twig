@@ -3,10 +3,10 @@
 {% block content %}
 	<main class="container">
 		<div class="row">
-			<h1>Tout les concerts</h1>
+			<h1>Tous les concerts</h1>
 			<a href="/concerts/add">Ajouter</a>
 		</div>
-		<div class="row row-cols-1 row-cols-md-4 g-3">
+		<div class="row row-cols-2 row-cols-md-4 rows-cols-lg-4">
 			{% for concert in concerts %}
 				<div class="col">
 					<div class="card">
@@ -17,12 +17,8 @@
 							<p class="card-text">{{ concert.city }}</p>
 							<p class="card-text">{{ concert.date }}</p>
 							<p class="card-text">{{ concert.schedule }}</p>
-							<p class="card-text">{{ concert.artist_id }}
-								Artist_id</p>
-							<p class="card-text">{{ concert.id }}
-								Concert id</p>
-							<a href="/concerts/show?id={{ concert.id }}" class="btn btn-primary">Show</a>
-							<a href="/concerts/edit?id={{ concert.id }}" class="btn btn-primary">Update</a><br><br>
+							<a href="/concerts/show?id={{ concert.id }}" class="btn btn-primary">Voir</a>
+							<a href="/concerts/edit?id={{ concert.id }}" class="btn btn-primary">Mise à jour</a><br><br>
 							<form action="/concerts/delete" method="POST">
 								<input type="hidden" name="id" value="{{ concert.id }}">
 								<button>Supprimer</button>
