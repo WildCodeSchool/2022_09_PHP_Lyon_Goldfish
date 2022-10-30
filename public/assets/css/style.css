@@ -5,7 +5,7 @@
 
 
 body {
-    color: #f76c6c;
+    color: black;
 }
 
 
@@ -30,9 +30,9 @@ nav {
 }
 
 
-card {
+.card {
     width: 20rem;
-
+    margin-top: 2rem;
 }
 
 .bd-placeholder-img {
