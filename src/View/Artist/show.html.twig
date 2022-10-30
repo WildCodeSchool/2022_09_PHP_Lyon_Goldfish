@@ -1,19 +1,22 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-	<h1>Artistes
-		{{ artist.id }}</h1>
-	<p>{{ artist.id }}.
-		{{ artist.name }}</p>
-	<p>{{ artist.id }}.
-		{{ artist.style }}</p>
-	<p>{{ artist.id }}.
-		{{ artist.image }}</p>
-
-	<a href="/artists/edit?id={{ artist.id }}">Éditer</a>
-	<form action="/artists/delete" method="POST">
-		<input type="hidden" name="id" value="{{ artist.id }}">
-		<button>Supprimer</button>
-	</form>
+	<h1>Artiste</h1>
 	<a href="/artists">Retour</a>
+	<div id="allArtists" class="container marketing">
+		<div class="row">
+			<div class="col-lg-3">
+				<img src="{{ artist.image }}" class="bd-placeholder-img rounded-circle shadow-lg" role="img" preserveaspectratio="xMidYMid slice" focusable="false">
+					<rect fill="#777"></rect>
+				</img>
+
+				<p class="artist-name">{{ artist.name }}</p>
+				<form action="/artists/delete" method="POST">
+					<a href="/artists/edit?id={{ artist.id }}" class="btn btn-primary btn-sm">Modifier</a>
+					<input type="hidden" name="id" value="{{ artist.id }}">
+					<button class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr(e) de vouloir supprimer l'artiste ?');">Supprimer</button>
+				</form>
+			</div>
+		</div>
+	</div>
 {% endblock %}
