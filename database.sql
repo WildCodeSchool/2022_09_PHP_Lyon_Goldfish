@@ -44,7 +44,7 @@ INSERT INTO artist (name, style, image)
      ('Blake Shelton', 'Country' , 'Blake Shelton.jpg'),
      ('Electric Guest', 'Electro' , 'Electric Guest.jpg'),
      ('Odesza', 'Electro' , 'Odesza.jpg'),
-     ('Aloise Sauvage', 'Pop' , 'Aloise Sauvage.jpeg');
+     ('Aloise Sauvage', 'Pop' , 'Aloise Sauvage.jpg');
 
 --
 -- Structure de la table `concert`

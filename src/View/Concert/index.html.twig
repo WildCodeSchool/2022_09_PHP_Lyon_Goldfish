@@ -9,21 +9,22 @@
 		<div class="row">
 			{% for concert in concerts %}
 				<div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center">
-					<div class="card">
+					<div class="card shadow-lg">
 						<img src="{{ concert.image }}" class="card-img-top" alt="...">
 						<div class="card-body">
+							<h4 class="card-text lead">Le
+								{{ concert.date|date("m/d/Y", "Europe/Paris" )}}
+								à
+								{{ concert.schedule|date('H:i') }}</h4>
 							<h4 class="card-title">{{ concert.name }}</h4>
 							<h5 class="card-text lead">{{ concert.place }}</h5>
 							<h5 class="card-text lead">{{ concert.city }}</h5>
-							<p class="card-text lead">Le
-								{{ concert.date|date("m/d/Y", "Europe/Paris" )}}
-								à
-								{{ concert.schedule|date('H:i') }}</p>
+
 							<form action="/concerts/delete" method="POST">
 								<a href="/concerts/show?id={{ concert.id }}" class="btn btn-primary btn-sm">Voir</a>
 								<a href="/concerts/edit?id={{ concert.id }}" class="btn btn-primary btn-sm">Modifier</a>
 								<input type="hidden" name="id" value="{{ concert.id }}">
-								<button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete?');">Supprimer</button>
+								<button class="btn btn-danger btn-sm" onclick="Êtes-vous sûr(e) de vouloir supprimer le concert ?');">Supprimer</button>
 							</form>
 						</div>
 					</div>
