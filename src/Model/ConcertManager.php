@@ -60,8 +60,8 @@ class ConcertManager extends AbstractManager
     {
         $query = "SELECT * FROM artist";
         $statement = $this->pdo->query($query);
-        $allArtists = $statement->fetchAll();
+        $randomArtists = $statement->fetchAll();
 
-        return $allArtists;
+        return $randomArtists;
     }
 }
