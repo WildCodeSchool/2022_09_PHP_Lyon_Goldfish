@@ -40,8 +40,8 @@ class ArtistManager extends AbstractManager
     {
         $query = "SELECT name, style, image FROM " . static::TABLE . " ORDER BY RAND() LIMIT 4";
         $statement = $this->pdo->query($query);
-        $allTables = $statement->fetchAll();
+        $randomArtists = $statement->fetchAll();
 
-        return $allTables;
+        return $randomArtists;
     }
 }
