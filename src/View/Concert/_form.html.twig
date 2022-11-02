@@ -1,27 +1,44 @@
 {# TODO : manage errors display #}
 
-<form method="post">
+<form method="post" aria-describedby="formulaire ajout de concert">
 	<input type="hidden" value="{{ concert.id }}" name="id">
 
-	<label for="place">Salle</label>
-	<input type="text" value="{{ concert.place }}" name="place" id="place">
+	<div class="addconcerts row justify-content-center form-floating my-5">
+		<div class="col-sm-4">
+			<div class="mb-3 mt-3 form-label">
+				<label for="artist-select">Sélectionnez un artiste :</label>
+				<select class="form-select" aria-describedby="menu déroullant séléction artiste" name="artist_id" id="artist_id" required>
+					<option value="">artistes</option>
+					{% for artist in artists %}
+						<option value="{{ artist.id }}">{{ artist.name }}</option>
+					{% endfor %}
+				</select>
+			</div>
 
-	<label for="city">Ville</label>
-	<input type="text" value="{{ concert.city }}" name="city" id="city">
+			<div class="mb-3 form-label">
+				<label for="place">Salle</label>
+				<input class="form-control" type="text" value="{{ concert.place }}" name="place" id="place" aria-describedby="champ de saisi salle" placeholder="Rentrez un nom de salle" required>
+			</div>
 
-	<label for="date">Date</label>
-	<input type="date" value="{{ concert.date }}" name="date" id="date">
+			<div class="mb-3 form-label">
+				<label for="city">Ville</label>
+				<input class="form-control" type="text" value="{{ concert.city }}" name="city" id="city" aria-describedby="champ de saisi ville" placeholder="Rentrez une ville" required>
+			</div>
 
-	<label for="schedule">Horaire</label>
-	<input type="time" value="{{ concert.schedule }}" name="schedule" id="schedule">
+			<div class="mb-3 form-label">
+				<label for="date">Date</label>
+				<input class="form-control" type="date" value="{{ concert.date }}" name="date" id="date" aria-describedby="champ de saisi date" required>
+			</div>
 
+			<div class="mb-3 form-label">
+				<label for="schedule">Horaire</label>
+				<input class="form-control" type="time" value="{{ concert.schedule }}" name="schedule" id="schedule" aria-describedby="champ de saisi horaire" required>
+			</div>
 
-	<label for="pet-select">Choisi un artiste</label>
+			<div class="mb-3 text-center">
+				<button type="button" class="btn btn-primary" aria-describedby="boutton soumettre">Soumettre</button>
+			</div>
+		</div>
+	</div>
 
-	<select class="form-select" aria-label="Default select example" name="artist_id" id="artist_id">
-		<option value="">Choisi un artiste</option>
-		<option value="4">Nina</option>
-	</select>
-
-	<button>Soumettre</button>
 </form>

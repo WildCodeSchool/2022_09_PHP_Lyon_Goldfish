@@ -1,0 +1,24 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+	<div>
+		<p>Trouve des artistes</p>
+		<a href="/artists">Retour</a>
+	</div>
+	{% include 'Artist/_searchArtiste.html.twig' %}
+
+	<div id="allArtists" class="container marketing">
+
+		<div class="row">
+			{% for artist in artists %}
+				<div class="col-6 col-lg-4 col-xl-3 text-align-center">
+					<img src="{{ artist.image }}" class="bd-placeholder-img rounded-circle shadow-lg" role="img" preserveaspectratio="xMidYMid slice" focusable="false">
+				</img>
+
+				<p class="artist-name">{{ artist.name }}</p>
+
+			</div>
+		{% endfor %}
+	</div>
+
+</div>{% endblock %}

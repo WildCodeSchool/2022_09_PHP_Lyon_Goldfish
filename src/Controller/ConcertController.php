@@ -12,9 +12,9 @@ class ConcertController extends AbstractController
     public function index(): string
     {
         $concertManager = new ConcertManager();
-        $concerts = $concertManager->selectAll();
+        $allTables = $concertManager->selectAllConcerts();
 
-        return $this->twig->render('Concert/index.html.twig', ['concerts' => $concerts]);
+        return $this->twig->render('Concert/index.html.twig', ['concerts' => $allTables]);
     }
 
     /**
@@ -23,7 +23,7 @@ class ConcertController extends AbstractController
     public function show(int $id): string
     {
         $concertManager = new ConcertManager();
-        $concert = $concertManager->selectOneById($id);
+        $concert = $concertManager->selectOneConcertById($id);
 
         return $this->twig->render('Concert/show.html.twig', ['concert' => $concert]);
     }
@@ -34,7 +34,7 @@ class ConcertController extends AbstractController
     public function edit(int $id): ?string
     {
         $concertManager = new ConcertManager();
-        $concert = $concertManager->selectOneById($id);
+        $concert = $concertManager->selectOneConcertById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
@@ -69,6 +69,9 @@ class ConcertController extends AbstractController
      */
     public function add(): ?string
     {
+        $concertManager = new ConcertManager();
+        $allArtists = $concertManager->selectAllArtists();
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $concert = array_map('trim', $_POST);
@@ -94,7 +97,7 @@ class ConcertController extends AbstractController
             }
             return null;
         }
-        return $this->twig->render('Concert/add.html.twig');
+        return $this->twig->render('Concert/add.html.twig', ['artists' => $allArtists]);
     }
 
     /**
