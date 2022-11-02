@@ -60,3 +60,16 @@ a.btn.btn-primary.btn-sm,
 a.btn.btn-success.btn-sm {
     margin-top: 4px;
 }
+
+
+/************* ADD CONCERTS FORM *****************/
+
+.addconcerts {
+    margin: 2rem;
+    padding: 2rem;
+    background-color: #FEF1EC;
+}
+
+h1 {
+    text-align: center;
+}
