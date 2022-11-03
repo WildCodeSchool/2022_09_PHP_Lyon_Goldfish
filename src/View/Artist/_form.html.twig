@@ -1,25 +1,19 @@
-{# TODO : manage errors display #}
-
 <form method="post" aria-describedby="formulaire ajout d'artistes">
 	<input type="hidden" value="{{ artist.id }}" name="id">
-
 	<div class="addartists row justify-content-center form-floating my-5">
 		<div class="col-sm-4">
 			<div class="mb-3 mt-3 form-label">
 				<label for="name">Artiste</label>
 				<input class="form-control" type="text" value="{{ artist.name }}" name="name" id="name" aria-describedby="champ nom de l'artiste" placeholder="Rentrez un nom d'artiste" required>
 			</div>
-
 			<div class="mb-3 form-label">
 				<label for="style">Style</label>
 				<input class="form-control" type="text" value="{{ artist.style }}" name="style" id="style" aria-describedby="champ type de style" placeholder="Rentrez style" required>
 			</div>
-
 			<div class="mb-3 form-label">
 				<label for="style">Entre une URL</label>
 				<input class="form-control" type="text" value="{{ artist.image }}" name="image" id="image" placeholder="url" aria-describedby="ajout d'une photo via une url" required>
 			</div>
-
 			<div class="mb-3 text-center">
 				<button type="button" class="btn btn-primary" aria-describedby="boutton soumettre">Soumettre</button>
 			</div>

@@ -7,6 +7,13 @@ use PDO;
 class ArtistManager extends AbstractManager
 {
     public const TABLE = 'artist';
+    private array $errors = [];
+
+
+    public function getCheckErrors(): array
+    {
+        return $this->errors;
+    }
 
     /**
      * Insert new artist in database
@@ -43,5 +50,35 @@ class ArtistManager extends AbstractManager
         $randomArtists = $statement->fetchAll();
 
         return $randomArtists;
+    }
+
+    public function artistFieldEmpty(array $artist): void
+    {
+        if (!isset($artist['name']) || empty($artist['name'])) {
+            $this->errors[] = "Le nom doit figurer";
+        }
+
+        if (!isset($artist['style']) || empty($artist['style'])) {
+            $this->errors[] = "Le style doit figurer";
+        }
+
+        if (!isset($artist['image']) || empty($artist['image'])) {
+            $this->errors[] = "L'image doit être renseignée";
+        }
+    }
+
+    public function artistFieldLength(array $artist): void
+    {
+        if (strlen($artist['name']) > 100) {
+            $this->errors[] = "Le nom ne doit pas dépasser 100 caractères";
+        }
+
+        if (strlen($artist['style']) > 50) {
+            $this->errors[] = "Le style ne doit pas dépasser 50 caractères";
+        }
+
+        if (strlen($artist['image']) > 255) {
+            $this->errors[] = "Le lien de l'image ne doit pas dépasser 255 caractères";
+        }
     }
 }
