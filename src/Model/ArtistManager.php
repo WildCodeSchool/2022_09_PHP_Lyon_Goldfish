@@ -43,6 +43,15 @@ class ArtistManager extends AbstractManager
         return $statement->execute();
     }
 
+    public function selectRandomArtists(): array
+    {
+        $query = "SELECT name, style, image FROM " . static::TABLE . " ORDER BY RAND() LIMIT 4";
+        $statement = $this->pdo->query($query);
+        $randomArtists = $statement->fetchAll();
+
+        return $randomArtists;
+    }
+
     public function artistFieldEmpty(array $artist): void
     {
         if (!isset($artist['name']) || empty($artist['name'])) {

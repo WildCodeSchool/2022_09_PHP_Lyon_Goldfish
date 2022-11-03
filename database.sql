@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
--- http://www.phpmyadmin.net
---
--- Client :  localhost
--- Généré le :  Jeu 26 Octobre 2017 à 13:53
--- Version du serveur :  5.7.19-0ubuntu0.16.04.1
--- Version de PHP :  7.0.22-0ubuntu0.16.04.1
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -32,19 +23,19 @@ create table artist (
 --
 
 INSERT INTO artist (name, style, image)
-     values ('System of a Down', 'Metal', 'System of a Down.jpg'),
-     ('Green Day', 'Rock', 'Green Day.jpg'),
-     ('The Rolling Stones', 'Rock', 'The Rolling Stones.jpg'),
-     ('Jessie Reyez', 'RnB', 'Jessie Reyez.jpg'),
-     ('Deluxe', 'Pop', 'Deluxe.jpg'),
-     ('Red Hot Chilli Peppers', 'Rock', 'Red Hot Chilli Peppers.jpg'),
-     ('Franz Ferdinand', 'Rock', 'Franz Ferdinand.jpg'),
-     ('Eric Clapton', 'Blues', 'Eric Clapton.jpg'),
-     ('Bruce Springsteen', 'Rock', 'Bruce Springsteen.jpg'),
-     ('Blake Shelton', 'Country' , 'Blake Shelton.jpg'),
-     ('Electric Guest', 'Electro' , 'Electric Guest.jpg'),
-     ('Odesza', 'Electro' , 'Odesza.jpg'),
-     ('Aloise Sauvage', 'Pop' , 'Aloise Sauvage.jpg');
+     values ('System of a Down', 'Metal', '/assets/images/artists/System of a Down.jpg'),
+     ('Green Day', 'Rock', '/assets/images/artists/Green Day.jpg'),
+     ('The Rolling Stones', 'Rock', '/assets/images/artists/The Rolling Stones.jpg'),
+     ('Jessie Reyez', 'RnB', '/assets/images/artists/Jessie Reyez.jpg'),
+     ('Deluxe', 'Pop', '/assets/images/artists/Deluxe.jpg'),
+     ('Red Hot Chilli Peppers', 'Rock', '/assets/images/artists/Red Hot Chilli Peppers.jpg'),
+     ('Franz Ferdinand', 'Rock', '/assets/images/artists/Franz Ferdinand.jpg'),
+     ('Eric Clapton', 'Blues', '/assets/images/artists/Eric Clapton.jpg'),
+     ('Bruce Springsteen', 'Rock', '/assets/images/artists/Bruce Springsteen.jpg'),
+     ('Blake Shelton', 'Country' , '/assets/images/artists/Blake Shelton.jpg'),
+     ('Electric Guest', 'Electro' , '/assets/images/artists/Electric Guest.jpg'),
+     ('Odesza', 'Electro' , '/assets/images/artists/Odesza.jpg'),
+     ('Aloise Sauvage', 'Pop' , '/assets/images/artists/Aloise Sauvage.jpg');
 
 --
 -- Structure de la table `concert`

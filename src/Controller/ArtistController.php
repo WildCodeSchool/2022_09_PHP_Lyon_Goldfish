@@ -112,7 +112,7 @@ class ArtistController extends AbstractController
     public function search(): string
     {
         $artistManager = new ArtistManager();
-        $artists = $artistManager->selectAll();
+        $artists = $artistManager->selectRandomArtists();
 
         return $this->twig->render('Artist/search.html.twig', ['artists' => $artists]);
     }
