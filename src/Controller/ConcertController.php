@@ -35,6 +35,7 @@ class ConcertController extends AbstractController
     {
         $concertManager = new ConcertManager();
         $concert = $concertManager->selectOneConcertById($id);
+        $allArtists = $concertManager->selectAllArtists();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
@@ -58,11 +59,8 @@ class ConcertController extends AbstractController
 
                 header('Location: /concerts/show?id=' . $id);
             }
-            return null;
         }
-        return $this->twig->render('Concert/edit.html.twig', [
-            'concert' => $concert,
-        ]);
+        return $this->twig->render('Concert/edit.html.twig', ['concert' => $concert, 'artists' => $allArtists]);
     }
     /**
      * Add a new item
@@ -87,7 +85,6 @@ class ConcertController extends AbstractController
 
                 header('Location: /concerts/show?id=' . $id);
             }
-            return null;
         }
         return $this->twig->render('Concert/add.html.twig', ['artists' => $allArtists, 'errors' => $errors]);
     }
