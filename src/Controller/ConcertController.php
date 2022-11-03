@@ -70,26 +70,18 @@ class ConcertController extends AbstractController
     public function add(): ?string
     {
         $concertManager = new ConcertManager();
+        $errors = [];
         $allArtists = $concertManager->selectAllArtists();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $concert = array_map('trim', $_POST);
-            $errors = [];
+            $concertManager->concertLocationFieldEmpty($concert);
+            $concertManager->concertLocationFieldLength($concert);
+            $concertManager->concertTimeFieldEmpty($concert);
 
-            if (!isset($concert['place']) || empty($concert['place'])) {
-                $errors[] = "La doit figurer";
-            }
-
-            if (!isset($concert['city']) || empty($concert['city'])) {
-                $errors[] = "La ville doit figurer";
-            }
-
-            if (!isset($concert['date']) || empty($concert['date'])) {
-                $errors[] = "La date doit figurer";
-            }
-
-            if (count($errors) === 0) {
+            $errors = $concertManager->getCheckErrors();
+            if (empty($concertManager->getCheckErrors())) {
                 $concertManager = new ConcertManager();
                 $id = $concertManager->insert($concert);
 
@@ -97,7 +89,7 @@ class ConcertController extends AbstractController
             }
             return null;
         }
-        return $this->twig->render('Concert/add.html.twig', ['artists' => $allArtists]);
+        return $this->twig->render('Concert/add.html.twig', ['artists' => $allArtists, 'errors' => $errors]);
     }
 
     /**
