@@ -35,4 +35,13 @@ class ArtistManager extends AbstractManager
         $statement->bindValue(':image', $artist['image'], PDO::PARAM_STR);
         return $statement->execute();
     }
+
+    public function selectRandomArtists(): array
+    {
+        $query = "SELECT name, style, image FROM " . static::TABLE . " ORDER BY RAND() LIMIT 4";
+        $statement = $this->pdo->query($query);
+        $randomArtists = $statement->fetchAll();
+
+        return $randomArtists;
+    }
 }
