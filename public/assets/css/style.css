@@ -2,12 +2,18 @@ body {
     color: #f76c6c;
 }
 
-logoFish {
-    width: "70px";
-    height: "70px"
+nav>div {
+    height: 50px;
 }
 
-logoMenu {
-    width: "35px";
-    height: "35px";
+ul {
+    width: 100vw;
+}
+
+li {
+    width: 20vw;
+}
+
+h3 {
+    font-family: 'Rokkitt', serif;
 }
