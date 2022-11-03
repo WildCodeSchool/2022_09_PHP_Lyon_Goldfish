@@ -23,9 +23,6 @@ class ConcertManager extends AbstractManager
         return (int)$this->pdo->lastInsertId();
     }
 
-    /**
-     * Update concert in database
-     */
     public function update(array $concert): bool
     {
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET place=:place, 
@@ -39,13 +36,32 @@ class ConcertManager extends AbstractManager
         return $statement->execute();
     }
 
-    public function selectAllTheTables(): array
+    public function selectAllConcerts(): array
     {
         $query = "SELECT c.id, c.place, c.city, c.date, c.schedule, c.artist_id, a.name, a.style, a.image 
-        FROM concert c INNER JOIN artist a ON a.id=artist_id";
+        FROM " . static::TABLE . " c INNER JOIN artist a ON a.id=artist_id";
         $statement = $this->pdo->query($query);
         $allTables = $statement->fetchAll();
 
         return $allTables;
+    }
+
+    public function selectOneConcertById(int $id): array|false
+    {
+        $statement = $this->pdo->prepare("SELECT c.id, c.place, c.city, c.date, c.schedule, c.artist_id, a.name, 
+        a.style, a.image FROM " . static::TABLE . " c INNER JOIN artist a ON a.id=artist_id WHERE c.id=:id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch();
+    }
+
+    public function selectAllArtists(): array
+    {
+        $query = "SELECT * FROM artist";
+        $statement = $this->pdo->query($query);
+        $allArtists = $statement->fetchAll();
+
+        return $allArtists;
     }
 }

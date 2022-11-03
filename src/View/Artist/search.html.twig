@@ -3,26 +3,22 @@
 {% block content %}
 	<div>
 		<p>Trouve des artistes</p>
+		<a href="/artists">Retour</a>
 	</div>
 	{% include 'Artist/_searchArtiste.html.twig' %}
 
-	<div class="container marketing">
+	<div id="allArtists" class="container marketing">
 
 		<div class="row">
 			{% for artist in artists %}
-				<div class="col-lg-4 text-align-center">
-					<img src="{{ artist.image }}" class="bd-placeholder-img rounded-circle" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveaspectratio="xMidYMid slice" focusable="false">
-						<rect fill="#777"></rect>
-					</img>
+				<div class="col-6 col-lg-4 col-xl-3 text-align-center">
+					<img src="{{ artist.image }}" class="bd-placeholder-img rounded-circle shadow-lg" role="img" preserveaspectratio="xMidYMid slice" focusable="false">
+				</img>
 
-					<h2 class="fw-normal">{{ artist.name }}</h2>
+				<p class="artist-name">{{ artist.name }}</p>
 
-				</div>
-			{% endfor %}
-		</div>
-
+			</div>
+		{% endfor %}
 	</div>
 
-
-	<a href="/artists">Retour</a>
-{% endblock %}
+</div>{% endblock %}

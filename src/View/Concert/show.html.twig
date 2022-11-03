@@ -4,37 +4,30 @@
 	<main class="container">
 		<div class="row">
 			<h1>Concert</h1>
+			<a href="/concerts">Retour</a>
 		</div>
-
-		<div class="row row-cols-1 row-cols-md-4 g-3">
-
+		<div class="row row-cols-1 row-cols-md-4 g-3 ">
 			<div class="col">
-				<div class="card">
+				<div class="card shadow-lg">
 					<img src="{{ concert.image }}" class="card-img-top" alt="...">
 					<div class="card-body">
-						<h5 class="card-title">{{ concert.name }}</h5>
-						<p class="card-text">{{ concert.place }}</p>
-						<p class="card-text">{{ concert.city }}</p>
-						<p class="card-text">{{ concert.date }}</p>
-						<p class="card-text">{{ concert.schedule }}</p>
-						<p class="card-text">{{ concert.artist_id }}
-							Artist_id</p>
-						<p class="card-text">{{ concert.id }}
-							Concert id</p>
-
-						<a href="/concerts/edit?id={{ concert.id }}" class="btn btn-primary">Éditer</a>
+						<h4 class="card-text lead">Le
+							{{ concert.date|date("m/d/Y", "Europe/Paris" )}}
+							à
+							{{ concert.schedule|date('H:i') }}</h4>
+						<h4 class="card-title">{{ concert.name }}</h4>
+						<h5 class="card-text lead">{{ concert.place }}</h5>
+						<h5 class="card-text lead">{{ concert.city }}</h5>
 						<form action="/concerts/delete" method="POST">
+							<a href="/concerts/edit?id={{ concert.id }}" class="btn btn-primary btn-sm">Modifier</a>
 							<input type="hidden" name="id" value="{{ concert.id }}">
-							<button>Supprimer</button>
+							<button class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr(e) de vouloir supprimer le concert ?');">Supprimer</button>
 						</form>
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</main>
-
-	<a href="/concerts">Retour</a>
 
 
 {% endblock %}
