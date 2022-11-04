@@ -12,10 +12,6 @@
 		</title>
 		<link rel="stylesheet" href="/assets/css/style.css"> {% block stylesheet %}{% endblock %}
 		</head>
-		{% block body %}
-			<body>
-				{% block content %}{% endblock %}
-				{% block javascript %}{% endblock %}
+		<body class="{% block classBody %}{% endblock %}"> {% block content %}{% endblock %}{% block javascript %}{% endblock %}
 			</body>
-		{% endblock %}
-	</html>
+		</html>
