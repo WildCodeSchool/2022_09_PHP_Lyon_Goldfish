@@ -52,6 +52,13 @@ ul {
     font-size: 18px;
 }
 
+button.btn.btn-danger.btn-sm,
+a.btn.btn-primary.btn-sm,
+a.btn.btn-success.btn-sm {
+    margin-top: 4px;
+}
+
+
 /************* ADD CONCERTS FORM *****************/
 
 .addconcerts {
@@ -60,7 +67,7 @@ ul {
     background-color: #FEF1EC;
 }
 
-h1 {
+h2 {
     text-align: center;
 }
 

@@ -7,6 +7,13 @@ use PDO;
 class ConcertManager extends AbstractManager
 {
     public const TABLE = 'concert';
+    private array $errors = [];
+
+
+    public function getCheckErrors(): array
+    {
+        return $this->errors;
+    }
     /**
      * Insert new concert in database
      */
@@ -41,9 +48,9 @@ class ConcertManager extends AbstractManager
         $query = "SELECT c.id, c.place, c.city, c.date, c.schedule, c.artist_id, a.name, a.style, a.image 
         FROM " . static::TABLE . " c INNER JOIN artist a ON a.id=artist_id";
         $statement = $this->pdo->query($query);
-        $allTables = $statement->fetchAll();
+        $allConcerts = $statement->fetchAll();
 
-        return $allTables;
+        return $allConcerts;
     }
 
     public function selectOneConcertById(int $id): array|false
@@ -63,5 +70,42 @@ class ConcertManager extends AbstractManager
         $allArtists = $statement->fetchAll();
 
         return $allArtists;
+    }
+
+    public function concertLocationFieldEmpty(array $concert): void
+    {
+        if (!isset($concert['place']) || empty($concert['place'])) {
+            $this->errors[] = "La salle doit figurer";
+        }
+
+        if (!isset($concert['city']) || empty($concert['city'])) {
+            $this->errors[] = "La ville doit figurer";
+        }
+
+        if (!isset($concert['artist_id']) || empty($concert['artist_id'])) {
+            $this->errors[] = "L'artiste doit être renseigné";
+        }
+    }
+
+    public function concertLocationFieldLength(array $concert): void
+    {
+        if (strlen($concert['place']) > 150) {
+            $this->errors[] = "Le nom ne doit pas dépasser 100 caractères";
+        }
+
+        if (strlen($concert['city']) > 100) {
+            $this->errors[] = "Le style ne doit pas dépasser 50 caractères";
+        }
+    }
+
+    public function concertTimeFieldEmpty(array $concert): void
+    {
+        if (!isset($concert['date']) || empty($concert['date'])) {
+            $this->errors[] = "La date doit figurer";
+        }
+
+        if (!isset($concert['schedule']) || empty($concert['schedule'])) {
+            $this->errors[] = "L'heure doit figurer";
+        }
     }
 }

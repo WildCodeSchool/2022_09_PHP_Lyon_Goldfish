@@ -12,9 +12,9 @@ class ConcertController extends AbstractController
     public function index(): string
     {
         $concertManager = new ConcertManager();
-        $allTables = $concertManager->selectAllConcerts();
+        $allConcerts = $concertManager->selectAllConcerts();
 
-        return $this->twig->render('Concert/index.html.twig', ['concerts' => $allTables]);
+        return $this->twig->render('Concert/index.html.twig', ['concerts' => $allConcerts]);
     }
 
     /**
@@ -35,6 +35,7 @@ class ConcertController extends AbstractController
     {
         $concertManager = new ConcertManager();
         $concert = $concertManager->selectOneConcertById($id);
+        $allArtists = $concertManager->selectAllArtists();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
@@ -58,11 +59,8 @@ class ConcertController extends AbstractController
 
                 header('Location: /concerts/show?id=' . $id);
             }
-            return null;
         }
-        return $this->twig->render('Concert/edit.html.twig', [
-            'concert' => $concert,
-        ]);
+        return $this->twig->render('Concert/edit.html.twig', ['concert' => $concert, 'artists' => $allArtists]);
     }
     /**
      * Add a new item
@@ -70,34 +68,25 @@ class ConcertController extends AbstractController
     public function add(): ?string
     {
         $concertManager = new ConcertManager();
+        $errors = [];
         $allArtists = $concertManager->selectAllArtists();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $concert = array_map('trim', $_POST);
-            $errors = [];
+            $concertManager->concertLocationFieldEmpty($concert);
+            $concertManager->concertLocationFieldLength($concert);
+            $concertManager->concertTimeFieldEmpty($concert);
 
-            if (!isset($concert['place']) || empty($concert['place'])) {
-                $errors[] = "La doit figurer";
-            }
-
-            if (!isset($concert['city']) || empty($concert['city'])) {
-                $errors[] = "La ville doit figurer";
-            }
-
-            if (!isset($concert['date']) || empty($concert['date'])) {
-                $errors[] = "La date doit figurer";
-            }
-
-            if (count($errors) === 0) {
+            $errors = $concertManager->getCheckErrors();
+            if (empty($concertManager->getCheckErrors())) {
                 $concertManager = new ConcertManager();
                 $id = $concertManager->insert($concert);
 
                 header('Location: /concerts/show?id=' . $id);
             }
-            return null;
         }
-        return $this->twig->render('Concert/add.html.twig', ['artists' => $allArtists]);
+        return $this->twig->render('Concert/add.html.twig', ['artists' => $allArtists, 'errors' => $errors]);
     }
 
     /**

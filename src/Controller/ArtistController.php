@@ -58,48 +58,35 @@ class ArtistController extends AbstractController
 
                 header('Location: /artists/show?id=' . $id);
             }
-            return null;
         }
         return $this->twig->render('Artist/edit.html.twig', [
             'artist' => $artist,
         ]);
     }
-    // TODO validations (length, format...)
-
-    // if validation is ok, update and redirection
-
 
     /**
      * Add a new item
      */
     public function add(): ?string
     {
+        $artistManager = new ArtistManager();
+        $errors = [];
+
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $artist = array_map('trim', $_POST);
-            $errors = [];
+            $artistManager->artistFieldEmpty($artist);
 
-            if (!isset($artist['name']) || empty($artist['name'])) {
-                $errors[] = "Le nom doit figurer";
-            }
-
-            if (!isset($artist['style']) || empty($artist['style'])) {
-                $errors[] = "Le style doit figurer";
-            }
-
-            if (!isset($artist['image']) || empty($artist['image'])) {
-                $errors[] = "L'image doit être renseignée";
-            }
-
-            if (count($errors) === 0) {
+            $errors = $artistManager->getCheckErrors();
+            if (empty($artistManager->getCheckErrors())) {
                 $artistManager = new ArtistManager();
                 $id = $artistManager->insert($artist);
 
                 header('Location: /artists/show?id=' . $id);
             }
-            return null;
         }
-        return $this->twig->render('Artist/add.html.twig');
+        return $this->twig->render('Artist/add.html.twig', array('errors' => $errors));
     }
 
     /**
@@ -119,7 +106,7 @@ class ArtistController extends AbstractController
     public function search(): string
     {
         $artistManager = new ArtistManager();
-        $artists = $artistManager->selectAll();
+        $artists = $artistManager->selectRandomArtists();
 
         return $this->twig->render('Artist/search.html.twig', ['artists' => $artists]);
     }

@@ -3,9 +3,10 @@
 {% block content %}
 	<main class="container">
 		<div class="row">
-			<h1>Tous les concerts</h1>
-			<a href="/concerts/add">Ajouter</a>
+			<h2>Tous les concerts</h2>
 		</div>
+		<a href="/concerts/add" class="btn btn-primary btn-sm">Ajouter</a>
+
 		<div class="row">
 			{% for concert in concerts %}
 				<div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center">
