@@ -6,14 +6,21 @@ body {
     color: black;
 }
 
-.index {
+.indexBackground {
     background-image: url("/assets/images/header.jpg");
-    background-size: cover;
+
 }
+
+.indexSection {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 
 .logotxt {
     font-family: 'Rokkitt', serif;
-    font-size: 120px;
+    font-size: 100px;
 
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 3px;
@@ -91,6 +98,10 @@ a.btn.btn-success.btn-sm {
 
 h2 {
     text-align: center;
+}
+
+h3 {
+    text-align: left;
 }
 
 /*************** NAV BAR DESKTOP**********************/
