@@ -1,21 +1,137 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" href="/assets/images/favicon.png">
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 		<title>
 			{% block title %}{% endblock %}
 		</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="/assets/css/style.css"> {% block stylesheet %}{% endblock %}
 		</head>
 
 		<body>
+			<header>
+				{# ------------------- Navbar Desktop ----------------------#}
+				<nav class="nav container-fluid d-flex text-bg-dark h-auto w-auto d-none d-md-block sticky-top">
+					<div class="d-flex h5 Bootstraps heading text-white align-items-center ">
+						<a class="navbar-brand d-flex align-items-center ms-2 " href="#">
+							<img src="/assets/images/goldfish.png" class="logo" alt="goldfish"/>
+							goldfish
+						</a>
+						<ul class="nav justify-content-around">
+							<li>
+								<a href="/" class="nav-link d-flex align-items-center text-white w-50">
+									<img class='iconeMenu-desktop d-inline-flex' src="/assets/images/logo-home-w.png"/>
+									Accueil
+								</a>
+							</li>
+							<li>
+								<a href="/artists" class=" nav-link d-flex align-items-center text-white w-50">
+									<img class='iconeMenu-desktop d-inline-flex' src="/assets/images/logo-artist-w.png"/>
+									Artistes
+								</a>
+							</li>
+							<li>
+								<a href="/concerts" class="nav-link d-flex align-items-center text-white w-50">
+									<img class='iconeMenu-desktop d-inline-flex' src="/assets/images/logo-concert-w.png"/>
+									Concerts
+								</a>
+							</li>
+							<li>
+								<a href="/agenda" class="nav-link d-flex align-items-center text-white w-50">
+									<img class='iconeMenu-desktop d-inline-flex' src="/assets/images/logo-calendar-d.png"/>
+									Agenda
+								</a>
+							</li>
+						</ul>
+						<div class="avatar dropdown text-end me-4">
+							<a href="#" class="d-flex align-items-center justify-content-end link-danger text-decoration-none dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true">
+								<img src="https://github.com/mdo.png" alt="mdo" class="avatar rounded-circle pe-1"/>
+							</a>
+							<ul class="dropdown-menu text-small w-25 mt-1" data-popper-placement="bottom-start">
+								<li>
+									<a class="dropdown-item" href="#">New project...</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">Settings</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">Profile</a>
+								</li>
+								<li><hr class="dropdown-divider"></li>
+								<li>
+									<a class="dropdown-item" href="#">Sign out</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+
+				{# ------------------- Navbar Mobile----------------------#}
+				<nav class="nav container-fluid d-flex justify-content-center text-bg-dark h-auto w-auto p-1 d-md-none fixed-bottom">
+					<div class="d-flex text-white align-items-center mt-2">
+						<ul class="nav d-flex justify-content-around ms-5">
+							<li>
+								<a href="/" class="text-white text-decoration-none">
+									<div class="d-flex justify-content-center">
+										<img class='iconeMenu-mobile d-flex' src="/assets/images/logo-home-w.png" alt="Accueil"/>
+									</div>
+									Accueil
+								</a>
+							</li>
+							<li>
+								<a href="/artists" class="text-white text-decoration-none">
+									<div class="d-flex justify-content-center">
+										<img class='iconeMenu-mobile d-inline-flex' src="/assets/images/logo-artist-w.png" alt="Artistes"/>
+									</div>
+									Artistes
+								</a>
+							</li>
+							<li>
+								<a href="/concerts" class="text-white text-decoration-none">
+									<div class="d-flex justify-content-center">
+										<img class='iconeMenu-mobile d-inline-flex' src="/assets/images/logo-concert-w.png" alt="Concerts"/>
+									</div>
+									Concerts
+								</a>
+							</li>
+							<li>
+								<a href="/agenda" class="text-white text-decoration-none">
+									<div class="d-flex justify-content-center">
+										<img class='iconeMenu-mobile d-inline-flex' src="/assets/images/logo-calendar-d.png" alt="Agenda"/>
+									</div>
+									Agenda
+								</a>
+							</li>
+						</ul>
+						<div class="avatar dropdown text-end">
+							<a href="#" class="d-flex align-items-center justify-content-end mt-1 me-1 link-danger text-decoration-none dropdown-toggle show fixed-top" data-bs-toggle="dropdown" aria-expanded="true">
+								<img src="https://github.com/mdo.png" alt="mdo" class="avatar rounded-circle pe-1"/>
+							</a>
+							<ul class=" dropdown-menu dropdown-menu-end text-small show w-25" data-popper-placement=" bottom-start">
+								<li>
+									<a class="dropdown-item" href="#">New project...</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">Settings</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">Profile</a>
+								</li>
+								<li><hr class="dropdown-divider"></li>
+								<li>
+									<a class="dropdown-item" href="#">Sign out</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</header>
 			{% block content %}{% endblock %}
 			{% block javascript %}{% endblock %}
 		</body>
 	</html>
-
