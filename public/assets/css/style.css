@@ -8,7 +8,6 @@ body {
 
 .index {
     background-image: url("/assets/images/header.jpg");
-    background-repeat: repeat;
     background-size: cover;
 }
 
