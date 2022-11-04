@@ -11,7 +11,7 @@
 			{% for concert in concerts %}
 				<div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center">
 					<div class="card shadow-lg">
-						<img src="{{ concert.image }}" class="card-img-top" alt="...">
+						<img src="{{ concert.image }}" class="card-img-top" alt="image artiste">
 						<div class="card-body">
 							<h4 class="card-text lead">Le
 								{{ concert.date|date("m/d/Y", "Europe/Paris" )}}

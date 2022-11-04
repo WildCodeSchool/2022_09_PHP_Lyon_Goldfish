@@ -1,7 +1,4 @@
-@include media-breakpoint-only(sm) {
-    ...
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Rokkitt&display=swap');
 
 
 body {
@@ -9,6 +6,42 @@ body {
     color: black;
 }
 
+.indexBackground {
+    background-image: url("/assets/images/header.jpg");
+
+}
+
+.indexSection {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.logotxt {
+    font-family: 'Rokkitt', serif;
+    font-size: 100px;
+
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #FEF1EC;
+    text-shadow:
+        6px 6px #F64747,
+        12px 12px #000000;
+}
+
+.logoimg {
+    width: 300px;
+}
+
+h1 {
+    font-family: 'Rokkitt', serif;
+    font-size: 120px;
+}
+
+header {
+    margin-bottom: 20px;
+}
 
 /************* MENU-AVATAR *****************/
 
@@ -69,6 +102,10 @@ a.btn.btn-success.btn-sm {
 
 h2 {
     text-align: center;
+}
+
+h3 {
+    text-align: left;
 }
 
 /*************** NAV BAR DESKTOP**********************/

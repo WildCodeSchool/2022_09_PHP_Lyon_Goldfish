@@ -13,12 +13,12 @@
 		<link rel="stylesheet" href="/assets/css/style.css"> {% block stylesheet %}{% endblock %}
 		</head>
 
-		<body>
+		<body class="{% block classBody %}{% endblock %}">
 			<header>
 				{# ------------------- Navbar Desktop ----------------------#}
 				<nav class="nav container-fluid d-flex text-bg-dark h-auto w-auto d-none d-md-block sticky-top">
 					<div class="d-flex h5 Bootstraps heading text-white align-items-center ">
-						<a class="navbar-brand d-flex align-items-center ms-2 " href="#">
+						<a class="navbar-brand d-flex align-items-center ms-2 " href="/">
 							<img src="/assets/images/goldfish.png" class="logo" alt="goldfish"/>
 							goldfish
 						</a>
@@ -54,17 +54,17 @@
 							</a>
 							<ul class="dropdown-menu text-small w-25 mt-1" data-popper-placement="bottom-start">
 								<li>
-									<a class="dropdown-item" href="#">New project...</a>
+									<a class="dropdown-item" href="#">Pseudonyme</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">Settings</a>
+									<a class="dropdown-item" href="#">Profil</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">Profile</a>
+									<a class="dropdown-item" href="#">Paramètres</a>
 								</li>
 								<li><hr class="dropdown-divider"></li>
 								<li>
-									<a class="dropdown-item" href="#">Sign out</a>
+									<a class="dropdown-item" href="#">Déconnexion</a>
 								</li>
 							</ul>
 						</div>
@@ -114,17 +114,17 @@
 							</a>
 							<ul class=" dropdown-menu dropdown-menu-end text-small show w-25" data-popper-placement=" bottom-start">
 								<li>
-									<a class="dropdown-item" href="#">New project...</a>
+									<a class="dropdown-item" href="#">Pseudonyme</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">Settings</a>
+									<a class="dropdown-item" href="#">Profil</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">Profile</a>
+									<a class="dropdown-item" href="#">Paramètres</a>
 								</li>
 								<li><hr class="dropdown-divider"></li>
 								<li>
-									<a class="dropdown-item" href="#">Sign out</a>
+									<a class="dropdown-item" href="#">Déconnexion</a>
 								</li>
 							</ul>
 						</div>

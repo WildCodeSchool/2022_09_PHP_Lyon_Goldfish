@@ -5,11 +5,10 @@
 		<div class="row">
 			<h2>Trouve des artistes</h2>
 		</div>
-		<a href="/artists" class="btn btn-primary btn-sm">Retour</a>
 		{% include 'Artist/_searchArtiste.html.twig' %}
 
 		<div id="allArtists" class="container marketing">
-
+			<h3>Suggestions</h3>
 			<div class="row">
 				{% for artist in artists %}
 					<div class="col-6 col-lg-4 col-xl-3 text-align-center">
