@@ -1,7 +1,4 @@
-@include media-breakpoint-only(sm) {
-    ...
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Rokkitt&display=swap');
 
 
 body {
@@ -9,6 +6,42 @@ body {
     color: black;
 }
 
+.indexBackground {
+    background-image: url("/assets/images/header.jpg");
+
+}
+
+.indexSection {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.logotxt {
+    font-family: 'Rokkitt', serif;
+    font-size: 100px;
+
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #FEF1EC;
+    text-shadow:
+        6px 6px #F64747,
+        12px 12px #000000;
+}
+
+.logoimg {
+    width: 300px;
+}
+
+h1 {
+    font-family: 'Rokkitt', serif;
+    font-size: 120px;
+}
+
+header {
+    margin-bottom: 20px;
+}
 
 /************* MENU-AVATAR *****************/
 
@@ -17,11 +50,8 @@ nav {
     justify-content: flex-end;
 }
 
-.dropdown-menu {
-    position: absolute;
-    inset: 0px auto auto 0px;
-    margin: 0px;
-    transform: translate3d(0px, 34px, 0px);
+ul {
+    width: 100vw;
 }
 
 /*********** SEARCH-BAR *******************/
@@ -55,6 +85,13 @@ nav {
     font-size: 18px;
 }
 
+button.btn.btn-danger.btn-sm,
+a.btn.btn-primary.btn-sm,
+a.btn.btn-success.btn-sm {
+    margin-top: 4px;
+}
+
+
 /************* ADD CONCERTS FORM *****************/
 
 .addconcerts {
@@ -63,6 +100,46 @@ nav {
     background-color: #FEF1EC;
 }
 
-h1 {
+h2 {
     text-align: center;
+}
+
+h3 {
+    text-align: left;
+}
+
+/*************** NAV BAR DESKTOP**********************/
+
+.logo {
+    width: 35px;
+    height: 35px;
+}
+
+.navbar-brand {
+    font-family: 'Rokkitt', serif;
+    font-size: x-large;
+}
+
+.iconeMenu-desktop {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.avatar {
+    height: 40px;
+    width: 40px;
+}
+
+
+
+/************** NAV BAR MOBILE*******************/
+
+.iconeMenu-mobile {
+    width: 24px;
+    height: 24px;
+}
+
+main {
+    margin-bottom: 70px;
 }

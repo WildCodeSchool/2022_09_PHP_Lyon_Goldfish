@@ -1,24 +1,24 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-	<div>
-		<p>Trouve des artistes</p>
-		<a href="/artists">Retour</a>
-	</div>
-	{% include 'Artist/_searchArtiste.html.twig' %}
-
-	<div id="allArtists" class="container marketing">
-
+	<main class="container">
 		<div class="row">
-			{% for artist in artists %}
-				<div class="col-6 col-lg-4 col-xl-3 text-align-center">
-					<img src="{{ artist.image }}" class="bd-placeholder-img rounded-circle shadow-lg" role="img" preserveaspectratio="xMidYMid slice" focusable="false">
-				</img>
+			<h2>Trouve des artistes</h2>
+		</div>
+		{% include 'Artist/_searchArtiste.html.twig' %}
 
-				<p class="artist-name">{{ artist.name }}</p>
+		<div id="allArtists" class="container marketing">
+			<h3>Suggestions</h3>
+			<div class="row">
+				{% for artist in artists %}
+					<div class="col-6 col-lg-4 col-xl-3 text-align-center">
+						<img src="{{ artist.image }}" class="bd-placeholder-img rounded-circle shadow-lg" role="img" preserveaspectratio="xMidYMid slice" focusable="false">
+					</img>
 
-			</div>
-		{% endfor %}
+					<p class="artist-name">{{ artist.name }}</p>
+
+				</div>
+			{% endfor %}
+		</div>
 	</div>
-
-</div>{% endblock %}
+</main>{% endblock %}

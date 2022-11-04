@@ -1,8 +1,6 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-	<h1>Editer un artiste
-		{{ artist.id }}</h1>
+	<h2>Editer un artiste</h2>
 	{% include 'Artist/_form.html.twig' %}
-	<a href="/artists/show?id={{ artist.id }}">Retour</a>
 {% endblock %}
