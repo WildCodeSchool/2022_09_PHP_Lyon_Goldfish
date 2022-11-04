@@ -63,3 +63,35 @@ ul {
 h1 {
     text-align: center;
 }
+
+/*************** NAV BAR DESKTOP**********************/
+
+.logo {
+    width: 35px;
+    height: 35px;
+}
+
+.navbar-brand {
+    font-family: 'Rokkitt', serif;
+    font-size: x-large;
+}
+
+.iconeMenu-desktop {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.avatar {
+    height: 40px;
+    width: 40px;
+}
+
+
+
+/************** NAV BAR MOBILE*******************/
+
+.iconeMenu-mobile {
+    width: 24px;
+    height: 24px;
+}

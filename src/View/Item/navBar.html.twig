@@ -14,42 +14,123 @@
 
 	<body>
 		<header>
-			<nav class="navbar p-0 ">
-				<div class="d-flex px-4 text-bg-dark align-items-center">
-					<img src="/assets/images/goldfish.png" class="logo" class="img-fish" alt=""/>
+			<nav class="nav container-fluid d-flex text-bg-dark h-auto w-auto d-none d-md-block fixed-top">
+				<div class="d-flex h5 Bootstraps heading text-white align-items-center mt-2">
+					<a class="navbar-brand d-flex align-items-center ms-2 " href="#">
+						<img src="assets/images/goldfish.png" class="logo" alt="goldfish"/>
+						goldfish
+					</a>
+					<ul class="nav justify-content-around">
+						<li>
+							<a href="/" class="nav-link d-flex align-items-center text-white w-50">
+								<img class='iconeMenu-desktop d-inline-flex' src="assets/images/logo-home-w.png"/>
+								Accueil
+							</a>
+						</li>
+						<li>
+							<a href=" /artists" class=" nav-link d-flex align-items-center text-danger w-50">
+								<img class='iconeMenu-desktop d-inline-flex' src="assets/images/logo-artist-r.png"/>
+								Artistes
+							</a>
+						</li>
+						<li>
+							<a href="*concerts" class="nav-link d-flex align-items-center text-white w-50">
+								<img class='iconeMenu-desktop d-inline-flex' src="assets/images/logo-concert-w.png"/>
+								Concerts
+							</a>
+						</li>
+						<li>
+							<a href="/agenda" class="nav-link d-flex align-items-center text-white w-50">
+								<img class='iconeMenu-desktop d-inline-flex' src="assets/images/logo-calendar-d.png"/>
+								Agenda
+							</a>
+						</li>
+					</ul>
+					<div class="avatar dropdown text-end me-4">
+						<a href="#" class="d-flex align-items-center justify-content-end link-danger text-decoration-none dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true">
+							<img src="https://github.com/mdo.png" alt="mdo" class="avatar rounded-circle pe-1"/>
+						</a>
+						<ul class="dropdown-menu text-small w-25 mt-1" data-popper-placement="bottom-start">
+							<li>
+								<a class="dropdown-item" href="#">New project...</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="#">Settings</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="#">Profile</a>
+							</li>
+							<li><hr class="dropdown-divider"></li>
+							<li>
+								<a class="dropdown-item" href="#">Sign out</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<div>
+				{# ------------------- Navbar Mobile----------------------#}
+				<nav class="nav container-fluid d-flex justify-content-center text-bg-dark h-auto w-auto p-1 fixed-bottom d-md-none">
+					<div class="d-flex text-white align-items-center mt-2">
 
-					<div class="container-fluid vw-100 ">
-						<div class="bi d-flex h4 Bootstraps heading my-lg-0 text-white">
-							<ul class="nav col-10 ms-0 mt-0 align-items-center justify-content-around ">
+
+						<ul class="nav d-flex justify-content-around ms-5">
+							<li>
+								<a href="/" class="text-white text-decoration-none">
+									<div class="d-flex justify-content-center">
+										<img class='iconeMenu-mobile d-flex' src="assets/images/logo-home-w.png" alt="Accueil"/>
+									</div>
+									Accueil
+								</a>
+							</li>
+							<li>
+								<a href="/artists" class="text-white text-decoration-none">
+									<div class="d-flex justify-content-center">
+										<img class='iconeMenu-mobile d-inline-flex' src="assets/images/logo-artist-r.png" alt="Artistes"/>
+									</div>
+									Artistes
+								</a>
+							</li>
+							<li>
+								<a</nav href="/concerts" class="text-white text-decoration-none">
+									<div class="d-flex justify-content-center">
+										<img class='iconeMenu-mobile d-inline-flex' src="assets/images/logo-concert-w.png" alt="Concerts"/>
+									</div>
+									Concerts
+								</a>
+							</li>
+							<li>
+								<a href="/agenda" class="text-white text-decoration-none">
+									<div class="d-flex justify-content-center">
+										<img class='iconeMenu-mobile d-inline-flex' src="assets/images/logo-calendar-d.png" alt="Agenda"/>
+									</div>
+									Agenda
+								</a>
+							</li>
+						</ul>
+						<div class="avatar dropdown text-end">
+							<a href="#" class="d-flex align-items-center justify-content-end mt-1 me-1 link-danger text-decoration-none dropdown-toggle show fixed-top" data-bs-toggle="dropdown" aria-expanded="true">
+								<img src="https://github.com/mdo.png" alt="mdo" class="avatar rounded-circle pe-1"/>
+							</a>
+							<ul class=" dropdown-menu dropdown-menu-end text-small show w-25" data-popper-placement=" bottom-start">
 								<li>
-									<a href="Accueil" class="nav-link text-white">
-										<img class='logoMenu' src="assets/images/logo-home-w.png"/>
-										Accueil
-									</a>
+									<a class="dropdown-item" href="#">New project...</a>
 								</li>
 								<li>
-									<a href="Artistes" class="nav-link text-danger">
-										<img class='logoMenu' src="assets/images/logo-artist-r.png"/>
-										Artistes
-									</a>
+									<a class="dropdown-item" href="#">Settings</a>
 								</li>
 								<li>
-									<a href="Concerts" class="nav-link text-white px-6">
-										<img class='logoMenu' src="assets/images/logo-concert-w.png"/>
-										Concerts
-									</a>
+									<a class="dropdown-item" href="#">Profile</a>
 								</li>
+								<li><hr class="dropdown-divider"></li>
 								<li>
-									<a href="Agenda" class="nav-link text-white px-6">
-										<img class='logoMenu' src="assets/images/logo-calendar-d.png'"/>
-										Agenda
-									</a>
+									<a class="dropdown-item" href="#">Sign out</a>
 								</li>
 							</ul>
 						</div>
 					</div>
-				</div>
-			</nav>
-		</header>
+				</nav>
+			</header>
+		</body>
 	</body>
 </html>
