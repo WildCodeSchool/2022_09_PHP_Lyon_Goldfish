@@ -12,10 +12,10 @@
 		</title>
 		<link rel="stylesheet" href="/assets/css/style.css"> {% block stylesheet %}{% endblock %}
 		</head>
-
-		<body>
-			{% block content %}{% endblock %}
-			{% block javascript %}{% endblock %}
-		</body>
+		{% block body %}
+			<body>
+				{% block content %}{% endblock %}
+				{% block javascript %}{% endblock %}
+			</body>
+		{% endblock %}
 	</html>
-
