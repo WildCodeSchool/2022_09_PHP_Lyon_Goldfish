@@ -58,16 +58,11 @@ class ArtistController extends AbstractController
 
                 header('Location: /artists/show?id=' . $id);
             }
-            return null;
         }
         return $this->twig->render('Artist/edit.html.twig', [
             'artist' => $artist,
         ]);
     }
-    // TODO validations (length, format...)
-
-    // if validation is ok, update and redirection
-
 
     /**
      * Add a new item
@@ -90,7 +85,6 @@ class ArtistController extends AbstractController
 
                 header('Location: /artists/show?id=' . $id);
             }
-            return $this->twig->render('Artist/add.html.twig');
         }
         return $this->twig->render('Artist/add.html.twig', array('errors' => $errors));
     }
