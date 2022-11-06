@@ -53,7 +53,10 @@ class ConcertController extends AbstractController
                 header('Location: /concerts/show?id=' . $id);
             }
         }
-        return $this->twig->render('Concert/edit.html.twig', ['concert' => $concert, 'artists' => $allArtists, 'venues' => $allVenues, 'errors' => $errors]);
+        return $this->twig->render('Concert/edit.html.twig', [
+            'concert' => $concert,
+            'artists' => $allArtists, 'venues' => $allVenues, 'errors' => $errors
+        ]);
     }
     /**
      * Add a new item
@@ -79,7 +82,10 @@ class ConcertController extends AbstractController
                 header('Location: /concerts/show?id=' . $id);
             }
         }
-        return $this->twig->render('Concert/add.html.twig', ['artists' => $allArtists, 'venues' => $allVenues, 'errors' => $errors]);
+        return $this->twig->render('Concert/add.html.twig', [
+            'artists' => $allArtists,
+            'venues' => $allVenues, 'errors' => $errors
+        ]);
     }
 
     /**
