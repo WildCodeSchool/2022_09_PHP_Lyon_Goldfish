@@ -8,11 +8,6 @@
 // e.g route '/item/edit?id=1' will execute $itemController->edit(1)
 return [
     '' => ['HomeController', 'index',],
-    'items' => ['ItemController', 'index',],
-    'items/edit' => ['ItemController', 'edit', ['id']],
-    'items/show' => ['ItemController', 'show', ['id']],
-    'items/add' => ['ItemController', 'add',],
-    'items/delete' => ['ItemController', 'delete',],
 
     'concerts' => ['ConcertController', 'index',],
     'concerts/edit' => ['ConcertController', 'edit', ['id']],
@@ -20,12 +15,17 @@ return [
     'concerts/add' => ['ConcertController', 'add',],
     'concerts/delete' => ['ConcertController', 'delete',],
 
-
     'artists' => ['ArtistController', 'index',],
     'artists/edit' => ['ArtistController', 'edit', ['id']],
     'artists/show' => ['ArtistController', 'show', ['id']],
     'artists/add' => ['ArtistController', 'add',],
     'artists/delete' => ['ArtistController', 'delete',],
     'artists/search' => ['ArtistController', 'search',],
+
+    'venues' => ['VenueController', 'index',],
+    'venues/edit' => ['VenueController', 'edit', ['id']],
+    'venues/show' => ['VenueController', 'show', ['id']],
+    'venues/add' => ['VenueController', 'add',],
+    'venues/delete' => ['VenueController', 'delete',],
 
 ];

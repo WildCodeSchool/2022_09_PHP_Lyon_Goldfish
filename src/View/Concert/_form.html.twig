@@ -1,26 +1,31 @@
 <form method="post" aria-describedby="formulaire ajout de concert">
 	<input type="hidden" value="{{ concert.id }}" name="id">
-
-	<div class="addconcerts row justify-content-center form-floating my-5">
-		<div class="col-sm-4">
+	<div class="addconcerts row justify-content-center form-floating my-2">
+		<div class="col-10 col-sm-8 col-md-6 col-xl-4">
+			{% for error in errors %}
+				<div class="mb-3 alert alert-danger alert-dismissible fade show" role="alert">
+					{{ error }}
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			{% endfor %}
 			<div class="mb-3 mt-3 form-label">
 				<label for="artist-select">Sélectionnez un artiste :</label>
 				<select class="form-select" aria-describedby="menu déroullant séléction artiste" name="artist_id" id="artist_id" required>
-					<option value="">Artistes</option>
+					<option value="">Liste des artistes</option>
 					{% for artist in artists %}
 						<option value="{{ artist.id }}">{{ artist.name }}</option>
 					{% endfor %}
 				</select>
 			</div>
 
-			<div class="mb-3 form-label">
-				<label for="place">Salle</label>
-				<input class="form-control" type="text" value="{{ concert.place }}" name="place" id="place" aria-describedby="champ de saisi salle" placeholder="Rentrez un nom de salle" required>
-			</div>
-
-			<div class="mb-3 form-label">
-				<label for="city">Ville</label>
-				<input class="form-control" type="text" value="{{ concert.city }}" name="city" id="city" aria-describedby="champ de saisi ville" placeholder="Rentrez une ville" required>
+			<div class="mb-3 mt-3 form-label">
+				<label for="artist-select">Sélectionnez un lieu :</label>
+				<select class="form-select" aria-describedby="menu déroullant séléction salle" name="venue_id" id="venue_id" required>
+					<option value="">Liste des lieux</option>
+					{% for venue in venues %}
+						<option value="{{ venue.id }}">{{ venue.hall }}</option>
+					{% endfor %}
+				</select>
 			</div>
 
 			<div class="mb-3 form-label">
@@ -36,12 +41,7 @@
 			<div class="mb-3 text-center">
 				<button class="btn btn-primary" aria-describedby="boutton soumettre">Soumettre</button>
 			</div>
-			{% for error in errors %}
-				<div class="mb-3 alert alert-danger alert-dismissible fade show" role="alert">
-					{{ error }}
-					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				</div>
-			{% endfor %}
+
 		</div>
 	</div>
 

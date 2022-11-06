@@ -1,17 +1,17 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-	<h2>Editer un artiste</h2>
+	<h2>Editer un lieu</h2>
 	<div class="row justify-content-center">
 		<div class="card">
 			<div class="card-body">
 				<h6 class="card-subtitle mb-2 text-muted">Anciennes Informations</h6>
-				<p class="card-title lead">{{ artist.name }}</p>
-				<p class="card-text lead">{{ artist.style }}</p>
+				<p class="card-title lead">{{ venue.hall }}</p>
+				<p class="card-text lead">{{ venue.city }}</p>
 			</div>
 		</div>
 	</div>
 	<div class="row justify-content-center">
-		{% include 'Artist/_form.html.twig' %}
+		{% include 'Venue/_form.html.twig' %}
 	</div>
 {% endblock %}

@@ -14,11 +14,11 @@
 						<img src="{{ concert.image }}" class="card-img-top" alt="image artiste">
 						<div class="card-body">
 							<h4 class="card-text lead">Le
-								{{ concert.date|date("m/d/Y", "Europe/Paris" )}}
+								{{ concert.date|date("d/m/Y", "Europe/Paris" )}}
 								à
 								{{ concert.schedule|date('H:i') }}</h4>
 							<h4 class="card-title">{{ concert.name }}</h4>
-							<h5 class="card-text lead">{{ concert.place }}</h5>
+							<h5 class="card-text lead">{{ concert.hall }}</h5>
 							<h5 class="card-text lead">{{ concert.city }}</h5>
 
 							<form action="/concerts/delete" method="POST">

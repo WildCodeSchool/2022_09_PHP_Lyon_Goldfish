@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Rokkitt&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Rokkitt&display=swap');
 
 body {
     background-color: #FEF1EC;
+    font-family: 'Inter', sans-serif;
     color: black;
 }
+
+/************* INDEX *****************/
 
 .indexBackground {
     background-image: url("/assets/images/header.jpg");
@@ -34,11 +36,6 @@ body {
     width: 300px;
 }
 
-h1 {
-    font-family: 'Rokkitt', serif;
-    font-size: 120px;
-}
-
 header {
     margin-bottom: 20px;
 }
@@ -66,6 +63,11 @@ ul {
     margin: 1rem 0 1rem 0;
 }
 
+
+.card-img-top {
+    height: 215px;
+}
+
 /*********** ROUNDED ARTISTS *******************/
 .bd-placeholder-img {
     width: 140px;
@@ -91,13 +93,11 @@ a.btn.btn-success.btn-sm {
     margin-top: 4px;
 }
 
+/*************** HEADING **********************/
 
-/************* ADD CONCERTS FORM *****************/
-
-.addconcerts {
-    margin: 2rem;
-    padding: 2rem;
-    background-color: #FEF1EC;
+h1 {
+    font-family: 'Rokkitt', serif;
+    font-size: 120px;
 }
 
 h2 {
@@ -108,7 +108,7 @@ h3 {
     text-align: left;
 }
 
-/*************** NAV BAR DESKTOP**********************/
+/*************** NAV BAR DESKTOP **********************/
 
 .logo {
     width: 35px;
@@ -133,7 +133,7 @@ h3 {
 
 
 
-/************** NAV BAR MOBILE*******************/
+/************** NAV BAR MOBILE *******************/
 
 .iconeMenu-mobile {
     width: 24px;
