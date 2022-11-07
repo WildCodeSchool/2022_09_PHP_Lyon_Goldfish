@@ -45,7 +45,7 @@ class ArtistController extends AbstractController
             $errors = $artistManager->getCheckErrors();
             if (empty($artistManager->getCheckErrors())) {
                 $artistManager = new ArtistManager();
-                $id = $artistManager->insert($artist);
+                $artistManager->update($artist);
 
                 header('Location: /artists/show?id=' . $id);
             }

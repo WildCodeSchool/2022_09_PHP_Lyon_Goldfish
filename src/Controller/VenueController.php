@@ -45,7 +45,7 @@ class VenueController extends AbstractController
             $errors = $venueManager->getCheckErrors();
             if (empty($venueManager->getCheckErrors())) {
                 $venueManager = new VenueManager();
-                $id = $venueManager->insert($venue);
+                $venueManager->update($venue);
 
                 header('Location: /venues/show?id=' . $id);
             }

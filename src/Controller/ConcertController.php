@@ -48,7 +48,7 @@ class ConcertController extends AbstractController
             $errors = $concertManager->getCheckErrors();
             if (empty($concertManager->getCheckErrors())) {
                 $concertManager = new ConcertManager();
-                $id = $concertManager->insert($concert);
+                $concertManager->update($concert);
 
                 header('Location: /concerts/show?id=' . $id);
             }

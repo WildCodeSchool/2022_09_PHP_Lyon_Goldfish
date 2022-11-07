@@ -43,8 +43,8 @@ class ConcertManager extends AbstractManager
 
     public function selectAllConcerts(): array
     {
-        $query = "SELECT c.id, c.date, c.schedule, c.artist_id, c.venue_id, a.name, a.style, a.image, v.hall, v.city 
-        FROM " . static::TABLE . " c INNER JOIN artist a ON a.id=artist_id INNER JOIN venue v ON v.id=venue_id";
+        $query = "SELECT c.id, c.date, c.schedule, c.artist_id, c.venue_id, a.name_artist, a.style, a.image_artist, v.name_venue, v.city, v.image_venue 
+        FROM " . static::TABLE . " c INNER JOIN artist a ON a.id=artist_id INNER JOIN venue v ON v.id=venue_id ORDER BY date ASC";
         $statement = $this->pdo->query($query);
         $allConcerts = $statement->fetchAll();
 
@@ -54,7 +54,7 @@ class ConcertManager extends AbstractManager
     public function selectOneConcertById(int $id): array|false
     {
         $statement = $this->pdo->prepare("SELECT 
-        c.id, c.date, c.schedule, c.artist_id, c.venue_id, a.name, a.style, a.image, v.hall, v.city 
+        c.id, c.date, c.schedule, c.artist_id, c.venue_id, a.name_artist, a.style, a.image_artist, v.name_venue, v.city, v.image_venue 
         FROM " . static::TABLE . " c INNER JOIN artist a ON a.id=artist_id INNER JOIN venue v ON v.id=venue_id 
         WHERE c.id=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);

@@ -13,16 +13,16 @@ USE goldfish;
 
 create table artist (
      id int not null primary key auto_increment,
-     name varchar(100) not null,
+     name_artist varchar(100) not null,
      style varchar(50) not null,
-     image varchar(255) not null
+     image_artist varchar(255) not null
      );
 
 --
 -- Contenu de la table `artist`
 --
 
-INSERT INTO artist (name, style, image)
+INSERT INTO artist (name_artist, style, image_artist)
      values ('System of a Down', 'Metal', '/assets/images/artists/System of a Down.jpg'),
      ('Green Day', 'Rock', '/assets/images/artists/Green Day.jpg'),
      ('The Rolling Stones', 'Rock', '/assets/images/artists/The Rolling Stones.jpg'),
@@ -43,16 +43,16 @@ INSERT INTO artist (name, style, image)
 
 create table venue (
      id int not null primary key auto_increment,
-     hall varchar(150) not null,
+     name_venue varchar(150) not null,
      city varchar(100) not null,
-     image varchar(255) not null
+     image_venue varchar(255) not null
      );
 
 --
 -- Contenu de la table `venue`
 --
 
-insert into venue (hall, city, image)
+insert into venue (name_venue, city, image_venue)
 values ('Transbordeur', 'Lyon', '/assets/images/venues/transbordeur.jpeg'),
      ('Radiant', 'Lyon', '/assets/images/venues/radiant.jpeg'),
      ('Halle Tony Garnier', 'Lyon', '/assets/images/venues/halle-tony-garnier.jpeg'),
