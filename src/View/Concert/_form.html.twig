@@ -1,4 +1,4 @@
-<form method="post" aria-describedby="formulaire ajout de concert">
+<form method="post" aria-description="formulaire ajout de concert">
 	<input type="hidden" value="{{ concert.id }}" name="id">
 	<div class="addconcerts row justify-content-center form-floating my-2">
 		<div class="col-10 col-sm-8 col-md-6 col-xl-4">
@@ -10,7 +10,7 @@
 			{% endfor %}
 			<div class="mb-3 mt-3 form-label">
 				<label for="artist-select">Sélectionnez un artiste :</label>
-				<select class="form-select" aria-describedby="menu déroullant séléction artiste" name="artist_id" id="artist_id" required>
+				<select class="form-select" aria-description="menu déroullant séléction artiste" name="artist_id" id="artist_id" required>
 					<option value="">Liste des artistes</option>
 					{% for artist in artists %}
 						<option value="{{ artist.id }}">{{ artist.name_artist }}</option>
@@ -20,7 +20,7 @@
 
 			<div class="mb-3 mt-3 form-label">
 				<label for="artist-select">Sélectionnez un lieu :</label>
-				<select class="form-select" aria-describedby="menu déroullant séléction salle" name="venue_id" id="venue_id" required>
+				<select class="form-select" aria-description="menu déroullant séléction salle" name="venue_id" id="venue_id" required>
 					<option value="">Liste des lieux</option>
 					{% for venue in venues %}
 						<option value="{{ venue.id }}">{{ venue.name_venue }}</option>
@@ -30,16 +30,16 @@
 
 			<div class="mb-3 form-label">
 				<label for="date">Date</label>
-				<input class="form-control" type="date" value="{{ concert.date }}" name="date" id="date" aria-describedby="champ de saisi date" required>
+				<input class="form-control" type="date" value="{{ concert.date }}" name="date" id="date" aria-description="champ de saisi date" required>
 			</div>
 
 			<div class="mb-3 form-label">
 				<label for="schedule">Horaire</label>
-				<input class="form-control" type="time" value="{{ concert.schedule }}" name="schedule" id="schedule" aria-describedby="champ de saisi horaire" required>
+				<input class="form-control" type="time" value="{{ concert.schedule }}" name="schedule" id="schedule" aria-description="champ de saisi horaire" required>
 			</div>
 
 			<div class="mb-3 text-center">
-				<button class="btn btn-primary" aria-describedby="boutton soumettre">Soumettre</button>
+				<button class="btn btn-primary" aria-description="boutton soumettre">Soumettre</button>
 			</div>
 
 		</div>
