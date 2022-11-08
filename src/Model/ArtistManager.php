@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use PDO;
+use PDOException;
 
 class ArtistManager extends AbstractManager
 {
@@ -20,13 +21,13 @@ class ArtistManager extends AbstractManager
      */
     public function insert(array $artist): int
     {
-        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`name`, `style`, `image`) 
+            $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`name`, `style`, `image`) 
         VALUES (:name, :style, :image)");
-        $statement->bindValue(':name', $artist['name'], PDO::PARAM_STR);
-        $statement->bindValue(':style', $artist['style'], PDO::PARAM_STR);
-        $statement->bindValue(':image', $artist['image'], PDO::PARAM_STR);
-        $statement->execute();
-        return (int)$this->pdo->lastInsertId();
+            $statement->bindValue(':name', $artist['name'], PDO::PARAM_STR);
+            $statement->bindValue(':style', $artist['style'], PDO::PARAM_STR);
+            $statement->bindValue(':image', $artist['image'], PDO::PARAM_STR);
+            $statement->execute();
+            return (int)$this->pdo->lastInsertId();
     }
 
     /**

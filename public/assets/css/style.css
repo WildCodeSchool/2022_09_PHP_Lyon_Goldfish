@@ -1,13 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Rokkitt&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Rokkitt&display=swap');
 
 body {
     background-color: #FEF1EC;
+    font-family: 'Inter', sans-serif;
     color: black;
+    height: 100vh;
 }
 
 .indexBackground {
-    background-image: url("/assets/images/header.jpg");
+    background-image: url("/assets/images/background.jpeg");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
 
 }
 
@@ -17,21 +21,22 @@ body {
     flex-direction: column;
 }
 
-
 .logotxt {
     font-family: 'Rokkitt', serif;
-    font-size: 100px;
-
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: #FEF1EC;
-    text-shadow:
-        6px 6px #F64747,
-        12px 12px #000000;
+    font-size: 80px;
+    color: #FEF1EC;
+    margin-bottom: 0px;
 }
 
 .logoimg {
-    width: 300px;
+    width: 150px;
+}
+
+.baseline {
+    color: #FEF1EC;
+    font-family: 'Rokkitt', serif;
+    font-size: 25px;
+    text-align: center;
 }
 
 h1 {
