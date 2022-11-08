@@ -127,6 +127,11 @@ h3 {
     width: 30px;
     height: 30px;
     margin-right: 10px;
+    background-color: #FEF1EC;
+}
+
+.iconeMenu-desktop.active {
+    background-color: #F64747;
 }
 
 .avatar {
@@ -134,12 +139,34 @@ h3 {
     width: 40px;
 }
 
-a.nav-link {
+ul.nav {
+    align-items: center;
+    padding: 10PX 0PX 10PX 0PX;
+}
+
+a.navlink {
     color: #FEF1EC;
+    text-decoration: none;
+}
+
+a.navlink:hover {
+    color: #FEF1EC;
+}
+
+a.navlink.active {
+    color: #F64747;
 }
 
 nav {
     background-color: #0A0E10;
+}
+
+.dropdown-toggle::after {
+    color: #FEF1EC;
+}
+
+.dropdown-toggle:checked+label::after {
+    color: #F64747;
 }
 
 /************** NAV BAR MOBILE *******************/
@@ -147,8 +174,26 @@ nav {
 .iconeMenu-mobile {
     width: 24px;
     height: 24px;
+    background-color: #FEF1EC;
+}
+
+.iconeMenu-mobile.active {
+    background-color: #F64747;
 }
 
 main {
     margin-bottom: 70px;
+}
+
+a.nav-link-mobile {
+    color: #FEF1EC;
+    text-decoration: none;
+}
+
+a.nav-link-mobile.active {
+    color: #F64747;
+}
+
+a {
+    color: #F64747;
 }
