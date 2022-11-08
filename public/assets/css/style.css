@@ -65,13 +65,15 @@ ul {
 
 
 .card-img-top {
-    height: 215px;
+    height: 240px;
+    object-fit: cover;
 }
 
 /*********** ROUNDED ARTISTS *******************/
 .bd-placeholder-img {
     width: 140px;
     height: 140px;
+    object-fit: cover;
 }
 
 #allArtists {
@@ -118,6 +120,7 @@ h3 {
 .navbar-brand {
     font-family: 'Rokkitt', serif;
     font-size: x-large;
+    color: #FEF1EC;
 }
 
 .iconeMenu-desktop {
@@ -131,7 +134,13 @@ h3 {
     width: 40px;
 }
 
+a.nav-link {
+    color: #FEF1EC;
+}
 
+nav {
+    background-color: #0A0E10;
+}
 
 /************** NAV BAR MOBILE *******************/
 
