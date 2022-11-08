@@ -9,6 +9,10 @@
 return [
     '' => ['HomeController', 'index',],
 
+    'login' => ['UserController', 'login',],
+    'logout' => ['UserController', 'logout',],
+    'register' => ['UserController', 'register',],
+
     'concerts' => ['ConcertController', 'index',],
     'concerts/edit' => ['ConcertController', 'edit', ['id']],
     'concerts/show' => ['ConcertController', 'show', ['id']],

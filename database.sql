@@ -95,5 +95,25 @@ values ('2022-12-24', '21:00:00', 3, 1),
      ('2022-12-22', '21:00:00', 7, 4),
      ('2022-03-24', '21:30:00', 9, 7);
 
+--
+-- Structure de la table `user`
+--
+
+CREATE TABLE user (
+  id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  email varchar(100) DEFAULT NULL,
+  password varchar(255) DEFAULT NULL,
+  pseudo varchar(45) DEFAULT NULL,
+  is_admin BOOL NOT NULL, 
+  UNIQUE KEY email_UNIQUE (email)
+);
+--
+-- Dumping data for table `user`
+--
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'marty@wilders.com','$2y$10$4Fr/E4Lcj8HRTQ5UtXBE4./ut/diPoZQLzICLRQqqFU5NamJpsKOK','Marty', false);
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
