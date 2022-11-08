@@ -43,7 +43,7 @@ class ArtistController extends AbstractController
             $artistManager->artistFieldEmpty($artist);
 
             $errors = $artistManager->getCheckErrors();
-            if (empty($artistManager->getCheckErrors())) {
+            if (empty($errors)) {
                 $artistManager = new ArtistManager();
                 $artistManager->update($artist);
 
@@ -69,7 +69,7 @@ class ArtistController extends AbstractController
             $artistManager->artistFieldEmpty($artist);
 
             $errors = $artistManager->getCheckErrors();
-            if (empty($artistManager->getCheckErrors())) {
+            if (empty($errors)) {
                 $artistManager = new ArtistManager();
                 $id = $artistManager->insert($artist);
 
