@@ -18,7 +18,10 @@ abstract class AbstractController
     {
         $loader = new FilesystemLoader(APP_VIEW_PATH);
         $this->twig = new Environment(
-            $loader
+            $loader,
+            [
+                'cache' => false,
+            ]
         );
         $this->twig->addExtension(new DebugExtension());
         $userManager = new UserManager();
