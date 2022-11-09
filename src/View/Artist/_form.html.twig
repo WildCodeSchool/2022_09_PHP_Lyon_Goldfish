@@ -8,6 +8,11 @@
 					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 				</div>
 			{% endfor %}
+			{% if messageError %}
+				<div class="alert alert-danger alert-dismissible fade show" role="alert">{{messageError}}
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			{% endif %}
 			<div class="mb-3 mt-3 form-label">
 				<label for="name_artist">Artiste</label>
 				<input class="form-control" type="text" value="{{ artist.name_artist }}" name="name_artist" id="name_artist" aria-description="champ nom de l'artiste" placeholder="Rentrez un nom d'artiste" required>
