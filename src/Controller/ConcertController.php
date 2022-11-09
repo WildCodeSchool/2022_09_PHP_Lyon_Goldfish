@@ -46,7 +46,7 @@ class ConcertController extends AbstractController
             $concertManager->concertTimeFieldEmpty($concert);
 
             $errors = $concertManager->getCheckErrors();
-            if (empty($concertManager->getCheckErrors())) {
+            if (empty($errors)) {
                 $concertManager = new ConcertManager();
                 $concertManager->update($concert);
 
@@ -75,7 +75,7 @@ class ConcertController extends AbstractController
             $concertManager->concertTimeFieldEmpty($concert);
 
             $errors = $concertManager->getCheckErrors();
-            if (empty($concertManager->getCheckErrors())) {
+            if (empty($errors)) {
                 $concertManager = new ConcertManager();
                 $id = $concertManager->insert($concert);
 
