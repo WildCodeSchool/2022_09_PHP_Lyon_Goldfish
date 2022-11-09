@@ -15,7 +15,8 @@ create table artist (
      id int not null primary key auto_increment,
      name_artist varchar(100) not null,
      style varchar(50) not null,
-     image_artist varchar(255) not null
+     image_artist varchar(255) not null,
+     UNIQUE (name_artist)
      );
 
 --

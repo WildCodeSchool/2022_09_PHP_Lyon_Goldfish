@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\ArtistManager;
+use PDOException;
 
 class ArtistController extends AbstractController
 {
@@ -60,24 +61,37 @@ class ArtistController extends AbstractController
      */
     public function add(): ?string
     {
+        $messageError = null;
+
         $artistManager = new ArtistManager();
         $errors = [];
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // clean $_POST data
-            $artist = array_map('trim', $_POST);
-            $artistManager->artistFieldEmpty($artist);
+        try {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // clean $_POST data
+                $artist = array_map('trim', $_POST);
+                $artistManager->artistFieldEmpty($artist);
 
-            $errors = $artistManager->getCheckErrors();
-            if (empty($errors)) {
-                $artistManager = new ArtistManager();
-                $id = $artistManager->insert($artist);
+                $errors = $artistManager->getCheckErrors();
+                if (empty($errors)) {
+                    $artistManager = new ArtistManager();
+                    $id = $artistManager->insert($artist);
 
-                header('Location: /artists/show?id=' . $id);
+                    header('Location: /artists/show?id=' . $id);
+                    return $this->twig->render('Artist/add.html.twig', array('errors' => $errors));
+                }
+            }
+        } catch (PDOException $e) {
+            if ($e->getCode() == 23000) {
+                $messageError = "Impossible de rentrer un artiste qui existe déjà";
+            } else {
+                $messageError = $e->getMessage();
             }
         }
-        return $this->twig->render('Artist/add.html.twig', array('errors' => $errors));
+        return $this->twig->render('Artist/add.html.twig', ['messageError' => $messageError,]);
     }
+
+
 
     /**
      * Delete a specific item

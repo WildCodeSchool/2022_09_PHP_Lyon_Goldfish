@@ -3,7 +3,7 @@
 namespace App\Model;
 
 use PDO;
-use PDOException;
+use \PDOException;
 
 class ArtistManager extends AbstractManager
 {
