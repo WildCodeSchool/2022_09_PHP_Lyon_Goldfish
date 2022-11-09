@@ -83,7 +83,7 @@ class ArtistController extends AbstractController
             }
         } catch (PDOException $e) {
             if ($e->getCode() == 23000) {
-                $messageError = "Impossible de rentrer un artiste qui existe déjà";
+                $messageError = "Impossible d'ajouter un artiste qui existe déjà";
             } else {
                 $messageError = $e->getMessage();
             }
