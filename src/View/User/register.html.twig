@@ -4,27 +4,28 @@
 {% endblock %}
 
 {% block content %}
-	<div class="row">
-		<div class="col-md-6 offset-md-3">
-			<h1>Register an account</h1>
-			<p>Please fill the form below to create an account.</p>
-			<form action="" method="post">
-				<div class="mb-3">
-					<label for="email" class="form-label">Email</label>
-					<input class="form-control" type="email" id="email" name="email" required>
-				</div>
-				<div class="mb-3">
-					<label for="password" class="form-label">Password</label>
-					<input class="form-control" type="password" id="password" name="password" required>
-				</div>
-				<div class="mb-3">
-					<label for="pseudo" class="form-label">Pseudo</label>
-					<input class="form-control" type="text" id="pseudo" name="pseudo" required>
-				</div>
-				<div class="mb-3">
-					<button type="submit" class="btn btn-success">Create account</button>
-				</div>
-			</form>
+	<main class="container">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<form action="" method="post">
+					<input type="hidden" value="0" name="is_admin">
+					<div class="mb-3">
+						<label for="email" class="form-label text-light">Email</label>
+						<input class="form-control" type="email" id="email" name="email" required>
+					</div>
+					<div class="mb-3">
+						<label for="password" class="form-label text-light">Password</label>
+						<input class="form-control" type="password" id="password" name="password" required>
+					</div>
+					<div class="mb-3">
+						<label for="pseudo" class="form-label text-light">Pseudo</label>
+						<input class="form-control" type="text" id="pseudo" name="pseudo" required>
+					</div>
+					<div class="mb-3">
+						<button type="submit" class="btn btn-danger">Create account</button>
+					</div>
+				</form>
+			</div>
 		</div>
-	</div>
+	</main>
 {% endblock %}

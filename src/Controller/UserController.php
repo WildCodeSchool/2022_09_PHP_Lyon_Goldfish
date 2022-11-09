@@ -27,8 +27,16 @@ class UserController extends AbstractController
         unset($_SESSION['user_id']);
         header('Location: /');
     }
-    public function register(): string
+    public function register()
     {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            //      @todo make some controls and if errors send them to the view
+            $credentials = $_POST;
+            $userManager = new UserManager();
+            if ($userManager->insert($credentials)) {
+                return $this->login();
+            }
+        }
         return $this->twig->render('User/register.html.twig');
     }
 }
