@@ -7,4 +7,20 @@
 		<p class="logotxt">goldfish</p>
 		<img src="/assets/images/goldfish.png" class="logoimg" alt="logo goldfish">
 	</section>
+
+	{% if user %}
+		🥳
+		<p>
+			You are connected as
+			<strong>{{ user.pseudo }}</strong>!
+		</p>
+		<a href="/logout">
+			<i class="bi bi-box-arrow-right"></i>
+			Logout</a>.
+	{% else %}
+		<a href="/login">Go to login page</a>
+		or
+		<a href="/register">register an account</a>.
+	{% endif %}
+
 {% endblock %}
