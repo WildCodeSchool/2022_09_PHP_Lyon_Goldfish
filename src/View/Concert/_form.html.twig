@@ -1,6 +1,6 @@
 <form method="post" aria-description="formulaire ajout de concert">
 	<input type="hidden" value="{{ concert.id }}" name="id">
-	<div class="addconcerts row justify-content-center form-floating my-2">
+	<div class="row justify-content-center form-floating my-2">
 		<div class="col-10 col-sm-8 col-md-6 col-xl-4">
 			{% for error in errors %}
 				<div class="mb-3 alert alert-danger alert-dismissible fade show" role="alert">
