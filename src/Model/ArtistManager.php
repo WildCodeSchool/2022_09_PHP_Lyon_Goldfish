@@ -21,13 +21,13 @@ class ArtistManager extends AbstractManager
      */
     public function insert(array $artist): int
     {
-            $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`name`, `style`, `image`) 
-        VALUES (:name, :style, :image)");
-            $statement->bindValue(':name', $artist['name'], PDO::PARAM_STR);
-            $statement->bindValue(':style', $artist['style'], PDO::PARAM_STR);
-            $statement->bindValue(':image', $artist['image'], PDO::PARAM_STR);
-            $statement->execute();
-            return (int)$this->pdo->lastInsertId();
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`name_artist`, `style`, `image_artist`) 
+        VALUES (:name_artist, :style, :image_artist)");
+        $statement->bindValue(':name_artist', $artist['name_artist'], PDO::PARAM_STR);
+        $statement->bindValue(':style', $artist['style'], PDO::PARAM_STR);
+        $statement->bindValue(':image_artist', $artist['image_artist'], PDO::PARAM_STR);
+        $statement->execute();
+        return (int)$this->pdo->lastInsertId();
     }
 
     /**
@@ -35,18 +35,18 @@ class ArtistManager extends AbstractManager
      */
     public function update(array $artist): bool
     {
-        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET name=:name, 
-        style=:style, image=:image WHERE id=:id");
-        $statement->bindValue('id', $artist['id'], PDO::PARAM_INT);
-        $statement->bindValue(':name', $artist['name'], PDO::PARAM_STR);
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET name_artist=:name_artist, 
+        style=:style, image_artist=:image_artist WHERE id=:id");
+        $statement->bindValue(':id', $artist['id'], PDO::PARAM_INT);
+        $statement->bindValue(':name_artist', $artist['name_artist'], PDO::PARAM_STR);
         $statement->bindValue(':style', $artist['style'], PDO::PARAM_STR);
-        $statement->bindValue(':image', $artist['image'], PDO::PARAM_STR);
+        $statement->bindValue(':image_artist', $artist['image_artist'], PDO::PARAM_STR);
         return $statement->execute();
     }
 
     public function selectRandomArtists(): array
     {
-        $query = "SELECT name, style, image FROM " . static::TABLE . " ORDER BY RAND() LIMIT 4";
+        $query = "SELECT name_artist, style, image_artist FROM " . static::TABLE . " ORDER BY RAND() LIMIT 4";
         $statement = $this->pdo->query($query);
         $randomArtists = $statement->fetchAll();
 
@@ -55,7 +55,7 @@ class ArtistManager extends AbstractManager
 
     public function artistFieldEmpty(array $artist): void
     {
-        if (!isset($artist['name']) || empty($artist['name'])) {
+        if (!isset($artist['name_artist']) || empty($artist['name_artist'])) {
             $this->errors[] = "Le nom doit figurer";
         }
 
@@ -63,14 +63,14 @@ class ArtistManager extends AbstractManager
             $this->errors[] = "Le style doit figurer";
         }
 
-        if (!isset($artist['image']) || empty($artist['image'])) {
+        if (!isset($artist['image_artist']) || empty($artist['image_artist'])) {
             $this->errors[] = "L'image doit être renseignée";
         }
     }
 
     public function artistFieldLength(array $artist): void
     {
-        if (strlen($artist['name']) > 100) {
+        if (strlen($artist['name_artist']) > 100) {
             $this->errors[] = "Le nom ne doit pas dépasser 100 caractères";
         }
 
@@ -78,7 +78,7 @@ class ArtistManager extends AbstractManager
             $this->errors[] = "Le style ne doit pas dépasser 50 caractères";
         }
 
-        if (strlen($artist['image']) > 255) {
+        if (strlen($artist['image_artist']) > 255) {
             $this->errors[] = "Le lien de l'image ne doit pas dépasser 255 caractères";
         }
     }

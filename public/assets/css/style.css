@@ -7,6 +7,8 @@ body {
     height: 100vh;
 }
 
+/************* INDEX *****************/
+
 .indexBackground {
     background-image: url("/assets/images/background.jpeg");
     background-position: center;
@@ -39,11 +41,6 @@ body {
     text-align: center;
 }
 
-h1 {
-    font-family: 'Rokkitt', serif;
-    font-size: 120px;
-}
-
 header {
     margin-bottom: 20px;
 }
@@ -71,6 +68,11 @@ ul {
     margin: 1rem 0 1rem 0;
 }
 
+
+.card-img-top {
+    height: 215px;
+}
+
 /*********** ROUNDED ARTISTS *******************/
 .bd-placeholder-img {
     width: 140px;
@@ -96,13 +98,11 @@ a.btn.btn-success.btn-sm {
     margin-top: 4px;
 }
 
+/*************** HEADING **********************/
 
-/************* ADD CONCERTS FORM *****************/
-
-.addconcerts {
-    margin: 2rem;
-    padding: 2rem;
-    background-color: #FEF1EC;
+h1 {
+    font-family: 'Rokkitt', serif;
+    font-size: 120px;
 }
 
 h2 {
@@ -113,7 +113,7 @@ h3 {
     text-align: left;
 }
 
-/*************** NAV BAR DESKTOP**********************/
+/*************** NAV BAR DESKTOP **********************/
 
 .logo {
     width: 35px;
@@ -138,7 +138,7 @@ h3 {
 
 
 
-/************** NAV BAR MOBILE*******************/
+/************** NAV BAR MOBILE *******************/
 
 .iconeMenu-mobile {
     width: 24px;

@@ -1,7 +1,22 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-	<h2>Editer un concert
-		{{ concert.id }}</h2>
-	{% include 'Concert/_form.html.twig' %}
+	<h2>Editer un concert</h2>
+	<div class="row justify-content-center">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-subtitle mb-2 text-muted">Anciennes Informations</h6>
+				<p class="card-title lead">{{ concert.name_artist }}</p>
+				<p class="card-text lead">{{ concert.name_venue }}</p>
+				<p class="card-text lead">{{ concert.city }}</p>
+				<p class="card-text lead">Le
+					{{ concert.date|date("d/m/Y", "Europe/Paris" )}}
+					à
+					{{ concert.schedule|date('H:i') }}</p>
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		{% include 'Concert/_form.html.twig' %}
+	</div>
 {% endblock %}
