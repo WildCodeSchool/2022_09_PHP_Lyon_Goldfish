@@ -17,7 +17,6 @@ class UserController extends AbstractController
             if ($user && password_verify($credentials['password'], $user['password'])) {
                 $_SESSION['user_id'] = $user['id'];
                 header('Location: /');
-                exit();
             }
         }
 
