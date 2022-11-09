@@ -11,7 +11,7 @@ switch (!0) {
         document.getElementById("concerts-mobile-text").classList.add("active");
         document.getElementById("concerts-mobile-img").classList.add("active");
         break;
-    case /aged/.test(window.location.pathname):
+    case /venues/.test(window.location.pathname):
         document.getElementById("venues-text").classList.add("active");
         document.getElementById("venues-img").classList.add("active");
         break;
