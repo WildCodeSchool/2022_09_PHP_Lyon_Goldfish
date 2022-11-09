@@ -43,7 +43,7 @@ class VenueController extends AbstractController
             $venueManager->venueFieldEmpty($venue);
 
             $errors = $venueManager->getCheckErrors();
-            if (empty($venueManager->getCheckErrors())) {
+            if (empty($errors)) {
                 $venueManager = new VenueManager();
                 $venueManager->update($venue);
 
@@ -69,7 +69,7 @@ class VenueController extends AbstractController
             $venueManager->venueFieldEmpty($venue);
 
             $errors = $venueManager->getCheckErrors();
-            if (empty($venueManager->getCheckErrors())) {
+            if (empty($errors)) {
                 $venueManager = new VenueManager();
                 $id = $venueManager->insert($venue);
 
