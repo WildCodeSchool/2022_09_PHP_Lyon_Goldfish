@@ -35,32 +35,23 @@ class ArtistController extends AbstractController
     {
         $artistManager = new ArtistManager();
         $artist = $artistManager->selectOneById($id);
+        $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $artist = array_map('trim', $_POST);
-            $errors = [];
+            $artistManager->artistFieldEmpty($artist);
 
-            if (!isset($artist['name']) || empty($artist['name'])) {
-                $errors[] = "Le nom doit figurer";
-            }
-
-            if (!isset($artist['style']) || empty($artist['style'])) {
-                $errors[] = "Le style doit figurer";
-            }
-
-            if (!isset($artist['image']) || empty($artist['image'])) {
-                $errors[] = "L'image doit être renseignée";
-            }
-
-            if (count($errors) === 0) {
+            $errors = $artistManager->getCheckErrors();
+            if (empty($errors)) {
+                $artistManager = new ArtistManager();
                 $artistManager->update($artist);
 
                 header('Location: /artists/show?id=' . $id);
             }
         }
         return $this->twig->render('Artist/edit.html.twig', [
-            'artist' => $artist,
+            'artist' => $artist, 'errors' => $errors
         ]);
     }
 
@@ -72,14 +63,13 @@ class ArtistController extends AbstractController
         $artistManager = new ArtistManager();
         $errors = [];
 
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $artist = array_map('trim', $_POST);
             $artistManager->artistFieldEmpty($artist);
 
             $errors = $artistManager->getCheckErrors();
-            if (empty($artistManager->getCheckErrors())) {
+            if (empty($errors)) {
                 $artistManager = new ArtistManager();
                 $id = $artistManager->insert($artist);
 
