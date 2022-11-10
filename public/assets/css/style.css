@@ -42,6 +42,13 @@ body {
     text-align: center;
 }
 
+.baselineWelcome {
+    color: #FEF1EC;
+    font-family: 'Rokkitt', serif;
+    font-size: 30px;
+    text-align: center;
+}
+
 header {
     margin-bottom: 20px;
 }
@@ -71,22 +78,64 @@ ul {
 
 
 .card-img-top {
-    height: 215px;
+    height: 235px;
+    object-fit: cover;
 }
 
 /*********** ROUNDED ARTISTS *******************/
 .bd-placeholder-img {
     width: 140px;
     height: 140px;
+    object-fit: cover;
 }
 
-#allArtists {
-    text-align: center;
+/*********Animation Desktop********/
+span {
+    width: 144px;
+    height: 44px;
 }
 
-#oneArtist {
-    margin: 1rem 0 1rem 0;
-    justify-content: center;
+p {
+    width: 144px;
+    height: 44px;
+}
+
+.artist .overlay {
+    top: 0px;
+    font-family: 'Rokkitt', serif;
+    font-size: 2.3rem;
+    color: #FEF1EC;
+    background: rgba(0, 0, 0, 0.74);
+    width: 140px;
+    height: 140px;
+    transform: scale(0);
+    opacity: 1;
+}
+
+.artist:hover .overlay {
+    transform: scale(1);
+    transition: opacity 0.25s ease-in-out;
+    transition: transform .5s;
+    opacity: 1;
+}
+
+.artist .overlayMob {
+    top: 0px;
+    font-family: 'Rokkitt', serif;
+    font-size: 2.3rem;
+    color: #FEF1EC;
+    background: rgba(0, 0, 0, 0.74);
+    width: 140px;
+    height: 140px;
+    transform: scale(0);
+    opacity: 1;
+}
+
+.artist:active .overlayMob {
+    transform: scale(1);
+    transition: opacity 0.25s ease-in-out;
+    transition: transform .0s;
+    opacity: 1;
 }
 
 .artist-name {
@@ -99,7 +148,16 @@ a.btn.btn-success.btn-sm {
     margin-top: 4px;
 }
 
-/*************** HEADING **********************/
+#allArtists {
+    text-align: center;
+}
+
+#oneArtist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0 1rem 0;
+}
 
 h1 {
     font-family: 'Rokkitt', serif;
@@ -124,12 +182,14 @@ h3 {
 .navbar-brand {
     font-family: 'Rokkitt', serif;
     font-size: x-large;
+    color: #FEF1EC;
 }
 
 .iconeMenu-desktop {
     width: 30px;
     height: 30px;
     margin-right: 10px;
+    background-color: #FEF1EC;
 }
 
 .avatar {
@@ -137,15 +197,46 @@ h3 {
     width: 40px;
 }
 
+ul.nav {
+    align-items: center;
+    padding: 10PX 0PX 10PX 0PX;
+}
 
+a.navlink {
+    color: #FEF1EC;
+    text-decoration: none;
+}
+
+a.navlink:hover {
+    color: #FEF1EC;
+}
+
+nav {
+    background-color: #0A0E10;
+}
+
+.dropdown-toggle::after {
+    color: #FEF1EC;
+}
 
 /************** NAV BAR MOBILE *******************/
 
 .iconeMenu-mobile {
     width: 24px;
     height: 24px;
+    background-color: #FEF1EC;
 }
 
 main {
     margin-bottom: 70px;
+}
+
+a.nav-link-mobile {
+    color: #FEF1EC;
+    text-decoration: none;
+}
+
+/**************  *******************/
+a {
+    color: #F64747;
 }

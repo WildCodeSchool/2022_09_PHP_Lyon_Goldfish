@@ -15,11 +15,18 @@
 		<div class="row fixed-bottom mb-5">
 			<div>
 				<h3 class="baseline">Grâce à lui, vous ne passerez plus à côté des concerts de vos artistes favoris</h3>
-				<div class="d-flex justify-content-center">
-					<form action="/login">
-						<button type="submit" class="btn btn-danger btn-md mb-5 d-flex justify-content-center">Connexion</button>
-					</form>
-				</div>
+				{% if user %}
+					<h4 class="baselineWelcome">Bienvenue
+						{{ user.pseudo }}
+						😊
+					</h4>
+				{% else %}
+					<div class="d-flex justify-content-center">
+						<form action="/login">
+							<button type="submit" class="btn btn-danger btn-md mb-5 d-flex justify-content-center">Connexion</button>
+						</form>
+					</div>
+				{% endif %}
 			</div>
 		</div>
 	</main>

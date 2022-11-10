@@ -16,7 +16,7 @@
 		<body
 			class="{% block classBody %}{% endblock %}">
 			{# ------------------- Navbar Desktop ----------------------#}
-			<nav class="nav container-fluid d-flex text-bg-dark h-auto w-auto d-none d-md-block sticky-top pe-0">
+			<nav class="nav container-fluid d-flex h-auto w-auto d-none d-md-block sticky-top pe-0">
 				<div class="d-flex h5 Bootstraps heading text-white align-items-center ">
 					<a class="navbar-brand d-flex align-items-center ms-2 " href="/">
 						<img src="/assets/images/goldfish.png" class="logo" alt="goldfish"/>
@@ -24,26 +24,26 @@
 					</a>
 					<ul class="nav justify-content-around">
 						<li>
-							<a href="/" class="nav-link d-flex align-items-center text-white w-50">
-								<img class='iconeMenu-desktop d-inline-flex' src="/assets/images/logo-home-w.png"/>
+							<a href="/" class="navlink d-flex align-items-center w-50">
+								<img class='iconeMenu-desktop d-inline-flex' src="/assets/images/logo-home.png"/>
 								Accueil
 							</a>
 						</li>
 						<li>
-							<a href="/artists" class=" nav-link d-flex align-items-center text-white w-50">
-								<img class='iconeMenu-desktop d-inline-flex' src="/assets/images/logo-artist-w.png"/>
+							<a href="/artists" class=" navlink d-flex align-items-center w-50">
+								<img class='iconeMenu-desktop d-inline-flex' src="/assets/images/logo-artist.png"/>
 								Artistes
 							</a>
 						</li>
 						<li>
-							<a href="/concerts" class="nav-link d-flex align-items-center text-white w-50">
-								<img class='iconeMenu-desktop d-inline-flex' src="/assets/images/logo-concert-w.png"/>
+							<a href="/concerts" class="navlink d-flex align-items-center w-50">
+								<img class='iconeMenu-desktop d-inline-flex' src="/assets/images/logo-concert.png"/>
 								Concerts
 							</a>
 						</li>
 						<li>
-							<a href="/agenda" class="nav-link d-flex align-items-center text-white w-50">
-								<img class='iconeMenu-desktop d-inline-flex' src="/assets/images/logo-calendar-d.png"/>
+							<a href="/agenda" class="navlink d-flex align-items-center w-50">
+								<img class='iconeMenu-desktop d-inline-flex' src="/assets/images/logo-calendar.png"/>
 								Agenda
 							</a>
 						</li>
@@ -51,7 +51,7 @@
 					{% if user %}
 						<div class="avatar dropdown text-end me-2">
 							<a href="#" class="d-flex align-items-center justify-content-end link-danger text-decoration-none dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true">
-								<img src="https://github.com/mdo.png" alt="mdo" class="avatar rounded-circle pe-1"/>
+								<img src="/assets/images/users/avatar.jpg" alt="mdo" class="avatar rounded-circle pe-1"/>
 							</a>
 							<ul class="dropdown-menu text-small w-25 mt-1" data-popper-placement="bottom-start">
 								<li>
@@ -68,37 +68,37 @@
 			</nav>
 
 			{# ------------------- Navbar Mobile----------------------#}
-			<nav class="nav container-fluid d-flex justify-content-center text-bg-dark h-auto w-auto p-1 d-md-none fixed-bottom">
+			<nav class="nav container-fluid d-flex justify-content-center h-auto w-auto p-1 d-md-none fixed-bottom">
 				<div class="d-flex text-white align-items-center mt-2">
 					<ul class="nav d-flex justify-content-around {% if user %}ms-5{% endif %}">
 						<li>
-							<a href="/" class="text-white text-decoration-none">
+							<a href="/" class="nav-link-mobile">
 								<div class="d-flex justify-content-center">
-									<img class='iconeMenu-mobile d-flex' src="/assets/images/logo-home-w.png" alt="Accueil"/>
+									<img class='iconeMenu-mobile d-flex' src="/assets/images/logo-home.png" alt="Accueil"/>
 								</div>
 								Accueil
 							</a>
 						</li>
 						<li>
-							<a href="/artists" class="text-white text-decoration-none">
+							<a href="/artists" class="nav-link-mobile">
 								<div class="d-flex justify-content-center">
-									<img class='iconeMenu-mobile d-inline-flex' src="/assets/images/logo-artist-w.png" alt="Artistes"/>
+									<img class='iconeMenu-mobile d-inline-flex' src="/assets/images/logo-artist.png" alt="Artistes"/>
 								</div>
 								Artistes
 							</a>
 						</li>
 						<li>
-							<a href="/concerts" class="text-white text-decoration-none">
+							<a href="/concerts" class="nav-link-mobile">
 								<div class="d-flex justify-content-center">
-									<img class='iconeMenu-mobile d-inline-flex' src="/assets/images/logo-concert-w.png" alt="Concerts"/>
+									<img class='iconeMenu-mobile d-inline-flex' src="/assets/images/logo-concert.png" alt="Concerts"/>
 								</div>
 								Concerts
 							</a>
 						</li>
 						<li>
-							<a href="/agenda" class="text-white text-decoration-none">
+							<a href="/agenda" class="nav-link-mobile">
 								<div class="d-flex justify-content-center">
-									<img class='iconeMenu-mobile d-inline-flex' src="/assets/images/logo-calendar-d.png" alt="Agenda"/>
+									<img class='iconeMenu-mobile d-inline-flex' src="/assets/images/logo-calendar.png" alt="Agenda"/>
 								</div>
 								Agenda
 							</a>
@@ -107,7 +107,7 @@
 					{% if user %}
 						<div class="avatar dropdown text-end me-2">
 							<a href="#" class="d-flex align-items-center justify-content-end mt-1 me-1 link-danger text-decoration-none dropdown-toggle show fixed-top" data-bs-toggle="dropdown" aria-expanded="true">
-								<img src="https://github.com/mdo.png" alt="mdo" class="avatar rounded-circle pe-1"/>
+								<img src="/assets/images/users/avatar.jpg" alt="mdo" class="avatar rounded-circle pe-1"/>
 							</a>
 							<ul class=" dropdown-menu dropdown-menu-end text-small show w-25" data-popper-placement=" bottom-start">
 								{% if user %}
