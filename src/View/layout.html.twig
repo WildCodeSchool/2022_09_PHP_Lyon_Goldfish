@@ -10,14 +10,14 @@
 		</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="/assets/css/style.css"> {% block stylesheet %}{% endblock %}
+		<link rel="stylesheet" href="assets/css/style.css"> {% block stylesheet %}{% endblock %}
 		</head>
 
 		<body class="{% block classBody %}{% endblock %}">
 			<header>
 				{# ------------------- Navbar Desktop ----------------------#}
-				<nav class="nav container-fluid d-flex text-bg-dark h-auto w-auto d-none d-md-block sticky-top">
-					<div class="d-flex h5 Bootstraps heading text-white align-items-center ">
+				<nav class="nav container-fluid d-flex text-bg-dark h-auto w-auto d-none d-md-block sticky-top pe-0">
+					<div class="d-flex h6 Bootstraps heading text-white align-items-center ">
 						<a class="navbar-brand d-flex align-items-center ms-2 " href="/">
 							<img src="/assets/images/goldfish.png" class="logo" alt="goldfish"/>
 							goldfish
@@ -48,7 +48,7 @@
 								</a>
 							</li>
 						</ul>
-						<div class="avatar dropdown text-end me-4">
+						<div class="avatar dropdown text-end me-2">
 							<a href="#" class="d-flex align-items-center justify-content-end link-danger text-decoration-none dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true">
 								<img src="https://github.com/mdo.png" alt="mdo" class="avatar rounded-circle pe-1"/>
 							</a>
@@ -129,9 +129,11 @@
 							</ul>
 						</div>
 					</div>
-				</nav>
-			</header>
-			{% block content %}{% endblock %}
-			{% block javascript %}{% endblock %}
+				</div>
+			</nav>
+			<script src="./script.js"></script>
 		</body>
 	</html>
+</header>
+{% block content %}{% endblock %}
+{% block javascript %}{% endblock %}</body></html>

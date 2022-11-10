@@ -11,11 +11,17 @@
 		<div id="allArtists" class="container marketing">
 			<div class="row">
 				{% for artist in artists %}
-					<div id="oneArtist" class="col-6 col-lg-4 col-xl-3">
-						<img src="{{ artist.image }}" class="bd-placeholder-img rounded-circle shadow-lg" role="img" preserveaspectratio="xMidYMid slice" focusable="false">
+					<div id="oneArtist" class="artist position-relative col-6 col-lg-4 col-xl-3">
+						<img src="{{ artist.image }}" class="d-flex position-relative bd-placeholder-img rounded-circle shadow-lg border" role="img" preserveaspectratio="xMidYMid slice" focusable="false" class="info">
 							<rect fill="#777"></rect>
 						</img>
-						<p class="artist-name">{{ artist.name }}</p>
+						<div class="overlay d-none d-md-flex d-flex position-absolute align-items-center justify-content-center rounded-circle shadow-lg border border-2 border-danger">
+							<span class="d-flex align-items-center justify-content-center">{{artist.style}}</span>
+						</div>
+						<button class="overlayMob d-sm-flex d-flex position-absolute justify-content-center align-items-center rounded-circle shadow-lg border-2 border-primary">
+							<span class="d-flex align-items-center justify-content-center">{{artist.style}}</span>
+						</button>
+						<p class="artist-name d-flex align-items-center justify-content-center">{{ artist.name }}</p>
 						<form action="/artists/delete" method="POST">
 							<a href="/artists/show?id={{ artist.id }}" class="btn btn-primary btn-sm">Voir</a>
 							<a href="/artists/edit?id={{ artist.id }}" class="btn btn-primary btn-sm">Modifier</a>
@@ -28,5 +34,8 @@
 				{% endfor %}
 			</div>
 		</div>
-	</main>
-{% endblock %}
+	</div>
+	<script>
+		document.getElementById("open").addEventListener("click", function () {}, false);
+	</script>
+</div></main>{% endblock %}
