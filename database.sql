@@ -96,5 +96,24 @@ values ('2022-12-24', '21:00:00', 3, 1),
      ('2022-12-22', '21:00:00', 7, 4),
      ('2022-03-24', '21:30:00', 9, 7);
 
+--
+-- Structure de la table `user`
+--
+
+CREATE TABLE user (
+  id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  email varchar(100) DEFAULT NULL,
+  password varchar(255) DEFAULT NULL,
+  pseudo varchar(45) DEFAULT NULL,
+  is_admin BOOL NOT NULL, 
+  UNIQUE KEY email_UNIQUE (email)
+);
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` VALUES (1,'toto@mail.fr','$2y$10$FjaLGXBcJBrSRJAA/7GA7.69fq/g2jDbpuiZWDJcMKZulhL2WPz2i','Toto', false),
+(2,'superman@mail.fr','$2y$10$SjAEemkn.MKSsLqypYltHOm4vMPSfZTZVbFkxT5bZ1duXIQTiHoca','Superman', true);
+
 
 

@@ -5,8 +5,15 @@
 		<div class="row">
 			<h2>Tous les artistes</h2>
 		</div>
-		<a href="/artists/add" class="btn btn-primary btn-sm">Ajouter</a>
-		<a href="/artists/search" class="btn btn-success btn-sm">Rechercher</a>
+
+		{% if user.is_admin == true %}
+			<a href="/artists/add" class="btn btn-primary btn-sm">Ajouter</a>
+		{% endif %}
+
+		{% if user and user.is_admin == false %}
+			<a href="/artists/search" class="btn btn-success btn-sm">Rechercher</a>
+			<a href="/artists/favorites" class="btn btn-success btn-sm">Mes Favoris</a>
+		{% endif %}
 
 		<div id="allArtists" class="container marketing">
 			<div class="row">
@@ -16,12 +23,14 @@
 							<rect fill="#777"></rect>
 						</img>
 						<p class="artist-name">{{ artist.name_artist }}</p>
-						<form action="/artists/delete" method="POST">
-							<a href="/artists/show?id={{ artist.id }}" class="btn btn-primary btn-sm">Voir</a>
-							<a href="/artists/edit?id={{ artist.id }}" class="btn btn-primary btn-sm">Modifier</a>
-							<input type="hidden" name="id" value="{{ artist.id }}">
-							<button class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr(e) de vouloir supprimer l'artiste ?');">Supprimer</button>
-						</form>
+						{% if user.is_admin == true %}
+							<form action="/artists/delete" method="POST">
+								<a href="/artists/show?id={{ artist.id }}" class="btn btn-primary btn-sm">Voir</a>
+								<a href="/artists/edit?id={{ artist.id }}" class="btn btn-primary btn-sm">Modifier</a>
+								<input type="hidden" name="id" value="{{ artist.id }}">
+								<button class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr(e) de vouloir supprimer l'artiste ?');">Supprimer</button>
+							</form>
+						{% endif %}
 					</div>
 				{% else %}
 					<li>Aucun artiste à afficher</li>
