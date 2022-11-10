@@ -8,10 +8,16 @@
 		<div id="allArtists" class="container marketing">
 			<div class="row">
 				<div class="col-lg-3">
-					<img src="{{ artist.image }}" class="bd-placeholder-img rounded-circle shadow-lg" role="img" preserveaspectratio="xMidYMid slice" focusable="false">
+					<img src="{{ artist.image_artist }}" class="bd-placeholder-img rounded-circle shadow-lg" role="img" preserveaspectratio="xMidYMid slice" focusable="false">
 						<rect fill="#777"></rect>
 					</img>
+<<<<<<< HEAD
 					<p class="artist-name">{{ artist.name }}</p>
+=======
+
+					<p class="artist-name">{{ artist.name_artist }}</p>
+					<p class="artist-name">{{ artist.style }}</p>
+>>>>>>> dev
 					<form action="/artists/delete" method="POST">
 						<a href="/artists/edit?id={{ artist.id }}" class="btn btn-primary btn-sm">Modifier</a>
 						<input type="hidden" name="id" value="{{ artist.id }}">

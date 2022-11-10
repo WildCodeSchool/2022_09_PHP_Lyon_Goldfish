@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\ArtistManager;
+use PDOException;
 
 class ArtistController extends AbstractController
 {
@@ -35,32 +36,23 @@ class ArtistController extends AbstractController
     {
         $artistManager = new ArtistManager();
         $artist = $artistManager->selectOneById($id);
+        $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $artist = array_map('trim', $_POST);
-            $errors = [];
+            $artistManager->artistFieldEmpty($artist);
 
-            if (!isset($artist['name']) || empty($artist['name'])) {
-                $errors[] = "Le nom doit figurer";
-            }
-
-            if (!isset($artist['style']) || empty($artist['style'])) {
-                $errors[] = "Le style doit figurer";
-            }
-
-            if (!isset($artist['image']) || empty($artist['image'])) {
-                $errors[] = "L'image doit être renseignée";
-            }
-
-            if (count($errors) === 0) {
+            $errors = $artistManager->getCheckErrors();
+            if (empty($errors)) {
+                $artistManager = new ArtistManager();
                 $artistManager->update($artist);
 
                 header('Location: /artists/show?id=' . $id);
             }
         }
         return $this->twig->render('Artist/edit.html.twig', [
-            'artist' => $artist,
+            'artist' => $artist, 'errors' => $errors
         ]);
     }
 
@@ -69,25 +61,37 @@ class ArtistController extends AbstractController
      */
     public function add(): ?string
     {
+        $messageError = null;
+
         $artistManager = new ArtistManager();
         $errors = [];
 
+        try {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // clean $_POST data
+                $artist = array_map('trim', $_POST);
+                $artistManager->artistFieldEmpty($artist);
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // clean $_POST data
-            $artist = array_map('trim', $_POST);
-            $artistManager->artistFieldEmpty($artist);
+                $errors = $artistManager->getCheckErrors();
+                if (empty($errors)) {
+                    $artistManager = new ArtistManager();
+                    $id = $artistManager->insert($artist);
 
-            $errors = $artistManager->getCheckErrors();
-            if (empty($artistManager->getCheckErrors())) {
-                $artistManager = new ArtistManager();
-                $id = $artistManager->insert($artist);
-
-                header('Location: /artists/show?id=' . $id);
+                    header('Location: /artists/show?id=' . $id);
+                    return $this->twig->render('Artist/add.html.twig', array('errors' => $errors));
+                }
+            }
+        } catch (PDOException $e) {
+            if ($e->getCode() == 23000) {
+                $messageError = "Impossible d'ajouter un artiste qui existe déjà";
+            } else {
+                $messageError = $e->getMessage();
             }
         }
-        return $this->twig->render('Artist/add.html.twig', array('errors' => $errors));
+        return $this->twig->render('Artist/add.html.twig', ['messageError' => $messageError,]);
     }
+
+
 
     /**
      * Delete a specific item

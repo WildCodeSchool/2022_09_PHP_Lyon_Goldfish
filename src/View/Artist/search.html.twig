@@ -12,10 +12,10 @@
 			<div class="row">
 				{% for artist in artists %}
 					<div class="col-6 col-lg-4 col-xl-3 text-align-center">
-						<img src="{{ artist.image }}" class="bd-placeholder-img rounded-circle shadow-lg" role="img" preserveaspectratio="xMidYMid slice" focusable="false">
+						<img src="{{ artist.image_artist }}" class="bd-placeholder-img rounded-circle shadow-lg" role="img" preserveaspectratio="xMidYMid slice" focusable="false">
 					</img>
 
-					<p class="artist-name">{{ artist.name }}</p>
+					<p class="artist-name">{{ artist.name_artist }}</p>
 
 				</div>
 			{% endfor %}
