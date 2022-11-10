@@ -4,7 +4,7 @@
 	<main class="container">
 		<div class="row">
 			<h2>Tous les artistes
-								({{ artists|length }})</h2>
+																({{ artists|length }})</h2>
 		</div>
 
 		{% if user.is_admin == true %}
@@ -20,7 +20,7 @@
 			<div class="row">
 				{% for artist in artists %}
 					<div id="oneArtist" class="artist position-relative col-6 col-lg-4 col-xl-3">
-						<img src="{{ artist.image }}" class="d-flex position-relative bd-placeholder-img rounded-circle shadow-lg border" role="img" preserveaspectratio="xMidYMid slice" focusable="false">
+						<img src="{{ artist.image_artist }}" class="d-flex position-relative bd-placeholder-img rounded-circle shadow-lg border" role="img" preserveaspectratio="xMidYMid slice" focusable="false">
 							<rect fill="#777"></rect>
 						</img>
 						<div class="overlay d-none d-md-flex d-flex position-absolute align-items-center justify-content-center rounded-circle shadow-lg border border-2 border-danger">
@@ -29,7 +29,7 @@
 						<button class="overlayMob d-sm-flex d-flex position-absolute justify-content-center align-items-center rounded-circle shadow-lg border-2 border-danger">
 							<span class="d-flex align-items-center justify-content-center">{{artist.style}}</span>
 						</button>
-						<p class="artist-name d-flex align-items-center justify-content-center">{{ artist.name }}</p>
+						<p class="artist-name d-flex align-items-center justify-content-center">{{ artist.name_artist }}</p>
 						<form action="/artists/delete" method="POST">
 							<a href="/artists/show?id={{ artist.id }}" class="btn btn-primary btn-sm">Voir</a>
 							<a href="/artists/edit?id={{ artist.id }}" class="btn btn-primary btn-sm">Modifier</a>
