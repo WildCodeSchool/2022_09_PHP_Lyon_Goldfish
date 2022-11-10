@@ -89,13 +89,53 @@ ul {
     object-fit: cover;
 }
 
-#allArtists {
-    text-align: center;
+/*********Animation Desktop********/
+span {
+    width: 144px;
+    height: 44px;
 }
 
-#oneArtist {
-    margin: 1rem 0 1rem 0;
-    justify-content: center;
+p {
+    width: 144px;
+    height: 44px;
+}
+
+.artist .overlay {
+    top: 0px;
+    font-family: 'Rokkitt', serif;
+    font-size: 2.3rem;
+    color: #FEF1EC;
+    background: rgba(0, 0, 0, 0.74);
+    width: 140px;
+    height: 140px;
+    transform: scale(0);
+    opacity: 1;
+}
+
+.artist:hover .overlay {
+    transform: scale(1);
+    transition: opacity 0.25s ease-in-out;
+    transition: transform .5s;
+    opacity: 1;
+}
+
+.artist .overlayMob {
+    top: 0px;
+    font-family: 'Rokkitt', serif;
+    font-size: 2.3rem;
+    color: #FEF1EC;
+    background: rgba(0, 0, 0, 0.74);
+    width: 140px;
+    height: 140px;
+    transform: scale(0);
+    opacity: 1;
+}
+
+.artist:active .overlayMob {
+    transform: scale(1);
+    transition: opacity 0.25s ease-in-out;
+    transition: transform .0s;
+    opacity: 1;
 }
 
 .artist-name {
@@ -108,7 +148,16 @@ a.btn.btn-success.btn-sm {
     margin-top: 4px;
 }
 
-/*************** HEADING **********************/
+#allArtists {
+    text-align: center;
+}
+
+#oneArtist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0 1rem 0;
+}
 
 h1 {
     font-family: 'Rokkitt', serif;
