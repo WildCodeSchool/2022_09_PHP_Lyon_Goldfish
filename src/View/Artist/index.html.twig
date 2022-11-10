@@ -4,7 +4,7 @@
 	<main class="container">
 		<div class="row">
 			<h2>Tous les artistes
-																({{ artists|length }})</h2>
+																																																												({{ artists|length }})</h2>
 		</div>
 
 		{% if user.is_admin == true %}
@@ -30,12 +30,14 @@
 							<span class="d-flex align-items-center justify-content-center">{{artist.style}}</span>
 						</button>
 						<p class="artist-name d-flex align-items-center justify-content-center">{{ artist.name_artist }}</p>
-						<form action="/artists/delete" method="POST">
-							<a href="/artists/show?id={{ artist.id }}" class="btn btn-primary btn-sm">Voir</a>
-							<a href="/artists/edit?id={{ artist.id }}" class="btn btn-primary btn-sm">Modifier</a>
-							<input type="hidden" name="id" value="{{ artist.id }}">
-							<button class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr(e) de vouloir supprimer l'artiste ?');">Supprimer</button>
-						</form>
+						{% if user and user.is_admin == true %}
+							<form action="/artists/delete" method="POST">
+								<a href="/artists/show?id={{ artist.id }}" class="btn btn-primary btn-sm">Voir</a>
+								<a href="/artists/edit?id={{ artist.id }}" class="btn btn-primary btn-sm">Modifier</a>
+								<input type="hidden" name="id" value="{{ artist.id }}">
+								<button class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr(e) de vouloir supprimer l'artiste ?');">Supprimer</button>
+							</form>
+						{% endif %}
 					</div>
 				{% else %}
 					<li>Aucun artiste à afficher</li>
