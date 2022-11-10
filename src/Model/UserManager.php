@@ -18,11 +18,10 @@ class UserManager extends AbstractManager
     {
         $statement = $this->pdo->prepare("INSERT INTO " . static::TABLE .
             " (`email`, `password`, `pseudo`, `is_admin`)
-        VALUES (:email, :password, :pseudo, :is_admin)");
+        VALUES (:email, :password, :pseudo, false)");
         $statement->bindValue(':email', $credentials['email']);
         $statement->bindValue(':password', password_hash($credentials['password'], PASSWORD_DEFAULT));
         $statement->bindValue(':pseudo', $credentials['pseudo']);
-        $statement->bindValue(':is_admin', $credentials['is_admin']);
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
     }
