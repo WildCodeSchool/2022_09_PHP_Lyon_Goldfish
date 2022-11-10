@@ -5,8 +5,15 @@
 		<div class="row">
 			<h2>Tous les artistes</h2>
 		</div>
-		<a href="/artists/add" class="btn btn-primary btn-sm">Ajouter</a>
-		<a href="/artists/search" class="btn btn-success btn-sm">Rechercher</a>
+
+		{% if user.is_admin == true %}
+			<a href="/artists/add" class="btn btn-primary btn-sm">Ajouter</a>
+		{% endif %}
+
+		{% if user and user.is_admin == false %}
+			<a href="/artists/search" class="btn btn-success btn-sm">Rechercher</a>
+			<a href="/artists/favorites" class="btn btn-success btn-sm">Mes Favoris</a>
+		{% endif %}
 
 		<div id="allArtists" class="container marketing">
 			<div class="row">

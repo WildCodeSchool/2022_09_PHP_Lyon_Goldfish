@@ -9,6 +9,10 @@
 return [
     '' => ['HomeController', 'index',],
 
+    'login' => ['UserController', 'login',],
+    'logout' => ['UserController', 'logout',],
+    'register' => ['UserController', 'register',],
+
     'concerts' => ['ConcertController', 'index',],
     'concerts/edit' => ['ConcertController', 'edit', ['id']],
     'concerts/show' => ['ConcertController', 'show', ['id']],
@@ -21,6 +25,7 @@ return [
     'artists/add' => ['ArtistController', 'add',],
     'artists/delete' => ['ArtistController', 'delete',],
     'artists/search' => ['ArtistController', 'search',],
+    'artists/favorite' => ['ArtistController', 'favorite',],
 
     'venues' => ['VenueController', 'index',],
     'venues/edit' => ['VenueController', 'edit', ['id']],

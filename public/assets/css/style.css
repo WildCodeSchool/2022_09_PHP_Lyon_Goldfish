@@ -4,6 +4,7 @@ body {
     background-color: #FEF1EC;
     font-family: 'Inter', sans-serif;
     color: black;
+    user-select: none;
     height: 100vh;
 }
 
