@@ -1,3 +1,10 @@
+{% if user.is_admin == true %}
+	{% set navigation_bar = [['/', 'Accueil'], ['/artists', 'Artistes'], ['/concerts', 'Concerts'], ['/venues', 'Lieux']] %}
+{% else %}
+	{% set navigation_bar = [['/', 'Accueil'], ['/artists', 'Artistes'], ['/concerts', 'Concerts'], ['/agenda', 'Agenda']] %}
+{% endif %}
+{% set active_page = active_page|default('/') %}
+
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -23,30 +30,14 @@
 						goldfish
 					</a>
 					<ul class="nav justify-content-around">
-						<li>
-							<a href="/" class="navlink d-flex align-items-center w-50">
-								<img class='iconeMenu-desktop d-inline-flex' src="/assets/images/logo-home.png"/>
-								Accueil
-							</a>
-						</li>
-						<li>
-							<a href="/artists" class=" navlink d-flex align-items-center w-50">
-								<img class='iconeMenu-desktop d-inline-flex' src="/assets/images/logo-artist.png"/>
-								Artistes
-							</a>
-						</li>
-						<li>
-							<a href="/concerts" class="navlink d-flex align-items-center w-50">
-								<img class='iconeMenu-desktop d-inline-flex' src="/assets/images/logo-concert.png"/>
-								Concerts
-							</a>
-						</li>
-						<li>
-							<a href="/agenda" class="navlink d-flex align-items-center w-50">
-								<img class='iconeMenu-desktop d-inline-flex' src="/assets/images/logo-calendar.png"/>
-								Agenda
-							</a>
-						</li>
+						{% for item in navigation_bar %}
+							<li>
+								<a href="{{item[0]}}" class="{% if item[0] == active_page %}active{% endif%} navlink d-flex align-items-center w-50">
+									<img class="{% if item[0] == active_page %}active{% endif%} iconeMenu-desktop d-inline-flex" src="/assets/images/logo-{{item[1]}}.png"/>
+									{{item[1]}}
+								</a>
+							</li>
+						{% endfor %}
 					</ul>
 					{% if user %}
 						<div class="avatar dropdown text-end me-2">
@@ -71,38 +62,16 @@
 			<nav class="nav container-fluid d-flex justify-content-center h-auto w-auto p-1 d-md-none fixed-bottom">
 				<div class="d-flex text-white align-items-center mt-2">
 					<ul class="nav d-flex justify-content-around {% if user %}ms-5{% endif %}">
-						<li>
-							<a href="/" class="nav-link-mobile">
-								<div class="d-flex justify-content-center">
-									<img class='iconeMenu-mobile d-flex' src="/assets/images/logo-home.png" alt="Accueil"/>
-								</div>
-								Accueil
-							</a>
-						</li>
-						<li>
-							<a href="/artists" class="nav-link-mobile">
-								<div class="d-flex justify-content-center">
-									<img class='iconeMenu-mobile d-inline-flex' src="/assets/images/logo-artist.png" alt="Artistes"/>
-								</div>
-								Artistes
-							</a>
-						</li>
-						<li>
-							<a href="/concerts" class="nav-link-mobile">
-								<div class="d-flex justify-content-center">
-									<img class='iconeMenu-mobile d-inline-flex' src="/assets/images/logo-concert.png" alt="Concerts"/>
-								</div>
-								Concerts
-							</a>
-						</li>
-						<li>
-							<a href="/agenda" class="nav-link-mobile">
-								<div class="d-flex justify-content-center">
-									<img class='iconeMenu-mobile d-inline-flex' src="/assets/images/logo-calendar.png" alt="Agenda"/>
-								</div>
-								Agenda
-							</a>
-						</li>
+						{% for item in navigation_bar %}
+							<li>
+								<a href="{{item[0]}}" class="{% if item[0] == active_page %}active{% endif%} nav-link-mobile">
+									<div class="d-flex justify-content-center">
+										<img class="{% if item[0] == active_page %}active{% endif%} iconeMenu-mobile d-inline-flex" src="/assets/images/logo-{{item[1]}}.png"/>
+									</div>
+									{{item[1]}}
+								</a>
+							</li>
+						{% endfor %}
 					</ul>
 					{% if user %}
 						<div class="avatar dropdown text-end me-2">
@@ -136,8 +105,8 @@
 					{% endif %}
 				</div>
 			</nav>
+
 			{% block content %}{% endblock %}
 			{% block javascript %}{% endblock %}
 		</body>
 	</html>
-</body></html>

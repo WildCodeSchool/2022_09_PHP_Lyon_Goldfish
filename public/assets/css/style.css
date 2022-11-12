@@ -32,7 +32,7 @@ body {
 }
 
 .logoimg {
-    width: 150px;
+    width: 200px;
 }
 
 .baseline {
@@ -91,11 +91,6 @@ ul {
 
 /*********Animation Desktop********/
 span {
-    width: 144px;
-    height: 44px;
-}
-
-p {
     width: 144px;
     height: 44px;
 }
@@ -236,7 +231,19 @@ a.nav-link-mobile {
     text-decoration: none;
 }
 
-/**************  *******************/
+/************** NAV BAR ACTIVE *******************/
+
+a.active.navlink,
+a.active.nav-link-mobile {
+    color: #F64747;
+}
+
+img.active.iconeMenu-desktop,
+img.active.iconeMenu-mobile {
+    background-color: #F64747;
+}
+
+/************** LINK *******************/
 a {
     color: #F64747;
 }
