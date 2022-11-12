@@ -5,8 +5,9 @@
 		<div class="row">
 			<h2>Tous les concerts ({{ concerts|length }})</h2>
 		</div>
-		<a href="/concerts/add" class="btn btn-primary btn-sm">Ajouter</a>
-
+		{% if user.is_admin == true %}
+			<a href="/concerts/add" class="btn btn-primary btn-sm">Ajouter</a>
+		{% endif %}
 		<div class="row">
 			{% for concert in concerts %}
 				<div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center">
@@ -20,13 +21,14 @@
 							<h4 class="card-title">{{ concert.name_artist }}</h4>
 							<h5 class="card-text lead">{{ concert.name_venue }}</h5>
 							<h5 class="card-text lead">{{ concert.city }}</h5>
-
-							<form action="/concerts/delete" method="POST">
-								<a href="/concerts/show?id={{ concert.id }}" class="btn btn-primary btn-sm">Voir</a>
-								<a href="/concerts/edit?id={{ concert.id }}" class="btn btn-primary btn-sm">Modifier</a>
-								<input type="hidden" name="id" value="{{ concert.id }}">
-								<button class="btn btn-danger btn-sm" onclick="Êtes-vous sûr(e) de vouloir supprimer le concert ?');">Supprimer</button>
-							</form>
+							{% if user and user.is_admin == true %}
+								<form action="/concerts/delete" method="POST">
+									<a href="/concerts/show?id={{ concert.id }}" class="btn btn-primary btn-sm">Voir</a>
+									<a href="/concerts/edit?id={{ concert.id }}" class="btn btn-primary btn-sm">Modifier</a>
+									<input type="hidden" name="id" value="{{ concert.id }}">
+									<button class="btn btn-danger btn-sm" onclick="Êtes-vous sûr(e) de vouloir supprimer le concert ?');">Supprimer</button>
+								</form>
+							{% endif %}
 						</div>
 					</div>
 				</div>
