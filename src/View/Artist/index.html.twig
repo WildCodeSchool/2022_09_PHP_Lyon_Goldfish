@@ -1,10 +1,11 @@
 {% extends 'layout.html.twig' %}
+{% set active_page = "/artists" %}
 
 {% block content %}
 	<main class="container">
 		<div class="row">
 			<h2>Tous les artistes
-																																																												({{ artists|length }})</h2>
+																																																																({{ artists|length }})</h2>
 		</div>
 
 		{% if user.is_admin == true %}
