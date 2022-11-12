@@ -20,7 +20,8 @@ class VenueManager extends AbstractManager
      */
     public function insert(array $venue): int
     {
-        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`name_venue`, `address`, `city`, `image_venue`) 
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " 
+        (`name_venue`, `address`, `city`, `image_venue`) 
         VALUES (:name_venue, :address, :city, :image_venue)");
         $statement->bindValue(':name_venue', $venue['name_venue'], PDO::PARAM_STR);
         $statement->bindValue(':address', $venue['address'], PDO::PARAM_STR);
