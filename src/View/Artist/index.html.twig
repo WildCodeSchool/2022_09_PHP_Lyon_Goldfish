@@ -4,8 +4,7 @@
 {% block content %}
 	<main class="container">
 		<div class="row">
-			<h2>Tous les artistes
-																																																																({{ artists|length }})</h2>
+			<h2>Tous les artistes ({{ artists|length }})</h2>
 		</div>
 
 		{% if user.is_admin == true %}

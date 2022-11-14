@@ -20,9 +20,11 @@ class VenueManager extends AbstractManager
      */
     public function insert(array $venue): int
     {
-        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`name_venue`, `city`, `image_venue`) 
-        VALUES (:name_venue, :city, :image_venue)");
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " 
+        (`name_venue`, `address`, `city`, `image_venue`) 
+        VALUES (:name_venue, :address, :city, :image_venue)");
         $statement->bindValue(':name_venue', $venue['name_venue'], PDO::PARAM_STR);
+        $statement->bindValue(':address', $venue['address'], PDO::PARAM_STR);
         $statement->bindValue(':city', $venue['city'], PDO::PARAM_STR);
         $statement->bindValue(':image_venue', $venue['image_venue'], PDO::PARAM_STR);
         $statement->execute();
@@ -35,9 +37,10 @@ class VenueManager extends AbstractManager
     public function update(array $venue): bool
     {
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET name_venue=:name_venue, 
-        city=:city, image_venue=:image_venue WHERE id=:id");
+        address=:address, city=:city, image_venue=:image_venue WHERE id=:id");
         $statement->bindValue(':id', $venue['id'], PDO::PARAM_INT);
         $statement->bindValue(':name_venue', $venue['name_venue'], PDO::PARAM_STR);
+        $statement->bindValue(':address', $venue['address'], PDO::PARAM_INT);
         $statement->bindValue(':city', $venue['city'], PDO::PARAM_STR);
         $statement->bindValue(':image_venue', $venue['image_venue'], PDO::PARAM_STR);
         return $statement->execute();

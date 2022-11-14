@@ -45,6 +45,7 @@ INSERT INTO artist (name_artist, style, image_artist)
 create table venue (
      id int not null primary key auto_increment,
      name_venue varchar(150) not null,
+     address varchar(150) not null,
      city varchar(100) not null,
      image_venue varchar(255) not null
      );
@@ -53,14 +54,14 @@ create table venue (
 -- Contenu de la table `venue`
 --
 
-insert into venue (name_venue, city, image_venue)
-values ('Transbordeur', 'Lyon', '/assets/images/venues/transbordeur.jpeg'),
-     ('Radiant', 'Lyon', '/assets/images/venues/radiant.jpeg'),
-     ('Halle Tony Garnier', 'Lyon', '/assets/images/venues/halle-tony-garnier.jpeg'),
-     ('Zénith de Paris', 'Paris', '/assets/images/venues/zenith-paris.jpeg'),
-     ('Boule noire', 'Paris', '/assets/images/venues/la-boule-noire.jpeg'),
-     ('Olympia', 'Paris', '/assets/images/venues/Olympia.jpeg'),
-     ('Zénith de Strasbourg', 'Strasbourg', '/assets/images/venues/zenith-strasbourg.jpeg');
+insert into venue (name_venue, address, city, image_venue)
+values ('Transbordeur', '3 Bd de Stalingrad', 'Villeurbanne', '/assets/images/venues/transbordeur.jpeg'),
+     ('Radiant', '1 Rue Jean Moulin', 'Caluire-et-Cuire', '/assets/images/venues/radiant.jpeg'),
+     ('Halle Tony Garnier', '20 Pl. Docteurs Charles et Christophe Mérieux', 'Lyon', '/assets/images/venues/halle-tony-garnier.jpeg'),
+     ('Zénith de Paris', '211 Av. Jean Jaurès', 'Paris', '/assets/images/venues/zenith-paris.jpeg'),
+     ('Boule noire', '120 Blvd Marguerite de Rochechouart', 'Paris', '/assets/images/venues/la-boule-noire.jpeg'),
+     ('Olympia', '28 Bd des Capucines', 'Paris', '/assets/images/venues/Olympia.jpeg'),
+     ('Zénith de Strasbourg', '1 All. du Zénith', 'Eckbolsheim', '/assets/images/venues/zenith-strasbourg.jpeg');
 
 --
 -- Structure de la table `concert`
