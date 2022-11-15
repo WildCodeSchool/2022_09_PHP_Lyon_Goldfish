@@ -1,4 +1,5 @@
 {% extends 'layout.html.twig' %}
+{% set active_page = "/venues" %}
 
 {% block content %}
 	<main class="container">
@@ -11,6 +12,7 @@
 					<img src="{{ venue.image_venue }}" class="card-img-top" alt="image artiste">
 					<div class="card-body">
 						<h5 class="card-text lead">{{ venue.name_venue }}</h5>
+						<h5 class="card-text lead">{{ venue.address }}</h5>
 						<h5 class="card-text lead">{{ venue.city }}</h5>
 						<form action="/venues/delete" method="POST">
 							<a href="/venues/edit?id={{ venue.id }}" class="btn btn-primary btn-sm">Modifier</a>
