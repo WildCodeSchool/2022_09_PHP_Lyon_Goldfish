@@ -18,6 +18,8 @@ return [
     'concerts/show' => ['ConcertController', 'show', ['id']],
     'concerts/add' => ['ConcertController', 'add',],
     'concerts/delete' => ['ConcertController', 'delete',],
+    'concerts/favorites' => ['FavoriteController', 'favoritesConcerts',],
+    'concerts/deleteFavorite' => ['FavoriteController', 'deleteFavorite',],
 
     'artists' => ['ArtistController', 'index',],
     'artists/edit' => ['ArtistController', 'edit', ['id']],

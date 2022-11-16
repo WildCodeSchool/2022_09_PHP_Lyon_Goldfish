@@ -15,9 +15,17 @@ class FavoriteController extends AbstractController
         return $this->twig->render('Artist/favorites.html.twig', ['favorites' => $favorites]);
     }
 
+    public function favoritesConcerts(): string
+    {
+        $concertManager = new FavoriteManager();
+        $favorites = $concertManager->selectFavoritesConcerts();
+
+        return $this->twig->render('Artist/favorites.html.twig', ['favorites' => $favorites]);
+    }
+
     public function agenda(): string
     {
-        $favoritesManager = new ConcertManager();
+        $favoritesManager = new FavoriteManager();
         $favorites = $favoritesManager->selectFavoritesConcerts();
 
         return $this->twig->render('Agenda/index.html.twig', ['favorites' => $favorites]);
