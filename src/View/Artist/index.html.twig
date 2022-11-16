@@ -31,10 +31,11 @@
 						</button>
 						<p class="artist-name d-flex align-items-center justify-content-center">{{ artist.name_artist }}</p>
 						<form method="POST">
-							<input name="user_id" id="user_id" value="{{ user.id }}">
-							<input name="favorite_artist_id" id="favorite_artist_id" value="{{ artist.id }}">
+							<input type="hidden" name="user_id" id="user_id" value="{{ user.id }}">
+							<input type="hidden" name="favorite_artist_id" id="favorite_artist_id" value="{{ artist.id }}">
 							<button>Favori</button>
 						</form>
+
 						{% if user and user.is_admin == true %}
 							<form action="/artists/delete" method="POST">
 								<a href="/artists/show?id={{ artist.id }}" class="btn btn-primary btn-sm">Voir</a>

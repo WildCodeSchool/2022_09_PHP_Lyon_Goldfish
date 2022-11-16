@@ -2,22 +2,15 @@
 
 namespace App\Controller;
 
-use App\Model\ArtistManager;
-use App\Model\ConcertManager;
 use App\Model\FavoriteManager;
+use App\Model\ConcertManager;
 
 class FavoriteController extends AbstractController
 {
     public function favoritesArtists(): string
     {
-        $artistManager = new ArtistManager();
+        $artistManager = new FavoriteManager();
         $favorites = $artistManager->selectFavoritesArtists();
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $favoriteArtist = array_map('trim', $_POST);
-            $favoriteManager = new FavoriteManager();
-            $favoriteManager->insert($favoriteArtist);
-        }
 
         return $this->twig->render('Artist/favorites.html.twig', ['favorites' => $favorites]);
     }

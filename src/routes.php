@@ -26,6 +26,7 @@ return [
     'artists/delete' => ['ArtistController', 'delete',],
     'artists/search' => ['ArtistController', 'search',],
     'artists/favorites' => ['FavoriteController', 'favoritesArtists',],
+    'artists/deleteFavorite' => ['FavoriteController', 'deleteFavorite',],
 
     'venues' => ['VenueController', 'index',],
     'venues/edit' => ['VenueController', 'edit', ['id']],

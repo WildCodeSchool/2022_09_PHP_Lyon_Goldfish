@@ -52,17 +52,6 @@ class ArtistManager extends AbstractManager
         return $randomArtists;
     }
 
-    public function selectFavoritesArtists(): array
-    {
-        $query = "SELECT a.name_artist, a.style, a.image_artist
-        FROM " . static::TABLE . " a INNER JOIN favorite_artist f ON a.id=f.favorite_artist_id
-        INNER JOIN user u ON u.id=f.user_id WHERE u.id = " . $_SESSION['user_id'];
-        $statement = $this->pdo->query($query);
-        $allFavoritesArtists = $statement->fetchAll();
-
-        return $allFavoritesArtists;
-    }
-
     public function artistFieldEmpty(array $artist): void
     {
         if (!isset($artist['name_artist']) || empty($artist['name_artist'])) {

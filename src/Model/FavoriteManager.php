@@ -6,6 +6,17 @@ use PDO;
 
 class FavoriteManager extends AbstractManager
 {
+    public function selectFavoritesArtists(): array
+    {
+        $query = "SELECT a.name_artist, a.style, a.image_artist
+        FROM artist a INNER JOIN favorite_artist f ON a.id=f.favorite_artist_id
+        INNER JOIN user u ON u.id=f.user_id WHERE u.id = " . $_SESSION['user_id'];
+        $statement = $this->pdo->query($query);
+        $allFavoritesArtists = $statement->fetchAll();
+
+        return $allFavoritesArtists;
+    }
+
     public function insert(array $favoriteArtist): int
     {
         $statement = $this->pdo->prepare("INSERT INTO favorite_artist (`user_id`, `favorite_artist_id`) 
@@ -14,5 +25,13 @@ class FavoriteManager extends AbstractManager
         $statement->bindValue(':favorite_artist_id', $favoriteArtist['favorite_artist_id'], PDO::PARAM_INT);
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
+    }
+
+    public function delete(int $id): void
+    {
+        $statement = $this->pdo->prepare("DELETE FROM favorite_artist 
+        WHERE favorite_artist_id= AND user_id=" . $_SESSION['user_id']);
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
     }
 }
