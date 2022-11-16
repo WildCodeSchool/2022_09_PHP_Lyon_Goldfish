@@ -247,3 +247,8 @@ img.active.iconeMenu-mobile {
 a {
     color: #F64747;
 }
+
+/************** LOGIN FORM *******************/
+.loginform {
+    background-color: rgba(12, 4, 4);
+}
