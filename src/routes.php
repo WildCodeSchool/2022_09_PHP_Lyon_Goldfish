@@ -25,12 +25,14 @@ return [
     'artists/add' => ['ArtistController', 'add',],
     'artists/delete' => ['ArtistController', 'delete',],
     'artists/search' => ['ArtistController', 'search',],
-    'artists/favorite' => ['ArtistController', 'favorite',],
+    'artists/favorites' => ['FavoriteController', 'favoritesArtists',],
 
     'venues' => ['VenueController', 'index',],
     'venues/edit' => ['VenueController', 'edit', ['id']],
     'venues/show' => ['VenueController', 'show', ['id']],
     'venues/add' => ['VenueController', 'add',],
     'venues/delete' => ['VenueController', 'delete',],
+
+    'agenda' => ['FavoriteController', 'agenda',],
 
 ];

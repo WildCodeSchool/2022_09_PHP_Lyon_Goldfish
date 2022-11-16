@@ -113,8 +113,37 @@ CREATE TABLE user (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` VALUES (1,'toto@mail.fr','$2y$10$FjaLGXBcJBrSRJAA/7GA7.69fq/g2jDbpuiZWDJcMKZulhL2WPz2i','Toto', false),
+INSERT INTO user VALUES (1,'toto@mail.fr','$2y$10$FjaLGXBcJBrSRJAA/7GA7.69fq/g2jDbpuiZWDJcMKZulhL2WPz2i','Toto', false),
 (2,'superman@mail.fr','$2y$10$SjAEemkn.MKSsLqypYltHOm4vMPSfZTZVbFkxT5bZ1duXIQTiHoca','Superman', true);
+
+
+create table user_artist_favorite (
+id int not null primary key auto_increment,
+user_artist_id int not null,
+constraint fk_user_artist
+foreign key (user_artist_id)
+references user(id),
+artist_id int not null,
+constraint fk_favorite_artist
+foreign key (artist_id)
+references artist(id)
+);
+
+INSERT INTO user_artist_favorite VALUES (1, 1, 4);
+
+
+
+create table user_concert_favorite (
+id int not null primary key auto_increment,
+user_concert_id int not null,
+constraint fk_user_concert
+foreign key (user_concert_id)
+references user(id),
+concert_id int not null,
+constraint fk_favorite_concert
+foreign key (concert_id)
+references concert(id)
+);
 
 
 

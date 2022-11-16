@@ -1,0 +1,32 @@
+{% extends 'layout.html.twig' %}
+{% set active_page = "/concerts" %}
+
+{% block content %}
+	<main class="container">
+		<div class="row">
+			<h2>Agenda ({{ favorites|length }})</h2>
+		</div>
+		<div class="row">
+			{% for favorite in favorites %}
+				<div class="col-12 d-flex justify-content-left">
+					<div class="card shadow-lg d-flex flex-row">
+						<img src="{{ favorite.image_artist }}" class="card-img-agenda" alt="image artiste">
+						<div class="card-body-agenda">
+							<h4 class="card-text lead">Le
+								{{ favorite.date|date("d/m/Y", "Europe/Paris" )}}
+								à
+								{{ favorite.schedule|date('H:i') }}</h4>
+							<h4 class="card-title">{{ favorite.name_artist }}</h4>
+							<h5 class="card-text lead">{{ favorite.name_venue }}</h5>
+							<h5 class="card-text lead">{{ favorite.city }}</h5>
+						</div>
+					</div>
+				</div>
+			{% else %}
+				<li>Aucun concert à afficher</li>
+			{% endfor %}
+		</div>
+	</main>
+
+
+{% endblock %}

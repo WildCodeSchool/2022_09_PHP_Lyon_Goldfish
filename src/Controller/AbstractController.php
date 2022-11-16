@@ -20,6 +20,7 @@ abstract class AbstractController
         $this->twig = new Environment(
             $loader,
             [
+                'debug' => true,
                 'cache' => false,
             ]
         );
