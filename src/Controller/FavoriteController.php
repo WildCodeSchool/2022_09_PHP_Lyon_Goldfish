@@ -10,13 +10,13 @@ class FavoriteController extends AbstractController
 {
     public function favoritesArtists(): string
     {
-        $ArtistManager = new ArtistManager();
-        $favorites = $ArtistManager->selectFavoritesArtists();
+        $artistManager = new ArtistManager();
+        $favorites = $artistManager->selectFavoritesArtists();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $favorite_artist = array_map('trim', $_POST);
-            $FavoriteManager = new FavoriteManager();
-            $FavoriteManager->insert($favorite_artist);
+            $favoriteArtist = array_map('trim', $_POST);
+            $favoriteManager = new FavoriteManager();
+            $favoriteManager->insert($favoriteArtist);
         }
 
         return $this->twig->render('Artist/favorites.html.twig', ['favorites' => $favorites]);
