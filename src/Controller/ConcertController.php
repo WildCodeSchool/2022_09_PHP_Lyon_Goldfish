@@ -73,6 +73,7 @@ class ConcertController extends AbstractController
             $concert = array_map('trim', $_POST);
             $concertManager->concertLocationArtistFieldEmpty($concert);
             $concertManager->concertTimeFieldEmpty($concert);
+            $concertManager->prohibitPastConcertDate($concert);
 
             $errors = $concertManager->getCheckErrors();
             if (empty($errors)) {
