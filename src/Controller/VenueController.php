@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\VenueManager;
+use PDOException;
 
 class VenueController extends AbstractController
 {
@@ -60,23 +61,33 @@ class VenueController extends AbstractController
      */
     public function add(): ?string
     {
+        $messageError = null;
         $venueManager = new VenueManager();
         $errors = [];
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // clean $_POST data
-            $venue = array_map('trim', $_POST);
-            $venueManager->venueFieldEmpty($venue);
+        try {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // clean $_POST data
+                $venue = array_map('trim', $_POST);
+                $venueManager->venueFieldEmpty($venue);
 
-            $errors = $venueManager->getCheckErrors();
-            if (empty($errors)) {
-                $venueManager = new VenueManager();
-                $id = $venueManager->insert($venue);
+                $errors = $venueManager->getCheckErrors();
+                if (empty($errors)) {
+                    $venueManager = new VenueManager();
+                    $id = $venueManager->insert($venue);
 
-                header('Location: /venues/show?id=' . $id);
+                    header('Location: /venues/show?id=' . $id);
+                    return $this->twig->render('Venue/add.html.twig', array('errors' => $errors));
+                }
+            }
+        } catch (PDOException $e) {
+            if ($e->getCode() == 23000) {
+                $messageError = "Impossible d'ajouter un lieu qui existe déjà";
+            } else {
+                $messageError = $e->getMessage();
             }
         }
-        return $this->twig->render('Venue/add.html.twig', array('errors' => $errors));
+        return $this->twig->render('Venue/add.html.twig', ['messageError' => $messageError,]);
     }
 
     /**
