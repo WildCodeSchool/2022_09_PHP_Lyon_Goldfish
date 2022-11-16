@@ -105,4 +105,13 @@ class ConcertManager extends AbstractManager
             $this->errors[] = "L'heure doit figurer";
         }
     }
+
+    public function prohibitPastConcertDate(array $concert): void
+    {
+        $tmstp1 = strtotime($concert['date']);
+        $tmstp2 = time();
+        if ($tmstp1 < $tmstp2) {
+            $this->errors[] = "Vous ne pouvez pas rentrer une date passée";
+        }
+    }
 }
