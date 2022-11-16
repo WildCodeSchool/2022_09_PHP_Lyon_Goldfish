@@ -47,7 +47,8 @@ create table venue (
      name_venue varchar(150) not null,
      address varchar(150) not null,
      city varchar(100) not null,
-     image_venue varchar(255) not null
+     image_venue varchar(255) not null,
+     UNIQUE (name_venue)
      );
 
 --
