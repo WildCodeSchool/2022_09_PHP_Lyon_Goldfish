@@ -25,7 +25,7 @@ class ArtistController extends AbstractController
             $favoriteManager->insert($favoriteArtist);
         }
 
-        return $this->twig->render('Artist/index.html.twig', ['artists' => $artists], ['favorites' => $favorites]);
+        return $this->twig->render('Artist/index.html.twig', ['artists' => $artists, 'favorites' => $favorites]);
     }
 
     /**

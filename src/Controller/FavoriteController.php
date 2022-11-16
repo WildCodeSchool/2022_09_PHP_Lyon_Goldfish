@@ -26,9 +26,9 @@ class FavoriteController extends AbstractController
     public function deleteFavorite(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $favorite_artist_id = trim($_POST['favorite_artist_id']);
+            $favoriteArtistId = trim($_POST['favorite_artist_id']);
             $favoriteManager = new FavoriteManager();
-            $favoriteManager->deleteFavorite((int)$favorite_artist_id, $_SESSION['user_id']);
+            $favoriteManager->deleteFavorite((int)$favoriteArtistId, $_SESSION['user_id']);
 
             header('Location:/artists');
         }

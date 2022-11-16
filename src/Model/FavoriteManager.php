@@ -27,12 +27,12 @@ class FavoriteManager extends AbstractManager
         return (int)$this->pdo->lastInsertId();
     }
 
-    public function deleteFavorite(int $favorite_artist_id, int $userId): void
+    public function deleteFavorite(int $favoriteArtistId, int $userId): void
     {
         // prepared request
         $statement = $this->pdo->prepare("DELETE FROM favorite_artist 
         WHERE user_id= :userId AND favorite_artist_id= :favorite_artist_id");
-        $statement->bindValue(':favorite_artist_id', $favorite_artist_id, \PDO::PARAM_INT);
+        $statement->bindValue(':favorite_artist_id', $favoriteArtistId, \PDO::PARAM_INT);
         $statement->bindValue(':userId', $userId, \PDO::PARAM_INT);
         $statement->execute();
     }
