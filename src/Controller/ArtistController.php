@@ -3,23 +3,33 @@
 namespace App\Controller;
 
 use App\Model\ArtistManager;
+use App\Model\FavoriteManager;
 use PDOException;
 
 class ArtistController extends AbstractController
 {
     /**
-     * List items
+     * List artists
      */
     public function index(): string
     {
         $artistManager = new ArtistManager();
         $artists = $artistManager->selectAll();
 
-        return $this->twig->render('Artist/index.html.twig', ['artists' => $artists]);
+        $favoriteManager = new FavoriteManager();
+        $favorites = $favoriteManager->selectFavoritesArtists();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $favoriteArtist = array_map('trim', $_POST);
+            $favoriteManager = new FavoriteManager();
+            $favoriteManager->insert($favoriteArtist);
+        }
+
+        return $this->twig->render('Artist/index.html.twig', ['artists' => $artists, 'favorites' => $favorites]);
     }
 
     /**
-     * Show informations for a specific item
+     * Show informations for a specific artist
      */
     public function show(int $id): string
     {
@@ -30,7 +40,7 @@ class ArtistController extends AbstractController
     }
 
     /**
-     * Edit a specific item
+     * Edit a specific artist
      */
     public function edit(int $id): ?string
     {
@@ -57,7 +67,7 @@ class ArtistController extends AbstractController
     }
 
     /**
-     * Add a new item
+     * Add a new artist
      */
     public function add(): ?string
     {
@@ -90,11 +100,8 @@ class ArtistController extends AbstractController
         }
         return $this->twig->render('Artist/add.html.twig', ['messageError' => $messageError,]);
     }
-
-
-
     /**
-     * Delete a specific item
+     * Delete a specific artist
      */
     public function delete(): void
     {
