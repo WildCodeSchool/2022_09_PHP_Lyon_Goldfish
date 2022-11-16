@@ -8,7 +8,7 @@ class FavoriteManager extends AbstractManager
 {
     public function selectFavoritesArtists(): array
     {
-        $query = "SELECT a.name_artist, a.style, a.image_artist
+        $query = "SELECT a.name_artist, a.style, a.image_artist, f.favorite_artist_id
         FROM artist a INNER JOIN favorite_artist f ON a.id=f.favorite_artist_id
         INNER JOIN user u ON u.id=f.user_id WHERE u.id = " . $_SESSION['user_id'];
         $statement = $this->pdo->query($query);
@@ -27,11 +27,13 @@ class FavoriteManager extends AbstractManager
         return (int)$this->pdo->lastInsertId();
     }
 
-    public function delete(int $id): void
+    public function deleteFavorite(int $favorite_artist_id, int $userId): void
     {
+        // prepared request
         $statement = $this->pdo->prepare("DELETE FROM favorite_artist 
-        WHERE favorite_artist_id= AND user_id=" . $_SESSION['user_id']);
-        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        WHERE user_id= :userId AND favorite_artist_id= :favorite_artist_id");
+        $statement->bindValue(':favorite_artist_id', $favorite_artist_id, \PDO::PARAM_INT);
+        $statement->bindValue(':userId', $userId, \PDO::PARAM_INT);
         $statement->execute();
     }
 }
