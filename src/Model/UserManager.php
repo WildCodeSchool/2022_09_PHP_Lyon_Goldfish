@@ -16,7 +16,8 @@ class UserManager extends AbstractManager
 
     public function addFavoriteIdArtistInUser($id): array
     {
-        $statement = $this->pdo->prepare("SELECT favorite_artist_id FROM favorite_artist as f WHERE f.user_id=:user_id;");
+        $statement = $this->pdo->prepare("SELECT favorite_artist_id FROM favorite_artist as f 
+        WHERE f.user_id=:user_id;");
         $statement->bindValue(':user_id', $id, \PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetchAll();
