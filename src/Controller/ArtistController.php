@@ -16,16 +16,13 @@ class ArtistController extends AbstractController
         $artistManager = new ArtistManager();
         $artists = $artistManager->selectAll();
 
-        $favoriteManager = new FavoriteManager();
-        $favorites = $favoriteManager->selectFavoritesArtists();
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $favoriteArtist = array_map('trim', $_POST);
             $favoriteManager = new FavoriteManager();
             $favoriteManager->insert($favoriteArtist);
         }
 
-        return $this->twig->render('Artist/index.html.twig', ['artists' => $artists, 'favorites' => $favorites]);
+        return $this->twig->render('Artist/index.html.twig', ['artists' => $artists]);
     }
 
     /**
