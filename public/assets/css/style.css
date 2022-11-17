@@ -72,13 +72,12 @@ ul {
 
 /*********** CARD CONCERT *******************/
 .card {
-    width: 18rem;
     margin: 1rem 0 1rem 0;
 }
 
 
 .card-img-top {
-    height: 235px;
+    height: 220px;
     object-fit: cover;
 }
 
@@ -251,4 +250,8 @@ a {
 /************** LOGIN FORM *******************/
 .loginform {
     background-color: rgba(12, 4, 4);
+}
+
+.card-img-agenda {
+    width: 150px;
 }
