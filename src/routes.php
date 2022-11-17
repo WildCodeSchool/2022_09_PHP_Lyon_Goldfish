@@ -18,6 +18,8 @@ return [
     'concerts/show' => ['ConcertController', 'show', ['id']],
     'concerts/add' => ['ConcertController', 'add',],
     'concerts/delete' => ['ConcertController', 'delete',],
+    'concerts/favorites' => ['FavoriteController', 'favoritesConcerts',],
+    'concerts/deleteFavorite' => ['FavoriteController', 'deleteFavorite',],
 
     'artists' => ['ArtistController', 'index',],
     'artists/edit' => ['ArtistController', 'edit', ['id']],
@@ -25,12 +27,15 @@ return [
     'artists/add' => ['ArtistController', 'add',],
     'artists/delete' => ['ArtistController', 'delete',],
     'artists/search' => ['ArtistController', 'search',],
-    'artists/favorite' => ['ArtistController', 'favorite',],
+    'artists/favorites' => ['FavoriteController', 'favoritesArtists',],
+    'artists/deleteFavorite' => ['FavoriteController', 'deleteFavorite',],
 
     'venues' => ['VenueController', 'index',],
     'venues/edit' => ['VenueController', 'edit', ['id']],
     'venues/show' => ['VenueController', 'show', ['id']],
     'venues/add' => ['VenueController', 'add',],
     'venues/delete' => ['VenueController', 'delete',],
+
+    'agenda' => ['FavoriteController', 'agenda',],
 
 ];
