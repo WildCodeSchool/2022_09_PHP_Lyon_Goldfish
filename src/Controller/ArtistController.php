@@ -20,6 +20,8 @@ class ArtistController extends AbstractController
             $favoriteArtist = array_map('trim', $_POST);
             $favoriteManager = new FavoriteManager();
             $favoriteManager->insert($favoriteArtist);
+
+            header('Location: /artists');
         }
 
         return $this->twig->render('Artist/index.html.twig', ['artists' => $artists]);

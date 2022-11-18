@@ -25,10 +25,14 @@ class FavoriteController extends AbstractController
 
     public function agenda(): string
     {
-        $favoritesManager = new FavoriteManager();
-        $favorites = $favoritesManager->selectFavoritesConcerts();
+        if ($this->user != false) {
+            $favoritesManager = new FavoriteManager();
+            $favorites = $favoritesManager->selectFavoritesConcerts();
 
-        return $this->twig->render('Agenda/index.html.twig', ['favorites' => $favorites]);
+            return $this->twig->render('Agenda/index.html.twig', ['favorites' => $favorites]);
+        } else {
+            return $this->twig->render('Agenda/index.html.twig');
+        }
     }
 
     public function deleteFavorite(): void
