@@ -292,6 +292,16 @@ button.heartempty {
     padding: 5px;
 }
 
+/*div.heartfull,
+div.heartempty {
+    background-size: cover;
+    background-color: transparent;
+    width: 25px;
+    height: 25px;
+    border: none;
+    padding: 5px;
+}*/
+
 button.heartfull {
     background-image: url("/assets/images/heartfullcream.png");
 }
@@ -303,3 +313,7 @@ button.heartempty {
 button.heartempty:hover {
     background-image: url("/assets/images/heartfullcream.png");
 }
+
+/* div.heartfull {
+    background-image: url("/assets/images/heartfull.png");
+} */

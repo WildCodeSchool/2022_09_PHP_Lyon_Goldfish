@@ -8,9 +8,9 @@
 		<h2>Agenda ({{ favorites|length }})</h2>
 	</div>
 	{% for favorite in favorites %}
-		<h4 class="card-text lead">
-			{{ favorite.date|format_datetime(locale='fr', pattern="MMMM")|capitalize }}
-		</h4>
+		<h3 class="lead">
+			{{ favorite.date|format_datetime(locale='fr', pattern="MMMM yyyy")|capitalize }}
+		</h3>
 		<div class="card mb-3" style="max-width: 540px;">
 			<div class="row g-0">
 				<div class="col-4">

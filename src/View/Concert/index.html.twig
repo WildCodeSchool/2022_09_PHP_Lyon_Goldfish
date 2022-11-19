@@ -10,6 +10,13 @@
 	{% if user.is_admin == true %}
 		<a href="/concerts/add" class="btn btn-primary btn-sm">Ajouter</a>
 	{% endif %}
+
+	{% if user and user.is_admin == false %}
+		<a class="linkfavorite d-flex align-items-center" href="/concerts/favorites">
+			<h4>♥ Mes Favoris</h4>
+		</a>
+	{% endif %}
+
 	<div class="row">
 		{% for concert in concerts %}
 			<div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center">
@@ -28,13 +35,15 @@
 								{% if concert.id in user.favorites_concert %}
 									<form action="/concerts/deleteFavorite" method="POST">
 										<input type="hidden" name="favorite_concert_id" value="{{ concert.id }}">
-										<button class="heartfull"></button>
+										<button class="btn btn-danger float-end">
+											<div class="heartfull"></div>J'y vais !
+										</button>
 									</form>
 								{% else %}
 									<form method="POST">
 										<input type="hidden" name="user_id" id="user_id" value="{{ user.id }}">
 										<input type="hidden" name="favorite_concert_id" id="favorite_concert_id" value="{{ concert.id }}">
-										<button class="heartempty"></button>
+										<button class="btn btn-outline-danger float-end">J'y vais !</button>
 									</form>
 								{% endif %}
 							</div>
