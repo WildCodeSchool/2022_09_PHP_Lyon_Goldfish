@@ -53,7 +53,7 @@ class FavoriteController extends AbstractController
             $favoriteManager = new FavoriteManager();
             $favoriteManager->deleteFavoriteConcert((int)$favoriteConcertId, $_SESSION['user_id']);
 
-            header('Location:/artists');
+            header('Location:/concerts');
         }
     }
 }

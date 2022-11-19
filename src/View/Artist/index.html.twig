@@ -14,8 +14,7 @@
 
 	{% if user and user.is_admin == false %}
 		<a class="linkfavorite d-flex align-items-center" href="/artists/favorites">
-			<img src="/assets/images/heartfull.png" class="logo" alt="heart"/>
-			<h6 class="lead">Mes Favoris</h6>
+			<h4>♥ Mes Favoris</h4>
 		</a>
 	{% endif %}
 
@@ -34,7 +33,7 @@
 					</button>
 					<p class="artist-name d-flex align-items-center justify-content-center">{{ artist.name_artist }}</p>
 					{% if user and user.is_admin == false %}
-						{% if artist.id in user.favorites %}
+						{% if artist.id in user.favorites_artist %}
 							<form action="/artists/deleteFavorite" method="POST">
 								<input type="hidden" name="favorite_artist_id" value="{{ artist.id }}">
 								<button class="heartfull"></button>

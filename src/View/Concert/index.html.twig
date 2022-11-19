@@ -20,9 +20,25 @@
 							{{ concert.date|date("d/m/Y", "Europe/Paris" )}}
 							à
 							{{ concert.schedule|date('H:i') }}</h4>
-						<h5 class="card-title">{{ concert.name_artist }}</h5>
+						<h5 class="card-title font-weight-bold">{{ concert.name_artist }}</h5>
 						<h5 class="card-text lead">{{ concert.name_venue }}</h5>
 						<h5 class="card-text lead">{{ concert.city }}</h5>
+						{% if user and user.is_admin == false %}
+							<div class="card-body bg-transparent border-success">
+								{% if concert.id in user.favorites_concert %}
+									<form action="/concerts/deleteFavorite" method="POST">
+										<input type="hidden" name="favorite_concert_id" value="{{ concert.id }}">
+										<button class="heartfull"></button>
+									</form>
+								{% else %}
+									<form method="POST">
+										<input type="hidden" name="user_id" id="user_id" value="{{ user.id }}">
+										<input type="hidden" name="favorite_concert_id" id="favorite_concert_id" value="{{ concert.id }}">
+										<button class="heartempty"></button>
+									</form>
+								{% endif %}
+							</div>
+						{% endif %}
 						{% if user and user.is_admin == true %}
 							<form action="/concerts/delete" method="POST">
 								<a href="/concerts/show?id={{ concert.id }}" class="btn btn-primary btn-sm">Voir</a>
