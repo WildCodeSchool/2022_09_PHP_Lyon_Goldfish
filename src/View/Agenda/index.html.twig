@@ -1,28 +1,26 @@
 {% extends 'layout.html.twig' %}
-{% set active_page = "/concerts" %}
+{% set active_page = "/agenda" %}
 
 {% block content %}
-	<main class="container">
-		<div class="row">
-			<h2>Agenda ({{ favorites|length }})</h2>
-		</div>
-		{% for favorite in favorites %}
-			<h4 class="card-text lead">
-				{{ favorite.date|format_datetime(locale='fr', pattern="MMMM")|capitalize }}
-			</h4>
-			<div class="card mb-3" style="max-width: 540px;">
-				<div class="row g-0">
-					<div class="col-4">
-						<img src="{{ favorite.image_artist }}" class="img-fluid rounded-start" alt="image artiste">
-					</div>
-					<div class="col-8">
-						<div class="card-body">
-							<h5 class="card-title">{{ favorite.name_artist }}</h5>
-							<p class="card-text">This is a wider card with supporting text below</p>
-						</div>
+	<div class="row">
+		<h2>Agenda ({{ favorites|length }})</h2>
+	</div>
+	{% for favorite in favorites %}
+		<h4 class="card-text lead">
+			{{ favorite.date|format_datetime(locale='fr', pattern="MMMM")|capitalize }}
+		</h4>
+		<div class="card mb-3" style="max-width: 540px;">
+			<div class="row g-0">
+				<div class="col-4">
+					<img src="{{ favorite.image_artist }}" class="img-fluid rounded-start" alt="image artiste">
+				</div>
+				<div class="col-8">
+					<div class="card-body">
+						<h5 class="card-title">{{ favorite.name_artist }}</h5>
+						<p class="card-text">This is a wider card with supporting text below</p>
 					</div>
 				</div>
 			</div>
-		{% endfor %}
-	</main>
+		</div>
+	{% endfor %}
 {% endblock %}

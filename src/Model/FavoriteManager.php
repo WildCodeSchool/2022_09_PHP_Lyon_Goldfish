@@ -30,7 +30,7 @@ class FavoriteManager extends AbstractManager
         return $allFavoritesConcerts;
     }
 
-    public function insert(array $favoriteArtist): int
+    public function insertFavoriteArtist(array $favoriteArtist): int
     {
         $statement = $this->pdo->prepare("INSERT INTO favorite_artist (`user_id`, `favorite_artist_id`) 
         VALUES (:user_id, :favorite_artist_id)");
@@ -40,12 +40,30 @@ class FavoriteManager extends AbstractManager
         return (int)$this->pdo->lastInsertId();
     }
 
-    public function deleteFavorite(int $favoriteArtistId, int $userId): void
+    public function insertFavoriteConcert(array $favoriteConcert): int
     {
-        // prepared request
+        $statement = $this->pdo->prepare("INSERT INTO favorite_concert (`user_id`, `favorite_concert_id`) 
+        VALUES (:user_id, :favorite_concert_id)");
+        $statement->bindValue(':user_id', $favoriteConcert['user_id'], PDO::PARAM_INT);
+        $statement->bindValue(':favorite_concert_id', $favoriteConcert['favorite_concert_id'], PDO::PARAM_INT);
+        $statement->execute();
+        return (int)$this->pdo->lastInsertId();
+    }
+
+    public function deleteFavoriteArtist(int $favoriteArtistId, int $userId): void
+    {
         $statement = $this->pdo->prepare("DELETE FROM favorite_artist 
         WHERE user_id= :userId AND favorite_artist_id= :favorite_artist_id");
         $statement->bindValue(':favorite_artist_id', $favoriteArtistId, \PDO::PARAM_INT);
+        $statement->bindValue(':userId', $userId, \PDO::PARAM_INT);
+        $statement->execute();
+    }
+
+    public function deleteFavoriteConcert(int $favoriteConcertId, int $userId): void
+    {
+        $statement = $this->pdo->prepare("DELETE FROM favorite_concert 
+        WHERE user_id= :userId AND favorite_concert_id= :favorite_concert_id");
+        $statement->bindValue(':favorite_concert_id', $favoriteConcertId, \PDO::PARAM_INT);
         $statement->bindValue(':userId', $userId, \PDO::PARAM_INT);
         $statement->execute();
     }

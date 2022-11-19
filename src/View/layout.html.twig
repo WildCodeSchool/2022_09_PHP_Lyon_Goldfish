@@ -105,8 +105,8 @@
 					{% endif %}
 				</div>
 			</nav>
-
-			{% block content %}{% endblock %}
-			{% block javascript %}{% endblock %}
-		</body>
-	</html>
+			<main class="container"> {% block content %}{% endblock %}
+				</main>
+				{% block javascript %}{% endblock %}
+			</body>
+		</html>

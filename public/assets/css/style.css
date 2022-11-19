@@ -89,6 +89,12 @@ ul {
     object-fit: cover;
 }
 
+/*********** CARD AGENDA *******************/
+
+.card-img-agenda {
+    width: 150px;
+}
+
 /*********Animation Desktop********/
 span {
     width: 144px;
@@ -244,11 +250,42 @@ img.active.iconeMenu-mobile {
 }
 
 /************** LINK *******************/
-a {
+a,
+h6 {
     color: #F64747;
+    text-decoration: none;
 }
 
+h6 {
+    margin: 0px 0px 0px 5px;
+}
 
-.card-img-agenda {
-    width: 150px;
+.linkfavorite {
+    margin: 10px;
+}
+
+.container {
+    padding: 10px 0px 45px 0px;
+}
+
+button.heartfull,
+button.heartempty {
+
+    background-size: cover;
+    background-color: transparent;
+    width: 25px;
+    height: 25px;
+    border: none;
+}
+
+button.heartfull {
+    background-image: url("/assets/images/heartfull.png");
+}
+
+button.heartempty {
+    background-image: url("/assets/images/heartempty.png");
+}
+
+button.heartempty:hover {
+    background-image: url("/assets/images/heartfull.png");
 }
