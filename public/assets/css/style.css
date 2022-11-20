@@ -274,31 +274,6 @@ h4:hover {
     color: #F64747;
 }
 
-.linkfavorite {
-    margin: 10px;
-}
-
-.container {
-    padding: 10px 0px 45px 0px;
-}
-
-button.heartfull,
-button.heartempty {
-    background-size: cover;
-    background-color: transparent;
-    width: 25px;
-    height: 25px;
-    border: none;
-    padding: 5px;
-}
-
-button.heartfull {
-    background-image: url("/assets/images/heartfullcream.png");
-}
-
-button.heartempty {
-    background-image: url("/assets/images/heartemptycream.png");
-}
 
 button.heartempty:hover {
     background-image: url("/assets/images/heartfullcream.png");
