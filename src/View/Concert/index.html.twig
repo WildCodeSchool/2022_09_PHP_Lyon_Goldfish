@@ -17,7 +17,7 @@
 			<h4>♥ Mes Favoris</h4>
 		</a>
 		<a class="linkfavorite d-flex align-items-center" href="/concerts/myArtists">
-			<h4>♫ Concerts de mes Artistes Favoris</h4>
+			<h4>♫ Concerts Artistes Favoris</h4>
 		</a>
 	</div>
 	{% endif %}
@@ -25,7 +25,7 @@
 	<div class="row">
 		{% for concert in concerts %}
 			<div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center">
-				<div class="card concert shadow-lg">
+				<div class="card concert shadow-lg border-0">
 					<img src="{{ concert.image_artist }}" class="card-img-top" alt="image artiste">
 					<div class="card-body">
 						<h4 class="card-text lead">Le

@@ -99,10 +99,10 @@ ul {
     object-fit: cover;
 }
 
-/*********** CARD AGENDA *******************/
+/*********** CARD VENUES *******************/
 
-.card-img-agenda {
-    width: 150px;
+.venues.card {
+    width: 280px;
 }
 
 /*********Animation Desktop********/
@@ -327,4 +327,12 @@ button.heartempty:hover {
     width: 100%;
     height: 170px;
     object-fit: cover;
+}
+
+.card-img-agenda {
+    width: 150px;
+}
+
+.test {
+    display: none;
 }

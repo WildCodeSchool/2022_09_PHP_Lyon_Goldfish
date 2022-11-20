@@ -86,7 +86,7 @@ values ('Le Transbordeur', '3 Bd de Stalingrad', 'Villeurbanne', '/assets/images
      ('La Boule noire', '120 Blvd Marguerite de Rochechouart', 'Paris', '/assets/images/venues/la-boule-noire.jpeg'),
      ("L'Olympia", '28 Bd des Capucines', 'Paris', '/assets/images/venues/Olympia.jpeg'),
      ('Le Zénith de Strasbourg', '1 All. du Zénith', 'Eckbolsheim', '/assets/images/venues/zenith-strasbourg.jpeg'),
-     ('Le Fil', '20 Bd Thiers', 'St Etienne', 'https://www.le-fil.com/wp-content/uploads/2020/07/49933607_119469189113280_6383998106908064071_n1-768x768.jpg'),
+     ('Le Fil', '20 Bd Thiers', 'St Etienne', 'https://www.le-fil.com/wp-content/uploads/2021/03/MG_9657-768x512.jpg'),
      ('La coopérative de mai', 'Rue Serge Gainsbourg', 'Clermont-Ferrand', 'https://fastly.4sqi.net/img/general/600x600/lf4rzMoTwO_Huuy-LigFdO5PeHecgGsswxXwctePxGQ.jpg'),
      ("L'Accor Arena", '8 Bd de Bercy', 'Paris', 'https://res.cloudinary.com/du5jifpgg/image/upload/t_opengraph_image/Surcharge-APIDAE/AccorArena_200721_05.jpg'),
      ('Le Rockstore', '20 Rue de Verdun', 'Montpellier', 'https://assets.justacote.com/photos_entreprises/rockstore-odeon-montpellier-14271857310.jpg'),
@@ -178,7 +178,7 @@ CREATE TABLE user (
 --
 
 INSERT INTO user VALUES (1,'toto@mail.fr','$2y$10$FjaLGXBcJBrSRJAA/7GA7.69fq/g2jDbpuiZWDJcMKZulhL2WPz2i','Toto', false, 'https://fr.shopping.rakuten.com/photo/981287510_L.jpg'),
-(2,'superman@mail.fr','$2y$10$SjAEemkn.MKSsLqypYltHOm4vMPSfZTZVbFkxT5bZ1duXIQTiHoca','Superman', true, 'https://static.wikia.nocookie.net/heros/images/4/46/Kal-El_DCAU_Infobox.png/revision/latest/smart/width/250/height/250?cb=20200922092321&path-prefix=fr');
+(2,'superman@mail.fr','$2y$10$SjAEemkn.MKSsLqypYltHOm4vMPSfZTZVbFkxT5bZ1duXIQTiHoca','Superman', true, 'https://sfractus-images.cleo.media/unsafe/0x490:1080x1570/641x0/images/Superman-2931.jpg');
 
 
 create table favorite_artist (
