@@ -12,9 +12,14 @@
 	{% endif %}
 
 	{% if user and user.is_admin == false %}
+	<div class="d-flex">
 		<a class="linkfavorite d-flex align-items-center" href="/concerts/favorites">
 			<h4>♥ Mes Favoris</h4>
 		</a>
+		<a class="linkfavorite d-flex align-items-center" href="/concerts/myArtists">
+			<h4>♫ Concerts de mes Artistes Favoris</h4>
+		</a>
+	</div>
 	{% endif %}
 
 	<div class="row">

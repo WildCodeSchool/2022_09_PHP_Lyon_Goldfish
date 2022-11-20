@@ -262,7 +262,7 @@ img.active.iconeMenu-mobile {
 /************** LINK *******************/
 a,
 h4 {
-    color: #FEF1EC;
+    color: #F64747;
     text-decoration: none;
 }
 
@@ -270,8 +270,8 @@ h6 {
     margin: 0px 0px 0px 5px;
 }
 
-h4:hover {
-    color: #F64747;
+a>h4:hover {
+    color: #FEF1EC;
 }
 
 /************** FAVORITE *******************/
@@ -309,4 +309,22 @@ button.heartempty:hover {
 /************** LOGIN FORM *******************/
 .loginform {
     background-color: rgba(12, 4, 4);
+}
+
+/************** AGENDA *******************/
+
+.link-agenda {
+    width: 35px;
+    height: 35px;
+}
+
+.iframe-map {
+    width: 100%;
+    height: 170px;
+}
+
+.img-fluid {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
 }

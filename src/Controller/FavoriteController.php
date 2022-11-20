@@ -23,6 +23,22 @@ class FavoriteController extends AbstractController
         return $this->twig->render('Concert/favorites.html.twig', ['favorites' => $favorites]);
     }
 
+    public function concertsForMyArtists(): string
+    {
+        $concertManager = new FavoriteManager();
+        $favorites = $concertManager->selectConcertsForMyArtists();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $favoriteArtist = array_map('trim', $_POST);
+            $favoriteManager = new FavoriteManager();
+            $favoriteManager->insertFavoriteConcert($favoriteArtist);
+
+            header('Location: /concerts/myArtists');
+        }
+
+        return $this->twig->render('Concert/myArtists.html.twig', ['favorites' => $favorites]);
+    }
+
     public function agenda(): string
     {
         if ($this->user != false) {
@@ -54,6 +70,17 @@ class FavoriteController extends AbstractController
             $favoriteManager->deleteFavoriteConcert((int)$favoriteConcertId, $_SESSION['user_id']);
 
             header('Location:/concerts');
+        }
+    }
+
+    public function deleteFavoriteConcertMyArtists(): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $favoriteConcertId = trim($_POST['favorite_concert_id']);
+            $favoriteManager = new FavoriteManager();
+            $favoriteManager->deleteFavoriteConcert((int)$favoriteConcertId, $_SESSION['user_id']);
+
+            header('Location:/concerts/myArtists');
         }
     }
 }

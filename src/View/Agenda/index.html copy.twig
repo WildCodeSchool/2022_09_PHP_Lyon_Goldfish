@@ -13,9 +13,9 @@
 	</h3>
 		<div class="row justify-content-center">
 			<div class="col-12 col-md-9 col-lg-7 col-xl-6 col-xxl-5">
-				<div onclick="toggle()" class="card mb-5 card-cover overflow-hidden border-0 text-bg-white rounded-4 shadow-lg d-flex flex-row shadow-lg">
+				<div onclick="toggle()" class="card mb-3 card-cover overflow-hidden text-bg-white rounded-4 shadow-lg d-flex flex-row shadow-lg">
 					<div class="col-4">
-						<img src="{{ favorite.image_artist }}" class="img-fluid rounded-start" alt="image artiste">
+						<img src="{{ favorite.image_venue }}" class="img-fluid rounded-start" alt="image artiste">
 					</div>
 					<div class="col-7 d-flex align-items-center">
 						<div class="card-body">
@@ -41,15 +41,18 @@
 			</div>
 
 			<div class=" col-xl-6 col-xxl-7 d-none d-xl-block">
-				<div class="card mb-3 card-cover overflow-hidden border-0 text-bg-white rounded-4 shadow-lg d-flex flex-row shadow-lg">
-					
-					<div class="col-8 d-flex align-items-center">
+				<div class="test card card-cover overflow-hidden text-bg-white rounded-4 shadow-lg">
+					<div class="col-9 d-flex flex-column">
+						<div>
 							<iframe class="iframe-map" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=+({{ favorite.name_venue|url_encode }})&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
 							</iframe>
+						</div>
 					</div>
 
-					<div class="col-4">
-						<img src="{{ favorite.image_venue }}" class="img-fluid rounded-end" alt="image lieu">
+					<div class="col-3 d-flex flex-column">
+
+							<img src="{{ favorite.image_venue }}" class="img-fluid rounded-start" alt="image lieu">
+						
 					</div>
 				</div>
 			</div>

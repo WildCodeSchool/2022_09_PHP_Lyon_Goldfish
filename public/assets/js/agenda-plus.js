@@ -13,10 +13,9 @@
 
 //}
 function toggle() {
-    var testarray = document.getElementsByClassName("currentclass");
-    for (var i = 0; i < testarray.length; i++) {
-        testarray[i].className += "classtobeadded";
-    }
+    var testarray = (document).getElementsByClassName("test");
+    for (var i = 0; i < testarray.length; i++)
+        testarray.item(i).className += " d-none";
 }
 
 

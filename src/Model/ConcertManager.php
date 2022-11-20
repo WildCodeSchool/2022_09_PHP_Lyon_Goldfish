@@ -46,7 +46,7 @@ class ConcertManager extends AbstractManager
         $query = "SELECT c.id, c.date, c.schedule, c.artist_id, c.venue_id, 
         a.name_artist, a.style, a.image_artist, v.name_venue, v.city, v.image_venue 
         FROM " . static::TABLE . " c INNER JOIN artist a ON a.id=artist_id 
-        INNER JOIN venue v ON v.id=venue_id ORDER BY date ASC";
+        INNER JOIN venue v ON v.id=venue_id WHERE c.date >= CURDATE() ORDER BY date ASC";
         $statement = $this->pdo->query($query);
         $allConcerts = $statement->fetchAll();
 
