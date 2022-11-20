@@ -57,11 +57,11 @@ create table venue (
 
 insert into venue (name_venue, address, city, image_venue)
 values ('Transbordeur', '3 Bd de Stalingrad', 'Villeurbanne', '/assets/images/venues/transbordeur.jpeg'),
-     ('Radiant', '1 Rue Jean Moulin', 'Caluire-et-Cuire', '/assets/images/venues/radiant.jpeg'),
+     ('Le Radiant', '1 Rue Jean Moulin', 'Caluire-et-Cuire', '/assets/images/venues/radiant.jpeg'),
      ('Halle Tony Garnier', '20 Pl. Docteurs Charles et Christophe Mérieux', 'Lyon', '/assets/images/venues/halle-tony-garnier.jpeg'),
      ('Zénith de Paris', '211 Av. Jean Jaurès', 'Paris', '/assets/images/venues/zenith-paris.jpeg'),
      ('Boule noire', '120 Blvd Marguerite de Rochechouart', 'Paris', '/assets/images/venues/la-boule-noire.jpeg'),
-     ('Olympia', '28 Bd des Capucines', 'Paris', '/assets/images/venues/Olympia.jpeg'),
+     ('L\'Olympia', '28 Bd des Capucines', 'Paris', '/assets/images/venues/Olympia.jpeg'),
      ('Zénith de Strasbourg', '1 All. du Zénith', 'Eckbolsheim', '/assets/images/venues/zenith-strasbourg.jpeg');
 
 --

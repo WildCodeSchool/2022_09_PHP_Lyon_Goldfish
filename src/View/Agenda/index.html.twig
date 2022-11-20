@@ -4,25 +4,47 @@
 {% endblock %}
 
 {% block content %}
-	<div class="row">
-		<h2>Agenda ({{ favorites|length }})</h2>
-	</div>
 	{% for favorite in favorites %}
-		<h3 class="lead">
+		<h3>
 			{{ favorite.date|format_datetime(locale='fr', pattern="MMMM yyyy")|capitalize }}
 		</h3>
-		<div class="card mb-3" style="max-width: 540px;">
-			<div class="row g-0">
-				<div class="col-4">
-					<img src="{{ favorite.image_artist }}" class="img-fluid rounded-start" alt="image artiste">
+		<div class="row justify-content-center">
+			<div class="col-11 col-md-9 col-lg-7 col-xl-5">
+				<div onclick="toggle()" class="card mb-3 card-cover overflow-hidden text-bg-white rounded-4 shadow-lg d-flex flex-row">
+					<div class="col-4">
+						<img src="{{ favorite.image_artist }}" class="img-fluid rounded-start" alt="image artiste">
+					</div>
+					<div class="col-7">
+						<div class="card-body">
+							<h5 class="card-title">{{ favorite.name_artist }}</h5>
+							<p class="card-text">{{ favorite.name_venue }}</p>
+							<button onclick="toggle()">Test</button>
+						</div>
+					</div>
+					<div class="col-1">
+						<a href="https://www.maps.ie/distance-area-calculator.html">
+							<img src="/assets/images/logo-Agenda.png"/>
+						</a>
+					</div>
 				</div>
-				<div class="col-8">
-					<div class="card-body">
-						<h5 class="card-title">{{ favorite.name_artist }}</h5>
-						<p class="card-text">This is a wider card with supporting text below</p>
+			</div>
+
+			<div class="col-7 d-none d-xl-block">
+				<div class="test card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+					<div class="d-flex flex-column p-5 pb-3 text-white text-shadow-1">
+						<div style="width: 100%">
+							<iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=+({{ favorite.name_venue|url_encode }})&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+								<a href="https://www.maps.ie/distance-area-calculator.html">measure acres/hectares on map</a>
+							</iframe>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	{% endfor %}
+
+	{% block javascript %}
+		<script src="/assets/js/agenda-plus.js"></script>
+	{% endblock %}
+
 {% endblock %}

@@ -20,7 +20,7 @@ class FavoriteManager extends AbstractManager
     public function selectFavoritesConcerts(): array
     {
         $query = "SELECT c.id, c.date, c.schedule, c.artist_id, c.venue_id,
-        a.name_artist, a.style, a.image_artist, f.favorite_concert_id, v.name_venue, v.city, v.image_venue
+        a.name_artist, a.style, a.image_artist, f.favorite_concert_id, v.name_venue, v.address, v.city, v.image_venue
         FROM concert c INNER JOIN artist a ON a.id=artist_id INNER JOIN venue v ON v.id=venue_id
         INNER JOIN favorite_concert f ON c.id=f.favorite_concert_id INNER JOIN user u ON u.id=f.user_id
         WHERE u.id = " . $_SESSION['user_id'] . "

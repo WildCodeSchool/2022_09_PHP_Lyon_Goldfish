@@ -111,7 +111,7 @@ span {
     height: 44px;
 }
 
-.artist .overlay {
+.effect .overlay {
     top: 0px;
     font-family: 'Rokkitt', serif;
     font-size: 2.3rem;
@@ -123,14 +123,14 @@ span {
     opacity: 1;
 }
 
-.artist:hover .overlay {
+.effect:hover .overlay {
     transform: scale(1);
     transition: opacity 0.25s ease-in-out;
     transition: transform .5s;
     opacity: 1;
 }
 
-.artist .overlayMob {
+.effect .overlayMob {
     top: 0px;
     font-family: 'Rokkitt', serif;
     font-size: 2.3rem;
@@ -142,7 +142,7 @@ span {
     opacity: 1;
 }
 
-.artist:active .overlayMob {
+.effect:active .overlayMob {
     transform: scale(1);
     transition: opacity 0.25s ease-in-out;
     transition: transform .0s;
@@ -292,16 +292,6 @@ button.heartempty {
     padding: 5px;
 }
 
-/*div.heartfull,
-div.heartempty {
-    background-size: cover;
-    background-color: transparent;
-    width: 25px;
-    height: 25px;
-    border: none;
-    padding: 5px;
-}*/
-
 button.heartfull {
     background-image: url("/assets/images/heartfullcream.png");
 }
@@ -313,7 +303,3 @@ button.heartempty {
 button.heartempty:hover {
     background-image: url("/assets/images/heartfullcream.png");
 }
-
-/* div.heartfull {
-    background-image: url("/assets/images/heartfull.png");
-} */
