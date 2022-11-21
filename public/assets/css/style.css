@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Rokkitt&display=swap');
 
 body {
-    background-color: #FEF1EC;
+    background-color: #000000;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg fill-opacity='0.92'%3E%3Cpolygon fill='%23310e0e' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23621c1c' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23942b2b' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23c53939' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23F64747' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
     font-family: 'Inter', sans-serif;
-    color: black;
+    color: #FEF1EC;
     user-select: none;
     height: 100vh;
 }
@@ -76,10 +79,17 @@ ul {
     width: 260px;
 }
 
-
 .card-img-top {
     height: 220px;
     object-fit: cover;
+}
+
+.card-text {
+    color: #0A0E10;
+}
+
+.card-title {
+    color: #0A0E10;
 }
 
 /*********** ROUNDED ARTISTS *******************/
@@ -89,13 +99,19 @@ ul {
     object-fit: cover;
 }
 
+/*********** CARD VENUES *******************/
+
+.venues.card {
+    width: 280px;
+}
+
 /*********Animation Desktop********/
 span {
     width: 144px;
     height: 44px;
 }
 
-.artist .overlay {
+.effect .overlay {
     top: 0px;
     font-family: 'Rokkitt', serif;
     font-size: 2.3rem;
@@ -107,14 +123,14 @@ span {
     opacity: 1;
 }
 
-.artist:hover .overlay {
+.effect:hover .overlay {
     transform: scale(1);
     transition: opacity 0.25s ease-in-out;
     transition: transform .5s;
     opacity: 1;
 }
 
-.artist .overlayMob {
+.effect .overlayMob {
     top: 0px;
     font-family: 'Rokkitt', serif;
     font-size: 2.3rem;
@@ -126,7 +142,7 @@ span {
     opacity: 1;
 }
 
-.artist:active .overlayMob {
+.effect:active .overlayMob {
     transform: scale(1);
     transition: opacity 0.25s ease-in-out;
     transition: transform .0s;
@@ -244,8 +260,50 @@ img.active.iconeMenu-mobile {
 }
 
 /************** LINK *******************/
-a {
+a,
+h4 {
     color: #F64747;
+    text-decoration: none;
+}
+
+h6 {
+    margin: 0px 0px 0px 5px;
+}
+
+a>h4:hover {
+    color: #FEF1EC;
+}
+
+/************** FAVORITE *******************/
+
+.linkfavorite {
+    margin: 10px;
+}
+
+.container {
+    padding: 10px 0px 45px 0px;
+}
+
+button.heartfull,
+button.heartempty {
+    background-size: cover;
+    background-color: transparent;
+    width: 25px;
+    height: 25px;
+    border: none;
+    padding: 5px;
+}
+
+button.heartfull {
+    background-image: url("/assets/images/heartfullcream.png");
+}
+
+button.heartempty {
+    background-image: url("/assets/images/heartemptycream.png");
+}
+
+button.heartempty:hover {
+    background-image: url("/assets/images/heartfullcream.png");
 }
 
 /************** LOGIN FORM *******************/
@@ -253,6 +311,28 @@ a {
     background-color: rgba(12, 4, 4);
 }
 
+/************** AGENDA *******************/
+
+.link-agenda {
+    width: 35px;
+    height: 35px;
+}
+
+.iframe-map {
+    width: 100%;
+    height: 170px;
+}
+
+.img-fluid {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
 .card-img-agenda {
     width: 150px;
+}
+
+.test {
+    display: none;
 }

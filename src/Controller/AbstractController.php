@@ -32,9 +32,13 @@ abstract class AbstractController
 
         $this->user = isset($_SESSION['user_id']) ? $userManager->selectOneById($_SESSION['user_id']) : false;
         if ($this->user != false) {
-            $favorites = $userManager->addFavoriteIdArtistInUser($this->user['id']);
-            $this->user['favorites'] = array_column($favorites, 'favorite_artist_id');
+            $favoritesArtist = $userManager->addFavoriteIdArtistInUser($this->user['id']);
+            $this->user['favorites_artist'] = array_column($favoritesArtist, 'favorite_artist_id');
+
+            $favoritesConcert = $userManager->addFavoriteIdConcertInUser($this->user['id']);
+            $this->user['favorites_concert'] = array_column($favoritesConcert, 'favorite_concert_id');
         }
+
         $this->twig->addGlobal('user', $this->user);
     }
 }

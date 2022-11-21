@@ -19,7 +19,7 @@ class ArtistController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $favoriteArtist = array_map('trim', $_POST);
             $favoriteManager = new FavoriteManager();
-            $favoriteManager->insert($favoriteArtist);
+            $favoriteManager->insertFavoriteArtist($favoriteArtist);
 
             header('Location: /artists');
         }

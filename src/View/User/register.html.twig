@@ -2,33 +2,33 @@
 
 {% block classBody %}indexBackground
 {% endblock %}
+{% block title %}Inscription
+{% endblock %}
 
 {% block content %}
-	<main class="container">
-		<div class="row justify-content-center align-items-center form-floating my-2">
-			<div class="loginform col-10 col-sm-8 col-md-6 col-xl-4 mt-5 rounded-4">
-				<form action="" method="post">
-					<div class="mb-3">
-						<label for="email" class="form-label text-light m-2">Email</label>
-						<input class="form-control" type="email" id="email" name="email" placeholder="Renseignez votre adresse mail" required>
-					</div>
-					<div class="mb-3">
-						<label for="password" class="form-label text-light">Mot de passe</label>
-						<input class="form-control" type="password" id="password" name="password" placeholder="Choisissez un mot de passe" required>
-					</div>
-					<div class="mb-3">
-						<label for="pseudo" class="form-label text-light">Pseudo</label>
-						<input class="form-control" type="text" id="pseudo" name="pseudo" placeholder="Choisissez votre pseudo" required>
-					</div>
-					<div class="mb-3">
-						<label for="avatar" class="form-label text-light">Avatar</label>
-						<input class="form-control" type="url" id="avatar" name="avatar" placeholder="Copiez l'url de votre avatar" required>
-					</div>
-					<div class="mb-3 text-center">
-						<button type="submit" class="btn btn-danger">Créer un compte</button>
-					</div>
-				</form>
-			</div>
+	<div class="row justify-content-center align-items-center form-floating my-2">
+		<div class="loginform col-10 col-sm-8 col-md-6 col-xl-4 mt-5 rounded-4">
+			<form action="" method="post">
+				<div class="mb-3">
+					<label for="email" class="form-label text-light m-2">Email</label>
+					<input class="form-control" type="email" id="email" name="email" placeholder="Renseignez votre adresse mail" required>
+				</div>
+				<div class="mb-3">
+					<label for="password" class="form-label text-light">Mot de passe</label>
+					<input class="form-control" type="password" id="password" name="password" placeholder="Choisissez un mot de passe" required>
+				</div>
+				<div class="mb-3">
+					<label for="pseudo" class="form-label text-light">Pseudo</label>
+					<input class="form-control" type="text" id="pseudo" name="pseudo" placeholder="Choisissez votre pseudo" required>
+				</div>
+				<div class="mb-3">
+					<label for="avatar" class="form-label text-light">Avatar</label>
+					<input class="form-control" type="url" id="avatar" name="avatar" placeholder="Copiez l'url de votre avatar" required>
+				</div>
+				<div class="mb-3 text-center">
+					<button type="submit" class="btn btn-danger">Créer un compte</button>
+				</div>
+			</form>
 		</div>
-	</main>
+	</div>
 {% endblock %}

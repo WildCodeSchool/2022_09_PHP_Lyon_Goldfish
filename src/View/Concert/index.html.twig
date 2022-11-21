@@ -1,41 +1,71 @@
 {% extends 'layout.html.twig' %}
 {% set active_page = "/concerts" %}
+{% block title %}Concerts
+{% endblock %}
 
 {% block content %}
-	<main class="container">
-		<div class="row">
-			<h2>Tous les concerts ({{ concerts|length }})</h2>
-		</div>
-		{% if user.is_admin == true %}
-			<a href="/concerts/add" class="btn btn-primary btn-sm">Ajouter</a>
-		{% endif %}
-		<div class="row">
-			{% for concert in concerts %}
-				<div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center">
-					<div class="card concert shadow-lg">
-						<img src="{{ concert.image_artist }}" class="card-img-top" alt="image artiste">
-						<div class="card-body">
-							<h4 class="card-text lead">Le
-								{{ concert.date|date("d/m/Y", "Europe/Paris" )}}
-								à
-								{{ concert.schedule|date('H:i') }}</h4>
-							<h5 class="card-title">{{ concert.name_artist }}</h5>
-							<h5 class="card-text lead">{{ concert.name_venue }}</h5>
-							<h5 class="card-text lead">{{ concert.city }}</h5>
-							{% if user and user.is_admin == true %}
-								<form action="/concerts/delete" method="POST">
-									<a href="/concerts/show?id={{ concert.id }}" class="btn btn-primary btn-sm">Voir</a>
-									<a href="/concerts/edit?id={{ concert.id }}" class="btn btn-primary btn-sm">Modifier</a>
-									<input type="hidden" name="id" value="{{ concert.id }}">
-									<button class="btn btn-danger btn-sm" onclick="Êtes-vous sûr(e) de vouloir supprimer le concert ?');">Supprimer</button>
-								</form>
-							{% endif %}
-						</div>
+	<div class="row">
+		<h2>Tous les concerts ({{ concerts|length }})</h2>
+	</div>
+	{% if user.is_admin == true %}
+		<a href="/concerts/add" class="btn btn-primary btn-sm">Ajouter</a>
+	{% endif %}
+
+	{% if user and user.is_admin == false %}
+	<div class="d-flex">
+		<a class="linkfavorite d-flex align-items-center" href="/concerts/favorites">
+			<h4>♥ Mes Favoris</h4>
+		</a>
+		<a class="linkfavorite d-flex align-items-center" href="/concerts/myArtists">
+			<h4>♫ Concerts Artistes Favoris</h4>
+		</a>
+	</div>
+	{% endif %}
+
+	<div class="row">
+		{% for concert in concerts %}
+			<div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center">
+				<div class="card concert shadow-lg border-0">
+					<img src="{{ concert.image_artist }}" class="card-img-top" alt="image artiste">
+					<div class="card-body">
+						<h4 class="card-text lead">Le
+							{{ concert.date|date("d/m/Y", "Europe/Paris" )}}
+							à
+							{{ concert.schedule|date('H:i') }}</h4>
+						<h5 class="card-title font-weight-bold">{{ concert.name_artist }}</h5>
+						<h5 class="card-text lead">{{ concert.name_venue }}</h5>
+						<h5 class="card-text lead">{{ concert.city }}</h5>
+						{% if user and user.is_admin == false %}
+							<div class="card-body bg-transparent border-success">
+								{% if concert.id in user.favorites_concert %}
+									<form action="/concerts/deleteFavorite" method="POST">
+										<input type="hidden" name="favorite_concert_id" value="{{ concert.id }}">
+										<button class="btn btn-danger float-end">
+											<div class="heartfull"></div>J'y vais !
+										</button>
+									</form>
+								{% else %}
+									<form method="POST">
+										<input type="hidden" name="user_id" id="user_id" value="{{ user.id }}">
+										<input type="hidden" name="favorite_concert_id" id="favorite_concert_id" value="{{ concert.id }}">
+										<button class="btn btn-outline-danger float-end">J'y vais !</button>
+									</form>
+								{% endif %}
+							</div>
+						{% endif %}
+						{% if user and user.is_admin == true %}
+							<form action="/concerts/delete" method="POST">
+								<a href="/concerts/show?id={{ concert.id }}" class="btn btn-primary btn-sm">Voir</a>
+								<a href="/concerts/edit?id={{ concert.id }}" class="btn btn-primary btn-sm">Modifier</a>
+								<input type="hidden" name="id" value="{{ concert.id }}">
+								<button class="btn btn-danger btn-sm" onclick="Êtes-vous sûr(e) de vouloir supprimer le concert ?');">Supprimer</button>
+							</form>
+						{% endif %}
 					</div>
 				</div>
-			{% else %}
-				<li>Aucun concert à afficher</li>
-			{% endfor %}
-		</div>
-	</main>
+			</div>
+		{% else %}
+			<li>Aucun concert à afficher</li>
+		{% endfor %}
+	</div>
 {% endblock %}

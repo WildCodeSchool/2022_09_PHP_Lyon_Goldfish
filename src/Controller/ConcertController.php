@@ -3,22 +3,31 @@
 namespace App\Controller;
 
 use App\Model\ConcertManager;
+use App\Model\FavoriteManager;
 
 class ConcertController extends AbstractController
 {
     /**
-     * List items
+     * List concert
      */
     public function index(): string
     {
         $concertManager = new ConcertManager();
         $allConcerts = $concertManager->selectAllConcerts();
 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $favoriteConcert = array_map('trim', $_POST);
+            $favoriteManager = new FavoriteManager();
+            $favoriteManager->insertFavoriteConcert($favoriteConcert);
+
+            header('Location: /concerts');
+        }
+
         return $this->twig->render('Concert/index.html.twig', ['concerts' => $allConcerts]);
     }
 
     /**
-     * Show informations for a specific item
+     * Show informations for a specific concert
      */
     public function show(int $id): string
     {
@@ -29,7 +38,7 @@ class ConcertController extends AbstractController
     }
 
     /**
-     * Edit a specific item
+     * Edit a specific concert
      */
     public function edit(int $id): ?string
     {
@@ -59,7 +68,7 @@ class ConcertController extends AbstractController
         ]);
     }
     /**
-     * Add a new item
+     * Add a new concert
      */
     public function add(): ?string
     {
@@ -90,7 +99,7 @@ class ConcertController extends AbstractController
     }
 
     /**
-     * Delete a specific item
+     * Delete a specific concert
      */
     public function delete(): void
     {

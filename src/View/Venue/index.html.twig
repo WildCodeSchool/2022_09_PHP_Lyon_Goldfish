@@ -1,37 +1,37 @@
 {% extends 'layout.html.twig' %}
 {% set active_page = "/venues" %}
+{% block title %}Lieux
+{% endblock %}
 
 {% block content %}
-	<main class="container">
-		<div class="row">
-			<h2>Tous les lieux</h2>
-		</div>
-		{% if user.is_admin == true %}
-			<a href="/venues/add" class="btn btn-primary btn-sm">Ajouter</a>
-		{% endif %}
-		<div class="row">
-			{% for venue in venues %}
-				<div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center">
-					<div class="card shadow-lg">
-						<img src="{{ venue.image_venue }}" class="card-img-top" alt="image lieu">
-						<div class="card-body">
-							<h5 class="card-text lead">{{ venue.name_venue }}</h5>
-							<h5 class="card-text lead">{{ venue.address }}</h5>
-							<h5 class="card-text lead">{{ venue.city }}</h5>
-							{% if user and user.is_admin == true %}
-								<form action="/venues/delete" method="POST">
-									<a href="/venues/show?id={{ venue.id }}" class="btn btn-primary btn-sm">Voir</a>
-									<a href="/venues/edit?id={{ venue.id }}" class="btn btn-primary btn-sm">Modifier</a>
-									<input type="hidden" name="id" value="{{ venue.id }}">
-									<button class="btn btn-danger btn-sm" onclick="Êtes-vous sûr(e) de vouloir supprimer le lieu ?');">Supprimer</button>
-								</form>
-							{% endif %}
-						</div>
+	<div class="row">
+		<h2>Tous les lieux</h2>
+	</div>
+	{% if user.is_admin == true %}
+		<a href="/venues/add" class="btn btn-primary btn-sm">Ajouter</a>
+	{% endif %}
+	<div class="row">
+		{% for venue in venues %}
+			<div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center">
+				<div class="venues card shadow-lg my-4 border-0">
+					<img src="{{ venue.image_venue }}" class="card-img-top" alt="image lieu">
+					<div class="card-body">
+						<h5 class="card-text lead">{{ venue.name_venue }}</h5>
+						<h5 class="card-text lead">{{ venue.address }}</h5>
+						<h5 class="card-text lead">{{ venue.city }}</h5>
+						{% if user and user.is_admin == true %}
+							<form action="/venues/delete" method="POST">
+								<a href="/venues/show?id={{ venue.id }}" class="btn btn-primary btn-sm">Voir</a>
+								<a href="/venues/edit?id={{ venue.id }}" class="btn btn-primary btn-sm">Modifier</a>
+								<input type="hidden" name="id" value="{{ venue.id }}">
+								<button class="btn btn-danger btn-sm" onclick="Êtes-vous sûr(e) de vouloir supprimer le lieu ?');">Supprimer</button>
+							</form>
+						{% endif %}
 					</div>
 				</div>
-			{% else %}
-				<li>Aucun lieu à afficher</li>
-			{% endfor %}
-		</div>
-	</main>
+			</div>
+		{% else %}
+			<li>Aucun lieu à afficher</li>
+		{% endfor %}
+	</div>
 {% endblock %}
