@@ -47,6 +47,8 @@
 							<ul class="dropdown-menu text-small w-25 mt-1" data-popper-placement="bottom-start">
 								<li>
 									<a class="dropdown-item">{{ user.pseudo }}</a>
+									<a class="dropdown-item" href="/artists/favorites">Artistes favoris</a>
+									<a class="dropdown-item" href="/concerts/favorites">Concerts favoris</a>
 								</li>
 								<li><hr class="dropdown-divider"></li>
 								<li>
@@ -79,21 +81,15 @@
 								<img src="{{ user.avatar }}" alt="avatar" class="avatar rounded-circle"/>
 							</a>
 							<ul class=" dropdown-menu dropdown-menu-end text-small show w-25" data-popper-placement=" bottom-start">
-								{% if user %}
-									<li>
-										<a class="dropdown-item">{{ user.pseudo }}</a>
-									</li>
-								{% endif %}
+								<li>
+									<a class="dropdown-item">{{ user.pseudo }}</a>
+									<a class="dropdown-item" href="/artists/favorites">Artistes favoris</a>
+									<a class="dropdown-item" href="/concerts/favorites">Concerts favoris</a>
+								</li>
 								<li><hr class="dropdown-divider"></li>
-								{% if user %}
-									<li>
-										<a class="dropdown-item" href="/logout">Déconnexion</a>
-									</li>
-								{% else %}
-									<li>
-										<a class="dropdown-item" href="/login">Connexion</a>
-									</li>
-								{% endif %}
+								<li>
+									<a class="dropdown-item" href="/logout">Déconnexion</a>
+								</li>
 							</ul>
 						</div>
 					{% endif %}
