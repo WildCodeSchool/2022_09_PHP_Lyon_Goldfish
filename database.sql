@@ -1,7 +1,7 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-DROP DATABASE goldfish;
+DROP DATABASE IF EXISTS goldfish;
 
 CREATE DATABASE goldfish;
 
@@ -11,11 +11,11 @@ USE goldfish;
 -- Structure de la table `artist`
 --
 
-create table artist (
-     id int not null primary key auto_increment,
-     name_artist varchar(100) not null,
-     style varchar(50) not null,
-     image_artist varchar(255) not null,
+CREATE TABLE artist (
+     id INT NOT NULL PRIMARY KEY auto_increment,
+     name_artist VARCHAR(100) NOT NULL,
+     style VARCHAR(50) NOT NULL,
+     image_artist VARCHAR(255) NOT NULL,
      UNIQUE (name_artist)
      );
 
@@ -24,13 +24,14 @@ create table artist (
 --
 
 INSERT INTO artist (name_artist, style, image_artist)
-     values ('System of a Down', 'Metal', 'http://www.albumrock.net/dyn_img/groupes/124.jpg'),
+VALUES 
+     ('System of a Down', 'Metal', 'http://www.albumrock.net/dyn_img/groupes/124.jpg'),
      ('Green Day', 'Rock', 'https://i.guim.co.uk/img/media/55760e085efd29851aaa9039781334c63e478c85/0_300_4500_2700/master/4500.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=e4900fb962c83b5e2f0c1f904985a55c'),
      ('The Rolling Stones', 'Rock', 'https://dice-i-scdn-co.imgix.net/image/ab6761610000e5ebd3cb15a8570cce5a63af63d8'),
      ('Jessie Reyez', 'RnB', '/assets/images/artists/Jessie Reyez.jpg'),
      ('Deluxe', 'Pop', '/assets/images/artists/Deluxe.jpg'),
      ('Groundation', 'Reggae', 'https://cdns-images.dzcdn.net/images/artist/ac1a376ec3732d591b257206d52da2d2/500x500.jpg'),
-     ('Red Hot Chilli Peppers', 'Rock', 'https://www.francetvinfo.fr/pictures/YnJTqroQguN5Jg_6KHP_jFaGfcQ/1200x1200/2022/04/01/phpPAEw95.jpg'),
+     ('Red Hot Chili Peppers', 'Rock', 'https://www.francetvinfo.fr/pictures/YnJTqroQguN5Jg_6KHP_jFaGfcQ/1200x1200/2022/04/01/phpPAEw95.jpg'),
      ('Franz Ferdinand', 'Rock', '/assets/images/artists/Franz Ferdinand.jpg'),
      ('Eric Clapton', 'Blues', 'https://www.francetvinfo.fr/pictures/3c1g-Snk5Gq0v-ljQ49JYKg3_wk/1200x1200/2019/04/11/ericclaptonok.jpg'),
      ('Lizzo', 'Rap','https://music-planet.fr/wp-content/uploads/2019/04/avatars-000481837866-dh98ox-t500x500.jpg'),
@@ -65,12 +66,12 @@ INSERT INTO artist (name_artist, style, image_artist)
 -- Structure de la table `venue`
 --
 
-create table venue (
-     id int not null primary key auto_increment,
-     name_venue varchar(150) not null,
-     address varchar(150) not null,
-     city varchar(100) not null,
-     image_venue varchar(255) not null,
+CREATE TABLE venue (
+     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+     name_venue VARCHAR(150) NOT NULL,
+     address VARCHAR(150) NOT NULL,
+     city VARCHAR(100) NOT NULL,
+     image_venue VARCHAR(255) NOT NULL,
      UNIQUE (name_venue)
      );
 
@@ -78,8 +79,9 @@ create table venue (
 -- Contenu de la table `venue`
 --
 
-insert into venue (name_venue, address, city, image_venue)
-values ('Le Transbordeur', '3 Bd de Stalingrad', 'Villeurbanne', '/assets/images/venues/transbordeur.jpeg'),
+INSERT INTO venue (name_venue, address, city, image_venue)
+VALUES 
+     ('Le Transbordeur', '3 Bd de Stalingrad', 'Villeurbanne', '/assets/images/venues/transbordeur.jpeg'),
      ('Le Radiant', '1 Rue Jean Moulin', 'Caluire-et-Cuire', '/assets/images/venues/radiant.jpeg'),
      ('La Halle Tony Garnier', '20 Pl. Docteurs Charles et Christophe Mérieux', 'Lyon', '/assets/images/venues/halle-tony-garnier.jpeg'),
      ('Le Zénith de Paris', '211 Av. Jean Jaurès', 'Paris', '/assets/images/venues/zenith-paris.jpeg'),
@@ -92,7 +94,7 @@ values ('Le Transbordeur', '3 Bd de Stalingrad', 'Villeurbanne', '/assets/images
      ('Le Rockstore', '20 Rue de Verdun', 'Montpellier', 'https://assets.justacote.com/photos_entreprises/rockstore-odeon-montpellier-14271857310.jpg'),
      ("L'Élysée Montmartre", '72 Blvd Marguerite de Rochechouart', 'Paris', 'https://ml1zg2et1ufr.i.optimole.com/w:933/h:933/q:mauto/rt:fill/g:ce/el:1/https://trianon-elyseemontmartre.com/wp-content/uploads/2018/05/2O1A0127-uai-933x933.jpg'),
      ('La Cigale', '120 Blvd Marguerite de Rochechouart', 'Paris', 'https://museedupatrimoine.fr/patrimoine/32474/thumb_19394-la-cigale-paris-18eme--0.jpg'),
-     ('Le Trianon', '80 Blvd Marguerite de Rochechouart', 'Paris', 'https://www.letrianon.fr/sites/trianon7.ap2s.fr/files/3_-_Le_Trianon_-_Le_Theatre_assis_de_puis_scne_c_Franck_Bohbot-435x435.jpg'),
+     ('Le Trianon Paris', '80 Blvd Marguerite de Rochechouart', 'Paris', 'https://www.letrianon.fr/sites/trianon7.ap2s.fr/files/3_-_Le_Trianon_-_Le_Theatre_assis_de_puis_scne_c_Franck_Bohbot-435x435.jpg'),
      ('Le Bikini', 'Parc Technologique du Canal, Rue Théodore Monod', 'Ramonville-Saint-Agne', 'https://cdn.sanity.io/images/rf3cqo3h/production/cbf769e95188224def9a14871dacef5e7e5a63e9-510x510.jpg'),
      ('Paloma', "250 Chem. de l'Aérodrome", 'Nîmes', 'https://paloma-nimes.fr/wp-content/uploads/2018/01/lieuvignette.jpg'),
      ("L'Espace Julien", '39 Cr Julien', 'Marseille', 'https://www.adamconcerts.com/wp-content/uploads/sites/2/2013/02/espace-julien-marseille.jpg'),
@@ -109,19 +111,19 @@ values ('Le Transbordeur', '3 Bd de Stalingrad', 'Villeurbanne', '/assets/images
 -- Structure de la table `concert`
 --
 
-create table concert (
-     id int not null primary key auto_increment,
-     date date not null,
-     schedule time not null,
-     artist_id int not null,
-     constraint fk_concert_artist
-     foreign key (artist_id)
-     references artist(id)
+CREATE TABLE concert (
+     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+     date DATE NOT NULL,
+     schedule TIME NOT NULL,
+     artist_id INT NOT NULL,
+     CONSTRAINT fk_concert_artist
+     FOREIGN KEY (artist_id)
+     REFERENCES artist(id)
      ON DELETE CASCADE,
-     venue_id int not null,
-     constraint fk_concert_venue
-     foreign key (venue_id)
-     references venue(id)
+     venue_id INT NOT NULL,
+     CONSTRAINT fk_concert_venue
+     FOREIGN KEY (venue_id)
+     REFERENCES venue(id)
      ON DELETE CASCADE
      );
 
@@ -129,8 +131,8 @@ create table concert (
 -- Contenu de la table `concert`
 --
 
-insert into concert (date, schedule, artist_id, venue_id)
-values
+INSERT INTO concert (date, schedule, artist_id, venue_id)
+VALUES
      ('2023-05-27', '20:30:00', 12, 3),
      ('2023-12-24', '21:00:00', 4, 4),
      ('2023-08-14', '21:00:00', 5, 5),
@@ -167,31 +169,33 @@ values
 --
 
 CREATE TABLE user (
-  id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  email varchar(100) DEFAULT NULL,
-  password varchar(255) DEFAULT NULL,
-  pseudo varchar(45) DEFAULT NULL,
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  email VARCHAR(100) DEFAULT NULL,
+  password VARCHAR(255) DEFAULT NULL,
+  pseudo VARCHAR(45) DEFAULT NULL,
   is_admin BOOL NOT NULL, 
-  avatar varchar(255),
+  avatar VARCHAR(255) NULL,
   UNIQUE KEY email_UNIQUE (email)
 );
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO user VALUES (1,'toto@mail.fr','$2y$10$FjaLGXBcJBrSRJAA/7GA7.69fq/g2jDbpuiZWDJcMKZulhL2WPz2i','Toto', false, 'https://fr.shopping.rakuten.com/photo/981287510_L.jpg'),
-(2,'superman@mail.fr','$2y$10$SjAEemkn.MKSsLqypYltHOm4vMPSfZTZVbFkxT5bZ1duXIQTiHoca','Superman', true, 'https://sfractus-images.cleo.media/unsafe/0x490:1080x1570/641x0/images/Superman-2931.jpg');
+INSERT INTO user 
+VALUES 
+     (1,'toto@mail.fr','$2y$10$FjaLGXBcJBrSRJAA/7GA7.69fq/g2jDbpuiZWDJcMKZulhL2WPz2i','Toto', false, 'https://fr.shopping.rakuten.com/photo/981287510_L.jpg'),
+     (2,'superman@mail.fr','$2y$10$SjAEemkn.MKSsLqypYltHOm4vMPSfZTZVbFkxT5bZ1duXIQTiHoca','Superman', true, 'https://sfractus-images.cleo.media/unsafe/0x490:1080x1570/641x0/images/Superman-2931.jpg');
 
 
-create table favorite_artist (
-user_id int not null,
-constraint fk_user_id_artist
-foreign key (user_id)
-references user(id),
-favorite_artist_id int not null,
-constraint fk_favorite_artist
-foreign key (favorite_artist_id)
-references artist(id)
+CREATE TABLE favorite_artist (
+user_id INT NOT NULL,
+CONSTRAINT fk_user_id_artist
+FOREIGN KEY (user_id)
+REFERENCES user(id),
+favorite_artist_id INT NOT NULL,
+CONSTRAINT fk_favorite_artist
+FOREIGN KEY (favorite_artist_id)
+REFERENCES artist(id)
 ON DELETE CASCADE
 );
 
@@ -200,15 +204,15 @@ INSERT INTO favorite_artist VALUES (1, 4),
 (1, 2);
 
 
-create table favorite_concert (
-user_id int not null,
-constraint fk_user_id_concert
-foreign key (user_id)
-references user(id),
-favorite_concert_id int not null,
-constraint fk_favorite_concert
-foreign key (favorite_concert_id)
-references concert(id)
+CREATE TABLE favorite_concert (
+user_id INT NOT NULL,
+CONSTRAINT fk_user_id_concert
+FOREIGN KEY (user_id)
+REFERENCES user(id),
+favorite_concert_id INT NOT NULL,
+CONSTRAINT fk_favorite_concert
+FOREIGN KEY (favorite_concert_id)
+REFERENCES concert(id)
 ON DELETE CASCADE
 );
 
