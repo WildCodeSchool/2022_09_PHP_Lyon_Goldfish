@@ -14,10 +14,10 @@
 	{% if user and user.is_admin == false %}
 	<div class="d-flex">
 		<a class="linkfavorite d-flex align-items-center" href="/concerts/favorites">
-			<h4>♥ Mes Favoris</h4>
+			<h4>Les concerts où je vais</h4>
 		</a>
 		<a class="linkfavorite d-flex align-items-center" href="/concerts/myArtists">
-			<h4>♫ Concerts Artistes Favoris</h4>
+			<h4>Concerts de mes artistes favoris</h4>
 		</a>
 	</div>
 	{% endif %}
@@ -41,7 +41,7 @@
 									<form action="/concerts/deleteFavorite" method="POST">
 										<input type="hidden" name="favorite_concert_id" value="{{ concert.id }}">
 										<button class="btn btn-danger float-end">
-											<div class="heartfull"></div>J'y vais !
+											<div class="heartfull"></div>Je n'y vais plus !
 										</button>
 									</form>
 								{% else %}
