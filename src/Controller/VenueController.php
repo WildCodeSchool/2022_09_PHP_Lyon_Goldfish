@@ -13,7 +13,7 @@ class VenueController extends AbstractController
     public function index(): string
     {
         $venueManager = new VenueManager();
-        $venues = $venueManager->selectAllByName();
+        $venues = $venueManager->selectAll('name_venue');
 
         return $this->twig->render('Venue/index.html.twig', ['venues' => $venues]);
     }
