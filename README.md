@@ -2,15 +2,15 @@
 
 ## What is Goldfish ?
 
-Goldfish is a web application that will help you remember each of your favorites artists concerts... and be informed when they plan a new date !!
-
-With Goldfish you can save your artists and concerts in our database to create a personalized agenda page.
+We all had the sad experience of missing a loved artist because we didn't even know they were on tour... so we created Goldfish !
+Goldfish is a web application that will help you remember each of your favorites artists concerts... and be informed when they plan a new date !
+With Goldfish you can save your artists and concerts in our database to create a personalized agenda page and make sure you'll be there when it matters.
 
 ## Project status
 
-We are <a href="https://www.linkedin.com/in/jonas-jallet/">Jonas</a>, <a href="https://www.linkedin.com/in/nina-iacoponelli/">Nina</a>, <a href="https://www.linkedin.com/in/amaury-beurrier/">Amaury</a>, <a href="https://www.linkedin.com/in/s%C3%A9bastien-papet/">Sébastien</a> and <a href="https://www.linkedin.com/in/hugo-tapia-77037224a/">Hugo</a>, students at the Lyon Wild Code School and specialized in PHP / Symfony. This is the second projet we had to realize, during 5 weeks, after a little more than one month of formation. We chose this subject because we love music and going to concerts...and we all had the sad experience of missing a loved artist because we didn't know they were on tour !
+We are <a href="https://www.linkedin.com/in/jonas-jallet/">Jonas</a>, <a href="https://www.linkedin.com/in/nina-iacoponelli/">Nina</a>, <a href="https://www.linkedin.com/in/amaury-beurrier/">Amaury</a>, <a href="https://www.linkedin.com/in/s%C3%A9bastien-papet/">Sébastien</a> and <a href="https://www.linkedin.com/in/hugo-tapia-77037224a/">Hugo</a>, students at the Lyon Wild Code School and specialized in PHP / Symfony. This is the second projet we had to realize, during 5 weeks, after a little more than one month of formation. We chose this subject because we love music and going to concerts !
 
-## Steps Install
+## Installation
 
 1. Clone the repo from Github.
 2. Run `composer install`.
@@ -28,6 +28,7 @@ define('APP_DB_PASSWORD', 'your_db_password');
 ## Requirements
 
 Please make sure you have the "extension=php_intl.dll" installed and running. If not, you can enter the command "composer require twig/intl-extra" in your CLI and check your PHP files if necessary.
+If you are using Ubuntu, you can enter the command : "sudo apt install php-xml php-mbstring php-intl" to install all required extensions.
 
 ### Windows Users
 
@@ -35,5 +36,9 @@ If you develop on Windows, you should edit you git configuration to change your 
 
 `git config --global core.autocrlf true`
 
+## Special accounts
+
+Even though we created a simple user account : 'toto@mail.fr' with password "Toto", you can go ahead and create your own !
+But in order to take the full tour of our application, you better use our administrator account : "superman@mail.fr" password "super". This account will allow you to create artists, concerts and change some information from the interface !
 
 
