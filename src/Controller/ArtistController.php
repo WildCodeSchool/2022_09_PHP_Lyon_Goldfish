@@ -14,7 +14,7 @@ class ArtistController extends AbstractController
     public function index(): string
     {
         $artistManager = new ArtistManager();
-        $artists = $artistManager->selectAll();
+        $artists = $artistManager->selectAll('name_artist');
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $favoriteArtist = array_map('trim', $_POST);

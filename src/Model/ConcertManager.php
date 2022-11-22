@@ -68,7 +68,7 @@ class ConcertManager extends AbstractManager
 
     public function selectAllArtists(): array
     {
-        $query = "SELECT * FROM artist";
+        $query = "SELECT * FROM artist ORDER BY name_artist";
         $statement = $this->pdo->query($query);
         $allArtists = $statement->fetchAll();
 
@@ -77,7 +77,7 @@ class ConcertManager extends AbstractManager
 
     public function selectAllVenues(): array
     {
-        $query = "SELECT * FROM venue";
+        $query = "SELECT * FROM venue ORDER BY name_venue";
         $statement = $this->pdo->query($query);
         $allVenues = $statement->fetchAll();
 
