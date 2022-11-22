@@ -93,10 +93,15 @@ ul {
 }
 
 /*********** ROUNDED ARTISTS *******************/
+
 .bd-placeholder-img {
     width: 140px;
     height: 140px;
     object-fit: cover;
+}
+
+img.images {
+    cursor: pointer;
 }
 
 /*********** CARD VENUES *******************/
@@ -109,6 +114,10 @@ ul {
 span {
     width: 144px;
     height: 44px;
+}
+
+.overlay {
+    cursor: pointer;
 }
 
 .effect .overlay {
