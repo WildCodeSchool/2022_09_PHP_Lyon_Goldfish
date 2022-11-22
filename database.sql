@@ -116,11 +116,13 @@ create table concert (
      artist_id int not null,
      constraint fk_concert_artist
      foreign key (artist_id)
-     references artist(id),
+     references artist(id)
+     ON DELETE CASCADE,
      venue_id int not null,
      constraint fk_concert_venue
      foreign key (venue_id)
      references venue(id)
+     ON DELETE CASCADE
      );
 
 --
@@ -190,6 +192,7 @@ favorite_artist_id int not null,
 constraint fk_favorite_artist
 foreign key (favorite_artist_id)
 references artist(id)
+ON DELETE CASCADE
 );
 
 INSERT INTO favorite_artist VALUES (1, 4),
@@ -206,6 +209,7 @@ favorite_concert_id int not null,
 constraint fk_favorite_concert
 foreign key (favorite_concert_id)
 references concert(id)
+ON DELETE CASCADE
 );
 
 INSERT INTO favorite_concert VALUES (1, 4),
