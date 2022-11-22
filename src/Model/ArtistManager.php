@@ -81,4 +81,14 @@ class ArtistManager extends AbstractManager
             $this->errors[] = "Le lien de l'image ne doit pas dépasser 255 caractères";
         }
     }
+
+    public function selectAllByName(string $orderBy = 'name_artist', string $direction = 'ASC'): array
+    {
+        $query = 'SELECT * FROM ' . static::TABLE;
+        if ($orderBy) {
+            $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
+        }
+
+        return $this->pdo->query($query)->fetchAll();
+    }
 }

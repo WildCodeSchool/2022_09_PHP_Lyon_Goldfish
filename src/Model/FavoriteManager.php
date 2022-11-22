@@ -10,7 +10,7 @@ class FavoriteManager extends AbstractManager
     {
         $query = "SELECT a.name_artist, a.style, a.image_artist, f.favorite_artist_id
         FROM artist a INNER JOIN favorite_artist f ON a.id=f.favorite_artist_id
-        INNER JOIN user u ON u.id=f.user_id WHERE u.id = " . $_SESSION['user_id'];
+        INNER JOIN user u ON u.id=f.user_id WHERE u.id=" . $_SESSION['user_id'] . " ORDER BY a.name_artist ";
         $statement = $this->pdo->query($query);
         $allFavoritesArtists = $statement->fetchAll();
 
