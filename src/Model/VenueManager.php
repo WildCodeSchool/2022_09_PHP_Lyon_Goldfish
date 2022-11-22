@@ -40,7 +40,7 @@ class VenueManager extends AbstractManager
         address=:address, city=:city, image_venue=:image_venue WHERE id=:id");
         $statement->bindValue(':id', $venue['id'], PDO::PARAM_INT);
         $statement->bindValue(':name_venue', $venue['name_venue'], PDO::PARAM_STR);
-        $statement->bindValue(':address', $venue['address'], PDO::PARAM_INT);
+        $statement->bindValue(':address', $venue['address'], PDO::PARAM_STR);
         $statement->bindValue(':city', $venue['city'], PDO::PARAM_STR);
         $statement->bindValue(':image_venue', $venue['image_venue'], PDO::PARAM_STR);
         return $statement->execute();
