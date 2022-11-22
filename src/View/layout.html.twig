@@ -42,11 +42,13 @@
 					{% if user %}
 						<div class="avatar dropdown text-end me-2">
 							<a href="#" class="d-flex align-items-center justify-content-end link-danger text-decoration-none dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true">
-								<img src="/assets/images/users/avatar.jpg" alt="mdo" class="avatar rounded-circle pe-1"/>
+								<img src="{{ user.avatar }}" alt="avatar" class="avatar rounded-circle"/>
 							</a>
 							<ul class="dropdown-menu text-small w-25 mt-1" data-popper-placement="bottom-start">
 								<li>
 									<a class="dropdown-item">{{ user.pseudo }}</a>
+									<a class="dropdown-item" href="/artists/favorites">Artistes favoris</a>
+									<a class="dropdown-item" href="/concerts/favorites">Concerts favoris</a>
 								</li>
 								<li><hr class="dropdown-divider"></li>
 								<li>
@@ -76,7 +78,7 @@
 					{% if user %}
 						<div class="avatar dropdown text-end me-2">
 							<a href="#" class="d-flex align-items-center justify-content-end mt-1 me-1 link-danger text-decoration-none dropdown-toggle show fixed-top" data-bs-toggle="dropdown" aria-expanded="true">
-								<img src="/assets/images/users/avatar.jpg" alt="mdo" class="avatar rounded-circle pe-1"/>
+								<img src="{{ user.avatar }}" alt="avatar" class="avatar rounded-circle"/>
 							</a>
 							<ul class=" dropdown-menu dropdown-menu-end text-small show w-25" data-popper-placement=" bottom-start">
 								{% if user %}
@@ -84,12 +86,6 @@
 										<a class="dropdown-item">{{ user.pseudo }}</a>
 									</li>
 								{% endif %}
-								<li>
-									<a class="dropdown-item" href="#">Profil</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">Paramètres</a>
-								</li>
 								<li><hr class="dropdown-divider"></li>
 								{% if user %}
 									<li>
@@ -105,8 +101,8 @@
 					{% endif %}
 				</div>
 			</nav>
-
-			{% block content %}{% endblock %}
-			{% block javascript %}{% endblock %}
-		</body>
-	</html>
+			<main class="container"> {% block content %}{% endblock %}
+				</main>
+				{% block javascript %}{% endblock %}
+			</body>
+		</html>

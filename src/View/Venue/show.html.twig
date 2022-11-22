@@ -1,27 +1,27 @@
 {% extends 'layout.html.twig' %}
 {% set active_page = "/venues" %}
+{% block title %}Lieux
+{% endblock %}
 
 {% block content %}
-	<main class="container">
-		<div class="row">
-			<h2>Lieu</h2>
-		</div>
-		<div class="row row-cols-1 row-cols-md-4 g-3 ">
-			<div class="col">
-				<div class="card shadow-lg">
-					<img src="{{ venue.image_venue }}" class="card-img-top" alt="image artiste">
-					<div class="card-body">
-						<h5 class="card-text lead">{{ venue.name_venue }}</h5>
-						<h5 class="card-text lead">{{ venue.address }}</h5>
-						<h5 class="card-text lead">{{ venue.city }}</h5>
-						<form action="/venues/delete" method="POST">
-							<a href="/venues/edit?id={{ venue.id }}" class="btn btn-primary btn-sm">Modifier</a>
-							<input type="hidden" name="id" value="{{ venue.id }}">
-							<button class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr(e) de vouloir supprimer le lieu ?');">Supprimer</button>
-						</form>
-					</div>
+	<div class="row">
+		<h2>Lieu</h2>
+	</div>
+	<div class="row row-cols-1 row-cols-md-4 g-3">
+		<div class="col">
+			<div class="venues card shadow-lg my-4 border-0">
+				<img src="{{ venue.image_venue }}" class="card-img-top" alt="image artiste">
+				<div class="card-body">
+					<h5 class="card-text lead">{{ venue.name_venue }}</h5>
+					<h5 class="card-text lead">{{ venue.address }}</h5>
+					<h5 class="card-text lead">{{ venue.city }}</h5>
+					<form action="/venues/delete" method="POST">
+						<a href="/venues/edit?id={{ venue.id }}" class="btn btn-primary btn-sm">Modifier</a>
+						<input type="hidden" name="id" value="{{ venue.id }}">
+						<button class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr(e) de vouloir supprimer le lieu ?');">Supprimer</button>
+					</form>
 				</div>
 			</div>
 		</div>
-	</main>
+	</div>
 {% endblock %}

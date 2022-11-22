@@ -2,33 +2,32 @@
 {% set active_page = "/" %}
 {% block classBody %}indexBackground
 {% endblock %}
-
+{% block title %}Goldfish
+{% endblock %}
 {% block content %}
-	<main class="container">
-		<div class="row">
-			<div class="d-flex flex-column justify-content-center">
-				<div class="indexSection">
-					<p class="logotxt">goldfish</p>
-					<img src="/assets/images/goldfish.png" class="logoimg" alt="logo goldfish">
+	<div class="row">
+		<div class="d-flex flex-column justify-content-center">
+			<div class="indexSection">
+				<p class="logotxt">goldfish</p>
+				<img src="/assets/images/goldfish.png" class="logoimg" alt="logo goldfish">
+			</div>
+		</div>
+	</div>
+	<div class="row fixed-bottom mb-5">
+		<div>
+			<h3 class="baseline">Grâce à lui, vous ne passerez plus à côté des concerts de vos artistes favoris</h3>
+			{% if user %}
+				<h3 class="baselineWelcome">Bienvenue
+					{{ user.pseudo }}
+					!
+				</h3><br><br>
+			{% else %}
+				<div class="d-flex justify-content-center">
+					<form action="/login">
+						<button type="submit" class="btn btn-danger btn-md mb-5 d-flex justify-content-center">Connexion</button>
+					</form>
 				</div>
-			</div>
+			{% endif %}
 		</div>
-		<div class="row fixed-bottom mb-5">
-			<div>
-				<h3 class="baseline">Grâce à lui, vous ne passerez plus à côté des concerts de vos artistes favoris</h3>
-				{% if user %}
-					<h4 class="baselineWelcome">Bienvenue
-						{{ user.pseudo }}
-						😊
-					</h4><br><br>
-				{% else %}
-					<div class="d-flex justify-content-center">
-						<form action="/login">
-							<button type="submit" class="btn btn-danger btn-md mb-5 d-flex justify-content-center">Connexion</button>
-						</form>
-					</div>
-				{% endif %}
-			</div>
-		</div>
-	</main>
+	</div>
 {% endblock %}

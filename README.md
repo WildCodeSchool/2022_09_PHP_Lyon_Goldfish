@@ -1,13 +1,16 @@
-# Simple MVC
+<img src="https://zupimages.net/up/22/46/ufwn.png" width="300" height="300" align="center" alt="Goldfish">
 
-## Description
+## What is Goldfish ?
 
-This repository is a simple PHP MVC structure from scratch.
+Goldfish is a web application that will help you remember each of your favorites artists concerts... and be informed when they plan a new date !!
 
-It uses some cool vendors/libraries such as Twig and Grumphp.
-For this one, just a simple example where users can choose one of their databases and see tables in it.
+With Goldfish you can save your artists and concerts in our database to create a personalized agenda page.
 
-## Steps
+## Project status
+
+We are <a href="https://www.linkedin.com/in/jonas-jallet/">Jonas</a>, <a href="https://www.linkedin.com/in/nina-iacoponelli/">Nina</a>, <a href="https://www.linkedin.com/in/amaury-beurrier/">Amaury</a>, <a href="https://www.linkedin.com/in/s%C3%A9bastien-papet/">Sébastien</a> and <a href="https://www.linkedin.com/in/hugo-tapia-77037224a/">Hugo</a>, students at the Lyon Wild Code School and specialized in PHP / Symfony. This is the second projet we had to realize, during 5 weeks, after a little more than one month of formation. We chose this subject because we love music and going to concerts...and we all had the sad experience of missing a loved artist because we didn't know they were on tour !
+
+## Steps Install
 
 1. Clone the repo from Github.
 2. Run `composer install`.
@@ -21,7 +24,10 @@ define('APP_DB_PASSWORD', 'your_db_password');
 4. Import *database.sql* in your SQL server, you can do it manually or use the *migration.php* script which will import a *database.sql* file.
 5. Run the internal PHP webserver with `php -S localhost:8000 -t public/`. The option `-t` with `public` as parameter means your localhost will target the `/public` folder.
 6. Go to `localhost:8000` with your favorite browser.
-7. From this starter kit, create your own web application.
+
+## Requirements
+
+Please make sure you have the "extension=php_intl.dll" installed and running. If not, you can enter the command "composer require twig/intl-extra" in your CLI and check your PHP files if necessary.
 
 ### Windows Users
 
@@ -29,53 +35,5 @@ If you develop on Windows, you should edit you git configuration to change your 
 
 `git config --global core.autocrlf true`
 
-## Example 
 
-An example (a basic list of items) is provided (you can load the *simple-mvc.sql* file in a test database). The accessible URLs are :
-
-* Home page at [localhost:8000/](localhost:8000/)
-* Items list at [localhost:8000/items](localhost:8000/items)
-* Item details [localhost:8000/items/show?id=:id](localhost:8000/item/show?id=2)
-* Item edit [localhost:8000/items/edit?id=:id](localhost:8000/items/edit?id=2)
-* Item add [localhost:8000/items/add](localhost:8000/items/add)
-* Item deletion [localhost:8000/items/delete?id=:id](localhost:8000/items/delete?id=2)
-
-You can find all these routes declared in the file `src/routes.php`. This is the very same file where you'll add your own new routes to the application.
-
-## How does URL routing work ?
-
-![simple_MVC.png](.tours/simple_MVC.png)
-
-
-## Ask for a tour !
-
-<img src="https://raw.githubusercontent.com/WildCodeSchool/simple-mvc/codetour/.tours/photo-1632178151697-fd971baa906f.jpg" alt="Guided tour" width="150"/>
-
-We prepare a little guided tour to start with the simple-MVC.
-
-To take it, you need to install the `Code Tour` extension for Visual Studio Code : [Code Tour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour)
-
-It will give access to a new menu on your IDE where you'll find the different tours about the simple-MVC. Click on play to start one : 
-
-![menu](https://raw.githubusercontent.com/WildCodeSchool/simple-mvc/codetour/.tours/code_tour_menu.png)
-
-
-
-## Run it on docker
-
-If you don't know what is docker, skip this chapter. ;) 
-
-Otherwise, you probably see, this project is ready to use with docker. 
-
-To build the image, go into the project directory and in your CLI type:
-
-```
-docker build -t simple-mvc-container .
-```
-
-then, run it to open it on your localhot :
-
-```
-docker run -i -t --name simple-mvc  -p 80:80 simple-mvc-container
-```
 
