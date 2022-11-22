@@ -62,6 +62,17 @@ class FavoriteController extends AbstractController
         }
     }
 
+    public function deleteMyFavoriteArtist(): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $favoriteArtistId = trim($_POST['favorite_artist_id']);
+            $favoriteManager = new FavoriteManager();
+            $favoriteManager->deleteFavoriteArtist((int)$favoriteArtistId, $_SESSION['user_id']);
+
+            header('Location:/artists/favorites');
+        }
+    }
+
     public function deleteFavoriteConcert(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -70,6 +81,17 @@ class FavoriteController extends AbstractController
             $favoriteManager->deleteFavoriteConcert((int)$favoriteConcertId, $_SESSION['user_id']);
 
             header('Location:/concerts');
+        }
+    }
+
+    public function deleteMyFavoriteConcert(): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $favoriteConcertId = trim($_POST['favorite_concert_id']);
+            $favoriteManager = new FavoriteManager();
+            $favoriteManager->deleteFavoriteConcert((int)$favoriteConcertId, $_SESSION['user_id']);
+
+            header('Location:/concerts/favorites');
         }
     }
 

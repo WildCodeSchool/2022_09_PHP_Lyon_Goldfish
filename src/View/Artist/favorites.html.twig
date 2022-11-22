@@ -24,7 +24,7 @@
 						</img>
 					</div>
 					<p class="artist-name d-flex align-items-center justify-content-center">{{ favorite.name_artist }}</p>
-					<form action="/artists/deleteFavorite" method="POST">
+					<form action="/artists/deleteFavorite2" method="POST">
 						<input type="hidden" name="favorite_artist_id" value="{{ favorite.favorite_artist_id }}">
 						<button class="heartfull"></button>
 					</form>

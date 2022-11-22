@@ -25,7 +25,7 @@
 						<h5 class="card-text lead">{{ favorite.city }}</h5>
 						{% if user and user.is_admin == false %}
 							<div class="card-body bg-transparent border-success">
-								<form action="/concerts/deleteFavorite" method="POST">
+								<form action="/concerts/deleteFavorite3" method="POST">
 									<input type="hidden" name="favorite_concert_id" value="{{ favorite.favorite_concert_id }}">
 									<button class="btn btn-danger float-end">
 										<div class="heartfull"></div>J'y vais !
