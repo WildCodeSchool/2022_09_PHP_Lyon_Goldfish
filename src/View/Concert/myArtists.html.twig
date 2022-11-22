@@ -26,7 +26,7 @@
 						{% if user and user.is_admin == false %}
 							<div class="card-body bg-transparent border-success">
 								{% if favorite.id in user.favorites_concert %}
-									<form action="/concerts/deleteFavorite2" method="POST">
+									<form action="/concerts/deleteFavoriteInArtists" method="POST">
 										<input type="hidden" name="favorite_concert_id" value="{{ favorite.id }}">
 										<button class="btn btn-danger float-end">
 											<div class="heartfull"></div>J'y vais !

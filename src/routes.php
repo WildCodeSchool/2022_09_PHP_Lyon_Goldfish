@@ -21,8 +21,8 @@ return [
     'concerts/favorites' => ['FavoriteController', 'favoritesConcerts',],
     'concerts/myArtists' => ['FavoriteController', 'concertsForMyArtists',],
     'concerts/deleteFavorite' => ['FavoriteController', 'deleteFavoriteConcert',],
-    'concerts/deleteFavorite2' => ['FavoriteController', 'deleteFavoriteConcertMyArtists',],
-    'concerts/deleteFavorite3' => ['FavoriteController', 'deleteMyFavoriteConcert',],
+    'concerts/deleteFavoriteInArtists' => ['FavoriteController', 'deleteFavoriteConcertMyArtists',],
+    'concerts/deleteFavoriteInFavorites' => ['FavoriteController', 'deleteMyFavoriteConcert',],
 
     'artists' => ['ArtistController', 'index',],
     'artists/edit' => ['ArtistController', 'edit', ['id']],
@@ -32,7 +32,7 @@ return [
     'artists/search' => ['ArtistController', 'search',],
     'artists/favorites' => ['FavoriteController', 'favoritesArtists',],
     'artists/deleteFavorite' => ['FavoriteController', 'deleteFavoriteArtist',],
-    'artists/deleteFavorite2' => ['FavoriteController', 'deleteMyFavoriteArtist',],
+    'artists/deleteFavoriteInFavorites' => ['FavoriteController', 'deleteMyFavoriteArtist',],
 
     'venues' => ['VenueController', 'index',],
     'venues/edit' => ['VenueController', 'edit', ['id']],
