@@ -18,13 +18,13 @@
 	</div>
 		<div class="row justify-content-center">
 			<div class="col-12 col-md-9 col-lg-7 col-xl-6 col-xxl-5">
-				<div class="card mb-5 card-cover overflow-hidden border-0 text-bg-white rounded-4 shadow-lg d-flex flex-row shadow-lg">
+				<div id="card_{{ favorite.favorite_concert_id }}" class="card_id border-0 card mb-5 card-cover overflow-hidden text-bg-white rounded-4 shadow-lg d-flex flex-row shadow-lg">
 					<div class="col-4">
 						<img src="{{ favorite.image_artist }}" class="img-fluid rounded-start" alt="image artiste">
 					</div>
 					<div class="col-7 d-flex align-items-center">
 						<div class="card-body">
-							<h4 class="card-text">Le
+							<h4 class="card-text">
 							{{ favorite.date|format_datetime(locale='fr', pattern="EEE dd MMM") }}
 							à
 							{{ favorite.schedule|date('H:i') }}</h4>
@@ -46,7 +46,7 @@
 			</div>
 
 			<div class="col-xl-6 col-xxl-7 d-none d-xl-block">
-				<div class="card mb-3 card-cover overflow-hidden border-0 text-bg-white rounded-4 shadow-lg d-flex flex-row shadow-lg d-none">
+				<div id="map_{{ favorite.favorite_concert_id }}" class="visible card mb-3 card-cover overflow-hidden border-0 text-bg-white rounded-4 shadow-lg d-flex flex-row shadow-lg d-none">
 					
 					<div class="col-8 d-flex align-items-center">
 							<iframe class="iframe-map" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=+({{ favorite.name_venue|url_encode }})&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
@@ -54,7 +54,9 @@
 					</div>
 
 					<div class="col-4">
-						<img src="{{ favorite.image_venue }}" class="img-fluid rounded-end" alt="image lieu">
+						<a target="_blank" href="https://maps.google.com/maps?q={{ favorite.name_venue }}&rlz=1C5GCEA_enFR1016FR1016&sxsrf=ALiCzsa99WAuT7WWXOlwqscYTS9ZKWsbWA:1668946919675&uact=5&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIRCC4QgwEQrwEQxwEQsQMQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDoKCAAQRxDWBBCwAzoECAAQQzoLCAAQgAQQsQMQgwE6EQguEIAEELEDEIMBEMcBENEDOgQILhBDOggILhCxAxCDAToNCAAQsQMQgwEQyQMQQzoKCAAQsQMQgwEQQzoOCC4QgAQQsQMQgwEQ1AI6EQguEIAEELEDEIMBEMcBEK8BOggILhCxAxDUAjoICC4QgAQQsQM6DQguEIAEEMcBENEDEAo6BQguEIAEOgsILhCABBCxAxDUAjoLCC4QgAQQxwEQrwE6CwguEIAEELEDEIMBOgsILhDUAhCxAxCABDoICAAQgAQQsQM6DgguEIAEEMcBEK8BENQCOgsILhCvARDHARCABDoICC4QgAQQ1AJKBAhBGABKBAhGGABQnghYyxdguBloBXABeACAAY4BiAHlCZIBAzYuNpgBAKABAcgBCMABAQ&um=1&ie=UTF-8&sa=X&ved=2ahUKEwilyJL237z7AhWRTaQEHe3UC8kQ_AUoAXoECAIQAw">
+							<img src="{{ favorite.image_venue }}" class="img-fluid rounded-end" alt="image lieu"/>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -68,4 +70,9 @@
 	</p>
 	{% endif %}
 
+	{% block javascript %}
+		<script src="/assets/js/agenda_mapToggle.js"></script>
+	{% endblock %}	
+
 {% endblock %}
+
