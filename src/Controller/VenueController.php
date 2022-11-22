@@ -37,47 +37,22 @@ class VenueController extends AbstractController
         $venueManager = new VenueManager();
         $venue = $venueManager->selectOneById($id);
         $errors = [];
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // clean $_POST data
-            $venue = array_map('trim', $_POST);
-            $venueManager->venueFieldEmpty($venue);
-
-            $errors = $venueManager->getCheckErrors();
-            if (empty($errors)) {
-                $venueManager = new VenueManager();
-                $venueManager->update($venue);
-
-                header('Location: /venues/show?id=' . $id);
-            }
-        }
-        return $this->twig->render('Venue/edit.html.twig', [
-            'venue' => $venue, 'errors' => $errors
-        ]);
-    }
-
-    /**
-     * Add a new item
-     */
-    public function add(): ?string
-    {
         $messageError = null;
-        $venueManager = new VenueManager();
-        $errors = [];
 
         try {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // clean $_POST data
                 $venue = array_map('trim', $_POST);
                 $venueManager->venueFieldEmpty($venue);
-
+                $venueManager->venueFieldEmptyLocalisation($venue);
+                $venueManager->venueFieldLength($venue);
+                $venueManager->venueFieldLengthLocalisation($venue);
                 $errors = $venueManager->getCheckErrors();
                 if (empty($errors)) {
                     $venueManager = new VenueManager();
-                    $id = $venueManager->insert($venue);
+                    $id = $venueManager->update($venue);
 
                     header('Location: /venues/show?id=' . $id);
-                    return $this->twig->render('Venue/add.html.twig', array('errors' => $errors));
                 }
             }
         } catch (PDOException $e) {
@@ -87,7 +62,44 @@ class VenueController extends AbstractController
                 $messageError = $e->getMessage();
             }
         }
-        return $this->twig->render('Venue/add.html.twig', ['messageError' => $messageError,]);
+        return $this->twig->render('Venue/edit.html.twig', [
+            'venue' => $venue, 'errors' => $errors, 'messageError' => $messageError
+        ]);
+    }
+
+    /**
+     * Add a new item
+     */
+    public function add(): ?string
+    {
+        $venueManager = new VenueManager();
+        $errors = [];
+        $messageError = null;
+
+        try {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // clean $_POST data
+                $venue = array_map('trim', $_POST);
+                $venueManager->venueFieldEmpty($venue);
+                $venueManager->venueFieldEmptyLocalisation($venue);
+                $venueManager->venueFieldLength($venue);
+                $venueManager->venueFieldLengthLocalisation($venue);
+                $errors = $venueManager->getCheckErrors();
+                if (empty($errors)) {
+                    $venueManager = new VenueManager();
+                    $id = $venueManager->insert($venue);
+
+                    header('Location: /venues/show?id=' . $id);
+                }
+            }
+        } catch (PDOException $e) {
+            if ($e->getCode() == 23000) {
+                $messageError = "Impossible d'ajouter un lieu qui existe déjà";
+            } else {
+                $messageError = $e->getMessage();
+            }
+        }
+        return $this->twig->render('Venue/add.html.twig', ['errors' => $errors, 'messageError' => $messageError,]);
     }
 
     /**

@@ -46,40 +46,14 @@ class ArtistController extends AbstractController
         $artistManager = new ArtistManager();
         $artist = $artistManager->selectOneById($id);
         $errors = [];
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // clean $_POST data
-            $artist = array_map('trim', $_POST);
-            $artistManager->artistFieldEmpty($artist);
-
-            $errors = $artistManager->getCheckErrors();
-            if (empty($errors)) {
-                $artistManager = new ArtistManager();
-                $artistManager->update($artist);
-
-                header('Location: /artists/show?id=' . $id);
-            }
-        }
-        return $this->twig->render('Artist/edit.html.twig', [
-            'artist' => $artist, 'errors' => $errors
-        ]);
-    }
-
-    /**
-     * Add a new artist
-     */
-    public function add(): ?string
-    {
         $messageError = null;
-
-        $artistManager = new ArtistManager();
-        $errors = [];
 
         try {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // clean $_POST data
                 $artist = array_map('trim', $_POST);
                 $artistManager->artistFieldEmpty($artist);
+                $artistManager->artistFieldLength($artist);
 
                 $errors = $artistManager->getCheckErrors();
                 if (empty($errors)) {
@@ -87,7 +61,6 @@ class ArtistController extends AbstractController
                     $id = $artistManager->insert($artist);
 
                     header('Location: /artists/show?id=' . $id);
-                    return $this->twig->render('Artist/add.html.twig', array('errors' => $errors));
                 }
             }
         } catch (PDOException $e) {
@@ -97,7 +70,43 @@ class ArtistController extends AbstractController
                 $messageError = $e->getMessage();
             }
         }
-        return $this->twig->render('Artist/add.html.twig', ['messageError' => $messageError,]);
+        return $this->twig->render('Artist/edit.html.twig', [
+            'artist' => $artist, 'errors' => $errors, 'messageError' => $messageError
+        ]);
+    }
+
+    /**
+     * Add a new artist
+     */
+    public function add(): ?string
+    {
+        $artistManager = new ArtistManager();
+        $errors = [];
+        $messageError = null;
+
+        try {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // clean $_POST data
+                $artist = array_map('trim', $_POST);
+                $artistManager->artistFieldEmpty($artist);
+                $artistManager->artistFieldLength($artist);
+
+                $errors = $artistManager->getCheckErrors();
+                if (empty($errors)) {
+                    $artistManager = new ArtistManager();
+                    $id = $artistManager->insert($artist);
+
+                    header('Location: /artists/show?id=' . $id);
+                }
+            }
+        } catch (PDOException $e) {
+            if ($e->getCode() == 23000) {
+                $messageError = "Impossible d'ajouter un artiste qui existe déjà";
+            } else {
+                $messageError = $e->getMessage();
+            }
+        }
+        return $this->twig->render('Artist/add.html.twig', ['errors' => $errors, 'messageError' => $messageError,]);
     }
     /**
      * Delete a specific artist
