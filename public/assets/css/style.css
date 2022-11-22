@@ -333,6 +333,7 @@ button.heartempty:hover {
     width: 150px;
 }
 
-.test {
-    display: none;
+.card_id {
+    cursor: pointer;
 }
+
