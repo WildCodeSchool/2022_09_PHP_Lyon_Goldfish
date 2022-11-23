@@ -52,12 +52,19 @@ class VenueManager extends AbstractManager
             $this->errors[] = "La salle doit figurer";
         }
 
+        if (!isset($venue['image_venue']) || empty($venue['image_venue'])) {
+            $this->errors[] = "Le lien d'image doit être renseigné";
+        }
+    }
+
+    public function venueFieldEmptyLocalisation(array $venue): void
+    {
         if (!isset($venue['city']) || empty($venue['city'])) {
             $this->errors[] = "La ville doit figurer";
         }
 
-        if (!isset($venue['image_venue']) || empty($venue['image_venue'])) {
-            $this->errors[] = "Le lien d'image doit être renseigné";
+        if (!isset($venue['address']) || empty($venue['address'])) {
+            $this->errors[] = "L'adresse doit être renseigné";
         }
     }
 
@@ -67,12 +74,19 @@ class VenueManager extends AbstractManager
             $this->errors[] = "Le salle ne doit pas dépasser 150 caractères";
         }
 
+        if (strlen($venue['image_venue']) > 255) {
+            $this->errors[] = "Le lien de l'image ne doit pas dépasser 255 caractères";
+        }
+    }
+
+    public function venueFieldLengthLocalisation(array $venue): void
+    {
         if (strlen($venue['city']) > 100) {
             $this->errors[] = "La ville ne doit pas dépasser 100 caractères";
         }
 
-        if (strlen($venue['image_venue']) > 255) {
-            $this->errors[] = "Le lien de l'image ne doit pas dépasser 255 caractères";
+        if (strlen($venue['address']) > 150) {
+            $this->errors[] = "L'adresse ne doit pas dépasser 150 caractères";
         }
     }
 }
