@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+{% set active_page = "/concerts" %}
+{% block title %}Concerts
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<h2>Concert</h2>
+	</div>
+	<div class="row row-cols-1 row-cols-md-4 g-3 ">
+		<div class="col">
+			<div class="card concert shadow-lg border-0">
+				<img src="{{ concert.image_artist }}" class="card-img-top" alt="image artiste">
+				<div class="card-body">
+					<h4 class="card-text lead">Le
+						{{ concert.date|date("d/m/Y", "Europe/Paris" )}}
+						à
+						{{ concert.schedule|date('H:i') }}</h4>
+					<h5 class="card-title">{{ concert.name_artist }}</h5>
+					<h5 class="card-text lead">{{ concert.name_venue }}</h5>
+					<h5 class="card-text lead">{{ concert.city }}</h5>
+					<form action="/concerts/delete" method="POST">
+						<a href="/concerts/edit?id={{ concert.id }}" class="btn btn-primary btn-sm">Modifier</a>
+						<input type="hidden" name="id" value="{{ concert.id }}">
+						<button class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr(e) de vouloir supprimer le concert ?');">Supprimer</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

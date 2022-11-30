@@ -1,0 +1,37 @@
+{% extends 'layout.html.twig' %}
+{% set active_page = "/artists" %}
+{% block title %}Mes artistes favoris
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<h2>Mes artistes favoris ({{ favorites|length }})</h2>
+	</div>
+
+	<div id="allArtists" class="container marketing">
+		<div class="row">
+			{% for favorite in favorites %}
+				<div id="oneArtist" class="artist position-relative col-6 col-lg-4 col-xl-3">
+					<div class="effect rounded-circle">
+						<img src="{{ favorite.image_artist }}" class="images d-flex position-relative bd-placeholder-img rounded-circle shadow-lg border" role="img" preserveaspectratio="xMidYMid slice" focusable="false">
+							<rect fill="#777"></rect>
+							<div class="overlay d-none d-md-flex d-flex position-absolute align-items-center justify-content-center rounded-circle shadow-lg border border-2 border-danger">
+								<span class="d-flex align-items-center justify-content-center">{{favorite.style}}</span>
+							</div>
+							<button class="overlayMob d-sm-flex d-flex position-absolute justify-content-center align-items-center rounded-circle shadow-lg border-2 border-danger">
+								<span class="d-flex align-items-center justify-content-center">{{favorite.style}}</span>
+							</button>
+						</img>
+					</div>
+					<p class="artist-name d-flex align-items-center justify-content-center">{{ favorite.name_artist }}</p>
+					<form action="/artists/deleteFavoriteInFavorites" method="POST">
+						<input type="hidden" name="favorite_artist_id" value="{{ favorite.favorite_artist_id }}">
+						<button class="heartfull"></button>
+					</form>
+				</div>
+			{% else %}
+				<p class="lead">Aucun artiste favori à afficher</p>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

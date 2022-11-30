@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+{% set active_page = "/concerts" %}
+{% block title %}Concerts
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<h2>Mes concerts favoris ({{ favorites|length }})</h2>
+	</div>
+	{% if user.is_admin == true %}
+		<a href="/concerts/add" class="btn btn-primary btn-sm">Ajouter</a>
+	{% endif %}
+	<div class="row">
+		{% for favorite in favorites %}
+			<div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center">
+				<div class="card concert shadow-lg border-0">
+					<img src="{{ favorite.image_artist }}" class="card-img-top" alt="image artiste">
+					<div class="card-body">
+						<h4 class="card-text lead">Le
+							{{ favorite.date|date("d/m/Y", "Europe/Paris" )}}
+							à
+							{{ favorite.schedule|date('H:i') }}</h4>
+						<h5 class="card-title font-weight-bold">{{ favorite.name_artist }}</h5>
+						<h5 class="card-text lead">{{ favorite.name_venue }}</h5>
+						<h5 class="card-text lead">{{ favorite.city }}</h5>
+						{% if user and user.is_admin == false %}
+							<div class="card-body bg-transparent border-success">
+								<form action="/concerts/deleteFavoriteInFavorites" method="POST">
+									<input type="hidden" name="favorite_concert_id" value="{{ favorite.favorite_concert_id }}">
+									<button class="btn btn-danger float-end">
+										<div class="heartfull"></div>Je n'y vais plus !
+									</button>
+								</form>
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		{% else %}
+			<p class="lead">Aucun concert favori à afficher</p>
+		{% endfor %}
+	</div>
+{% endblock %}

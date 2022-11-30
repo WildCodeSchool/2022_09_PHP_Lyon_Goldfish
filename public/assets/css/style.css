@@ -1,3 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Rokkitt&display=swap');
+
 body {
-    color: #f76c6c;
+    background-color: #000000;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg fill-opacity='0.92'%3E%3Cpolygon fill='%23310e0e' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23621c1c' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23942b2b' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23c53939' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23F64747' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Inter', sans-serif;
+    color: #FEF1EC;
+    user-select: none;
+    height: 100vh;
 }
+
+/************* INDEX *****************/
+
+.indexBackground {
+    background-image: url("/assets/images/background.jpeg");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+.indexSection {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logotxt {
+    font-family: 'Rokkitt', serif;
+    font-size: 80px;
+    color: #FEF1EC;
+    margin-bottom: 0px;
+}
+
+.logoimg {
+    width: 200px;
+}
+
+.baseline {
+    color: #FEF1EC;
+    font-family: 'Rokkitt', serif;
+    font-size: 25px;
+    text-align: center;
+}
+
+.baselineWelcome {
+    color: #FEF1EC;
+    font-family: 'Rokkitt', serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+/************* MENU-AVATAR *****************/
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+ul {
+    width: 100vw;
+}
+
+/*********** SEARCH-BAR *******************/
+
+.search-bar {
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.25);
+}
+
+/*********** CARD CONCERT *******************/
+.card.concert {
+    margin: 1rem 0 1rem 0;
+    width: 260px;
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-text {
+    color: #0A0E10;
+}
+
+.card-title {
+    color: #0A0E10;
+}
+
+/*********** ROUNDED ARTISTS *******************/
+
+.bd-placeholder-img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+}
+
+img.images {
+    cursor: pointer;
+}
+
+/*********** CARD VENUES *******************/
+
+.venues.card {
+    width: 280px;
+}
+
+/*********Animation Desktop********/
+span {
+    width: 144px;
+    height: 44px;
+}
+
+.overlay {
+    cursor: pointer;
+}
+
+.effect .overlay {
+    top: 0px;
+    font-family: 'Rokkitt', serif;
+    font-size: 2.3rem;
+    color: #FEF1EC;
+    background: rgba(0, 0, 0, 0.74);
+    width: 140px;
+    height: 140px;
+    transform: scale(0);
+    opacity: 1;
+}
+
+.effect:hover .overlay {
+    transform: scale(1);
+    transition: opacity 0.25s ease-in-out;
+    transition: transform .5s;
+    opacity: 1;
+}
+
+.effect .overlayMob {
+    top: 0px;
+    font-family: 'Rokkitt', serif;
+    font-size: 2.3rem;
+    color: #FEF1EC;
+    background: rgba(0, 0, 0, 0.74);
+    width: 140px;
+    height: 140px;
+    transform: scale(0);
+    opacity: 1;
+}
+
+.effect:active .overlayMob {
+    transform: scale(1);
+    transition: opacity 0.25s ease-in-out;
+    transition: transform .0s;
+    opacity: 1;
+}
+
+.artist-name {
+    font-size: 18px;
+}
+
+button.btn.btn-danger.btn-sm,
+a.btn.btn-primary.btn-sm,
+a.btn.btn-success.btn-sm {
+    margin-top: 4px;
+}
+
+#allArtists {
+    text-align: center;
+}
+
+#oneArtist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0 1rem 0;
+}
+
+h1 {
+    font-family: 'Rokkitt', serif;
+    font-size: 120px;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    text-align: left;
+}
+
+/*************** NAV BAR DESKTOP **********************/
+
+.logo {
+    width: 35px;
+    height: 35px;
+}
+
+.navbar-brand {
+    font-family: 'Rokkitt', serif;
+    font-size: x-large;
+    color: #FEF1EC;
+}
+
+.iconeMenu-desktop {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    background-color: #FEF1EC;
+}
+
+.avatar {
+    height: 40px;
+    width: 40px;
+}
+
+ul.nav {
+    align-items: center;
+    padding: 10PX 0PX 10PX 0PX;
+}
+
+a.navlink {
+    color: #FEF1EC;
+    text-decoration: none;
+}
+
+a.navlink:hover {
+    color: #FEF1EC;
+}
+
+nav {
+    background-color: #0A0E10;
+}
+
+.dropdown-toggle::after {
+    color: #FEF1EC;
+}
+
+/************** NAV BAR MOBILE *******************/
+
+.iconeMenu-mobile {
+    width: 24px;
+    height: 24px;
+    background-color: #FEF1EC;
+}
+
+main {
+    margin-bottom: 70px;
+}
+
+a.nav-link-mobile {
+    color: #FEF1EC;
+    text-decoration: none;
+}
+
+/************** NAV BAR ACTIVE *******************/
+
+a.active.navlink,
+a.active.nav-link-mobile {
+    color: #F64747;
+}
+
+img.active.iconeMenu-desktop,
+img.active.iconeMenu-mobile {
+    background-color: #F64747;
+}
+
+/************** LINK *******************/
+a,
+h4 {
+    color: #F64747;
+    text-decoration: none;
+}
+
+h6 {
+    margin: 0px 0px 0px 5px;
+}
+
+a>h4:hover {
+    color: #FEF1EC;
+}
+
+/************** FAVORITE *******************/
+
+.linkfavorite {
+    margin: 10px;
+}
+
+.container {
+    padding: 10px 0px 45px 0px;
+}
+
+button.heartfull,
+button.heartempty {
+    background-size: cover;
+    background-color: transparent;
+    width: 25px;
+    height: 25px;
+    border: none;
+    padding: 5px;
+}
+
+button.heartfull {
+    background-image: url("/assets/images/heartfullcream.png");
+}
+
+button.heartempty {
+    background-image: url("/assets/images/heartemptycream.png");
+}
+
+button.heartempty:hover {
+    background-image: url("/assets/images/heartfullcream.png");
+}
+
+/************** LOGIN FORM *******************/
+.loginform {
+    background-color: rgba(12, 4, 4);
+}
+
+/************** AGENDA *******************/
+
+.link-agenda {
+    width: 35px;
+    height: 35px;
+}
+
+.iframe-map {
+    width: 100%;
+    height: 170px;
+}
+
+.img-fluid {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.card-img-agenda {
+    width: 150px;
+}
+
+.card_id {
+    cursor: pointer;
+}
+

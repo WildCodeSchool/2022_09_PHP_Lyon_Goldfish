@@ -1,0 +1,33 @@
+<form method="post" aria-description="formulaire ajout d'artistes">
+	<input type="hidden" value="{{ artist.id }}" name="id">
+	<div class="row justify-content-center form-floating my-2">
+		<div class="col-10 col-sm-8 col-md-6 col-xl-4">
+			{% for error in errors %}
+				<div class="mb-3 alert alert-danger alert-dismissible fade show" role="alert">
+					{{ error }}
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			{% endfor %}
+			{% if messageError %}
+				<div class="alert alert-danger alert-dismissible fade show" role="alert">{{messageError}}
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			{% endif %}
+			<div class="mb-3 mt-3 form-label">
+				<label for="name_artist">Artiste</label>
+				<input class="form-control" type="text" value="{{ artist.name_artist }}" name="name_artist" id="name_artist" aria-description="champ nom de l'artiste" placeholder="Rentrez un nom d'artiste" required>
+			</div>
+			<div class="mb-3 form-label">
+				<label for="style">Style</label>
+				<input class="form-control" type="text" value="{{ artist.style }}" name="style" id="style" aria-description="champ type de style" placeholder="Rentrez style" required>
+			</div>
+			<div class="mb-3 form-label">
+				<label for="image_artist">Entre une URL d'image</label>
+				<input class="form-control" type="text" value="{{ artist.image_artist }}" name="image_artist" id="image_artist" placeholder="url" aria-description="ajout d'une photo via une url" required>
+			</div>
+			<div class="mb-3 text-center">
+				<button class="btn btn-primary" aria-description="boutton soumettre">Soumettre</button>
+			</div>
+		</div>
+	</div>
+</form>

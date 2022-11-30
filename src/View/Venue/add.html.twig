@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+{% set active_page = "/venues" %}
+{% block title %}Lieux
+{% endblock %}
+
+{% block content %}
+	<h2>Ajouter un lieu</h2>
+	{% include 'Venue/_form.html.twig' %}
+{% endblock %}

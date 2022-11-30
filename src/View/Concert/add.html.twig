@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+{% set active_page = "/concerts" %}
+{% block title %}Concerts
+{% endblock %}
+
+{% block content %}
+	<h2>Ajouter un concert</h2>
+	{% include 'Concert/_form.html.twig' %}
+{% endblock %}
